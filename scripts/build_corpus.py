@@ -61,56 +61,57 @@ def ok_token(tok, n):
     return all(any(unicodedata.category(c).startswith("L") for c in w) for w in words)
 
 
-def from_contabulate(dirpath, lang):
-    levels = []
-    for n, fname in enumerate(["tokens.json", "tokens2.json", "tokens3.json"], 1):
-        data = json.loads((Path(dirpath) / fname).read_text())
-        counts = Counter()
-        for tok, occ in data.items():
-            tok = normalize_token(tok, lang)
-            tok = re.sub(r"\s+", " ", tok).strip()
-            if ok_token(tok, n):
-                counts[tok] += sum(c for _, c in occ)
-        levels.append(counts.most_common(TOP_N))
-    return levels
-
-
 def tokenize_text(text, lang):
+    """Tokenize, preserving original case (the game offers case-sensitive play)."""
     text = unicodedata.normalize("NFC", text)
     if lang == "he":
         text = HEBREW_MARKS.sub("", text)
-        text = text.replace("־", " ")
-    toks = []
-    for m in WORD_RE.finditer(text):
-        tok = normalize_token(m.group(0), lang)
-        # lowercase only for cased scripts (German nouns lose caps, matching
-        # the contabulate convention of lowercased tokens)
-        toks.append(tok.lower())
-    return toks
+        text = text.replace("\u05be", " ")
+    return [normalize_token(m.group(0), lang) for m in WORD_RE.finditer(text)]
 
 
-def from_text(paths, lang):
+def ngram_levels(sentences, lang):
+    """Count n-grams case-insensitively; display the most common cased form."""
     toks = []
     sentinel = ""
-    for p in paths:
-        text = Path(p).read_text(encoding="utf-8", errors="replace")
-        text = strip_gutenberg(text)
-        # don't let n-grams span sentence boundaries
-        for sent in re.split(r"[.!?;:·;׃\n]{1,}", text):
-            toks.extend(tokenize_text(sent, lang))
-            toks.append(sentinel)
+    for sent in sentences:
+        toks.extend(tokenize_text(sent, lang))
+        toks.append(sentinel)
     levels = []
     for n in (1, 2, 3):
         counts = Counter()
+        surfaces = {}
         for i in range(len(toks) - n + 1):
             gram = toks[i : i + n]
             if sentinel in gram:
                 continue
-            tok = " ".join(gram)
-            if ok_token(tok, n):
-                counts[tok] += 1
-        levels.append(counts.most_common(TOP_N))
+            surface = " ".join(gram)
+            key = surface.lower()
+            if not ok_token(key, n):
+                continue
+            counts[key] += 1
+            surfaces.setdefault(key, Counter())[surface] += 1
+        levels.append(
+            [(surfaces[k].most_common(1)[0][0], c) for k, c in counts.most_common(TOP_N)]
+        )
     return levels
+
+
+def from_lines(path, lang):
+    rows = json.loads(Path(path).read_text())
+    sentences = []
+    for row in rows:
+        # a line is a sentence boundary; also split on sentence punctuation
+        sentences.extend(re.split(r"[.!?;:·;׃]+", row.get("text", "")))
+    return ngram_levels(sentences, lang)
+
+
+def from_text(paths, lang):
+    sentences = []
+    for p in paths:
+        text = strip_gutenberg(Path(p).read_text(encoding="utf-8", errors="replace"))
+        sentences.extend(re.split(r"[.!?;:·;׃\n]+", text))
+    return ngram_levels(sentences, lang)
 
 
 def strip_gutenberg(text):
@@ -125,19 +126,19 @@ def strip_gutenberg(text):
 
 CORPORA = [
     # id, name, lang, rtl, source type, source
-    ("shakespeare", "Shakespeare — Complete Works", "en", False, "contab", CONTAB / "shakespeare-contabulate/docs/data"),
-    ("kjv", "King James Bible", "en", False, "contab", CONTAB / "kjv-contabulate/docs/data"),
-    ("melville", "Herman Melville", "en", False, "contab", CONTAB / "melville-contabulate/docs/data"),
+    ("shakespeare", "Shakespeare — Complete Works", "en", False, "lines", CONTAB / "shakespeare-contabulate/docs/lines/all_lines.json"),
+    ("kjv", "King James Bible", "en", False, "lines", CONTAB / "kjv-contabulate/docs/lines/all_lines.json"),
+    ("melville", "Herman Melville", "en", False, "lines", CONTAB / "melville-contabulate/docs/lines/all_lines.json"),
     ("alice", "Alice in Wonderland (general)", "en", False, "text", ["alice.txt"]),
-    ("luther", "Luther Bible", "de", False, "contab", CONTAB / "luther-contabulate/docs/data"),
+    ("luther", "Luther Bible", "de", False, "lines", CONTAB / "luther-contabulate/docs/lines/all_lines.json"),
     ("grimm", "Grimms Märchen (general)", "de", False, "text", ["grimm.txt"]),
-    ("tanakh", "Tanakh — Hebrew Bible", "he", True, "contab", SRC / "tanakh"),
+    ("tanakh", "Tanakh — Hebrew Bible", "he", True, "lines", CONTAB / "tanakh-contabulate/docs/lines/all_lines.json"),
     ("avot", "Pirkei Avot (general)", "he", True, "text", ["avot.txt"]),
-    ("homer", "Homer — Iliad & Odyssey", "grc", False, "contab", SRC / "homer"),
+    ("homer", "Homer — Iliad & Odyssey", "grc", False, "lines", SRC / "homer/all_lines.json"),
     ("gnt", "Greek New Testament (general)", "grc", False, "text", ["gnt.txt"]),
-    ("dante", "Dante — Divine Comedy", "it", False, "contab", SRC / "dante"),
+    ("dante", "Dante — Divine Comedy", "it", False, "lines", SRC / "dante/all_lines.json"),
     ("pinocchio", "Pinocchio (general)", "it", False, "text", ["pinocchio.txt"]),
-    ("aeneid", "Virgil — Aeneid", "la", False, "contab", SRC / "aeneid"),
+    ("aeneid", "Virgil — Aeneid", "la", False, "lines", SRC / "aeneid/all_lines.json"),
     ("caesar", "Caesar — De Bello Gallico (general)", "la", False, "text", ["caesar.txt"]),
     ("candide", "Voltaire — Candide", "fr", False, "text", ["candide.txt"]),
     ("verne", "Jules Verne — 20.000 lieues (general)", "fr", False, "text", ["verne.txt"]),
@@ -150,17 +151,11 @@ LANG_NAMES = {
     "it": "Italian", "la": "Latin", "grc": "Ancient Greek", "he": "Hebrew",
 }
 
-# tanakh data also lives locally; prefer local copy
-TANAKH_LOCAL = CONTAB / "tanakh-contabulate/docs/data"
-
-
 def main():
     only = set(sys.argv[1:])
     OUT.mkdir(parents=True, exist_ok=True)
     manifest = []
     for cid, name, lang, rtl, kind, source in CORPORA:
-        if cid == "tanakh" and TANAKH_LOCAL.exists():
-            source = TANAKH_LOCAL
         outfile = OUT / f"{cid}.json"
         entry = {"id": cid, "name": name, "lang": lang,
                  "langName": LANG_NAMES[lang], "rtl": rtl}
@@ -169,8 +164,8 @@ def main():
                 manifest.append(entry)
             continue
         try:
-            if kind == "contab":
-                levels = from_contabulate(source, lang)
+            if kind == "lines":
+                levels = from_lines(source, lang)
             else:
                 paths = [SRC / "texts" / f for f in source]
                 if not all(p.exists() for p in paths):

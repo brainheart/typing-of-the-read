@@ -1,9 +1,9 @@
 # Typing of the Read 🧟📖
 
 A multilingual zombie typing game in the spirit of *The Typing of the Dead*:
-zombies shamble toward your library desk, each carrying a word or phrase from
-great literature — type it to stop them. Practice your typing **and** your
-languages at the same time.
+zombies descend from the stacks above toward your library desk, each carrying
+a word or phrase from great literature — type it to stop them. Practice your
+typing **and** your languages at the same time.
 
 **Play locally:**
 
@@ -40,10 +40,14 @@ so you mostly practice the vocabulary that matters most in that corpus.
 
 ## Features
 
+- Corpora keep original case (`spricht der HERR`, `dijo don Quijote`): words
+  display the most common cased form found in the text. Matching ignores case
+  by default; turn on **Match case** to require capitals — good German practice.
 - **Forgiving keys** mode: accent/diacritic-insensitive matching (on by
   default for polytonic Ancient Greek; also folds Hebrew final letters and ß).
 - Hebrew renders right-to-left; you type in normal (logical) letter order.
 - First keystroke locks a target, like the original arcade game.
+- Every word you finish makes the horde descend a touch faster (caps at +45%).
 - WPM, accuracy, score, per-corpus/level high scores (localStorage).
 - Tiny WebAudio sound effects (mutable), no dependencies, fully static.
 
@@ -65,8 +69,10 @@ Output goes to `docs/data/*.json` plus a `manifest.json`.
 
 `sources/` is not committed; to recreate it:
 
-- Remote contabulate token data: `https://{homer,dante,aeneid}.contabulate.org/data/tokens{,2,3}.json`
-  into `sources/<site>/`.
+- Remote contabulate line data (original cased text):
+  `https://{homer,dante,aeneid}.contabulate.org/lines/all_lines.json`
+  into `sources/<site>/`; local instances are read straight from
+  `~/proj/contabulates/*/docs/lines/all_lines.json`.
 - Gutenberg texts into `sources/texts/` (via `https://www.gutenberg.org/cache/epub/<id>/pg<id>.txt`):
   alice=11, quijote=2000, candide=4650, verne=5097, grimm=77905,
   pinocchio=52484, caesar=18837, cuentos=53552.

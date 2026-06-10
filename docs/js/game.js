@@ -7,9 +7,11 @@
 // ---------- config ----------
 const KILLS_PER_LEVEL = 22;          // kills to clear a level
 const LIVES = 3;
-const DESK_X = 9;                    // % from left where zombies bite
-const SPAWN_X = 103;                 // % spawn position
-// per n-gram level: walk speed (%/s) and spawn interval (ms), each [start, end-of-level]
+const SPAWN_Y = -16;                 // % above the top edge where zombies appear
+const BITE_Y = 72;                   // % of field height where they reach the desk
+const HEAT_PER_KILL = 0.012;         // every word you finish speeds the horde up a touch
+const HEAT_MAX = 1.45;
+// per n-gram level: descent speed (%/s) and spawn interval (ms), each [start, end-of-level]
 const TUNING = {
   1: { speed: [3.0, 5.6], spawn: [2300, 1100], maxOnScreen: 6 },
   2: { speed: [2.2, 4.0], spawn: [3000, 1500], maxOnScreen: 5 },
@@ -23,7 +25,7 @@ const FAST_CHANCE = 0.12;            // skeletons: faster but shorter words
 const $ = (id) => document.getElementById(id);
 const startScreen = $("start-screen"), gameScreen = $("game-screen"), overScreen = $("over-screen");
 const langSel = $("lang-select"), corpusSel = $("corpus-select"), levelSel = $("level-select");
-const forgivingChk = $("forgiving");
+const forgivingChk = $("forgiving"), matchCaseChk = $("matchcase");
 const field = $("field"), banner = $("banner");
 
 // ---------- state ----------
@@ -37,24 +39,24 @@ let soundOn = localStorage.getItem("totr-sound") !== "off";
 const FINAL_HEBREW = { "ך": "כ", "ם": "מ", "ן": "נ", "ף": "פ", "ץ": "צ" };
 const APOS = /['’ʼʹ`´]/;
 
-function normChar(ch, forgiving) {
-  ch = ch.toLowerCase();
-  if (ch === " ") return " ";
+function normChar(ch, forgiving, matchCase) {
+  if (!matchCase) ch = ch.toLowerCase();
+  if (ch === " " || ch === "\u00a0") return " ";
   if (APOS.test(ch)) return "'";
   if (forgiving) {
     ch = ch.normalize("NFD").replace(/\p{M}+/gu, "");
     if (ch === "") return "";                  // pure combining mark
-    ch = ch.replace("ς", "σ").replace("ß", "s");
+    ch = ch.replace("\u03c2", "\u03c3").replace("\u00df", "s");
     ch = FINAL_HEBREW[ch] || ch;
   } else {
-    ch = ch.replace("ς", "σ");                 // sigma always lenient
+    ch = ch.replace("\u03c2", "\u03c3");                 // sigma always lenient
   }
   return ch;
 }
 
 // per displayed char, the key required to advance (forgiving collapses marks)
-function buildKeys(text, forgiving) {
-  return [...text].map((c) => (c === " " ? " " : normChar(c, forgiving)));
+function buildKeys(text, forgiving, matchCase) {
+  return [...text].map((c) => (c === " " ? " " : normChar(c, forgiving, matchCase)));
 }
 
 // ---------- audio (tiny webaudio synth) ----------
@@ -109,6 +111,7 @@ function fillCorpora() {
   const saved = localStorage.getItem("totr-corpus");
   if (list.some((c) => c.id === saved)) corpusSel.value = saved;
   forgivingChk.checked = lang === "grc" || localStorage.getItem("totr-forgiving-" + lang) === "on";
+  matchCaseChk.checked = localStorage.getItem("totr-case-" + lang) === "on";
   showHiscore();
 }
 langSel.addEventListener("change", fillCorpora);
@@ -151,7 +154,7 @@ function pickText(level, { short } = {}) {
       if (r <= 0) { pickIdx = i; break; }
     }
     const text = candidates[pickIdx][0];
-    const k0 = normChar([...text][0], game.forgiving);
+    const k0 = normChar([...text][0], game.forgiving, game.matchCase);
     // avoid duplicates and first-letter clashes while options remain
     if (!active.has(text) && (!firsts.has(k0) || tries > 25)) return text;
   }
@@ -176,15 +179,18 @@ async function startGame() {
   localStorage.setItem("totr-lang", langSel.value);
   localStorage.setItem("totr-corpus", corpusSel.value);
   localStorage.setItem("totr-forgiving-" + langSel.value, forgivingChk.checked ? "on" : "off");
+  localStorage.setItem("totr-case-" + langSel.value, matchCaseChk.checked ? "on" : "off");
   await loadCorpus(corpusSel.value);
 
   game = {
     level: +levelSel.value,
     startLevel: +levelSel.value,
     forgiving: forgivingChk.checked,
+    matchCase: matchCaseChk.checked,
     rtl: corpus.rtl,
     zombies: [],
     target: null,
+    heat: 1,
     kills: 0, levelKills: 0,
     score: 0, lives: LIVES,
     keysGood: 0, keysBad: 0,
@@ -215,15 +221,21 @@ function tuned(pair) {
 }
 
 // ---------- zombies ----------
-// rotate through shuffled lanes so word bubbles rarely overlap
-const LANES = [14, 26, 38, 50, 62, 74];
+// rotate through shuffled vertical lanes so word bubbles rarely overlap;
+// fewer, wider lanes at higher levels (longer phrases)
+const LANES_BY_LEVEL = {
+  1: [12, 27, 42, 57, 72, 87],
+  2: [16, 39, 62, 85],
+  3: [22, 50, 78],
+};
 let laneOrder = [], laneIdx = 0;
 function nextLane() {
-  if (laneIdx % LANES.length === 0) {
-    laneOrder = [...LANES].sort(() => Math.random() - 0.5);
+  const lanes = LANES_BY_LEVEL[game.level];
+  if (laneIdx >= laneOrder.length || laneOrder.length !== lanes.length) {
+    laneOrder = [...lanes].sort(() => Math.random() - 0.5);
     laneIdx = 0;
   }
-  return laneOrder[laneIdx++] + (Math.random() * 6 - 3);
+  return laneOrder[laneIdx++] + (Math.random() * 4 - 2);
 }
 
 function spawnZombie() {
@@ -233,10 +245,10 @@ function spawnZombie() {
   const z = {
     text,
     chars: [...text],
-    keys: buildKeys(text, game.forgiving),
+    keys: buildKeys(text, game.forgiving, game.matchCase),
     pos: 0,
-    x: SPAWN_X,
-    y: nextLane(),                                    // % of field height
+    x: nextLane(),                                    // % of field width
+    y: SPAWN_Y,
     speed: tuned(cfg.speed) * (fast ? 1.9 : 0.92 + Math.random() * 0.25),
     el: document.createElement("div"),
     dead: false,
@@ -249,6 +261,10 @@ function spawnZombie() {
   z.el.style.left = z.x + "%";
   renderWord(z);
   field.appendChild(z.el);
+  // keep long word bubbles inside the field (zombie is centered on x)
+  const halfPct = (z.el.offsetWidth / 2 / field.offsetWidth) * 100;
+  z.x = Math.min(Math.max(z.x, halfPct + 1), 99 - halfPct);
+  z.el.style.left = z.x + "%";
   game.zombies.push(z);
 }
 
@@ -285,6 +301,7 @@ function killZombie(z) {
   setTimeout(() => z.el.remove(), 600);
   game.zombies = game.zombies.filter((other) => other !== z);
   game.kills++; game.levelKills++;
+  game.heat = Math.min(game.heat + HEAT_PER_KILL, HEAT_MAX);
   sfx.kill();
   updateHud();
 
@@ -332,9 +349,9 @@ function tick(now) {
     }
     for (const z of [...game.zombies]) {
       if (z.dead) continue;
-      z.x -= z.speed * dt;
-      z.el.style.left = z.x + "%";
-      if (z.x <= DESK_X) biteDesk(z);
+      z.y += z.speed * game.heat * dt;
+      z.el.style.top = z.y + "%";
+      if (z.y >= BITE_Y) biteDesk(z);
     }
   }
   requestAnimationFrame(tick);
@@ -360,7 +377,7 @@ $("mobile-input").addEventListener("input", (e) => {
 field.addEventListener("pointerdown", () => $("mobile-input").focus({ preventScroll: true }));
 
 function handleKey(rawKey) {
-  const key = normChar(rawKey, game.forgiving);
+  const key = normChar(rawKey, game.forgiving, game.matchCase);
   if (key === "") return;
 
   let z = game.target;
@@ -369,10 +386,10 @@ function handleKey(rawKey) {
     z = null;
   }
   if (!z) {
-    // closest-to-desk zombie whose next key matches
+    // closest-to-desk (lowest) zombie whose next key matches
     const candidates = game.zombies.filter((c) => !c.dead && c.keys[c.pos] === key);
     if (!candidates.length) { miss(); return; }
-    candidates.sort((a, b) => a.x - b.x);
+    candidates.sort((a, b) => b.y - a.y);
     z = candidates[0];
     game.target = z;
     z.el.classList.add("target");

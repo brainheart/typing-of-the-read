@@ -118,10 +118,15 @@ body {
 }
 
 #desk {
-  position: absolute; left: 1.5%; bottom: 8%;
-  font-size: 3.2rem; z-index: 5;
-  filter: drop-shadow(0 6px 6px rgba(0,0,0,.4));
+  position: absolute; left: 0; right: 0; bottom: 0; height: 11%;
+  display: flex; align-items: center; justify-content: center; gap: .4rem;
+  font-size: 2.8rem; z-index: 5;
+  background: linear-gradient(to bottom, #8e6d45 0, #6b5132 22%, #4e3a22 100%);
+  border-top: 5px solid #a3815a;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, .5);
 }
+#desk::before { content: "📚 📚 📚"; font-size: 1.8rem; margin-right: 1.5rem; opacity: .9; }
+#desk::after { content: "📚 📚 📚"; font-size: 1.8rem; margin-left: 1.5rem; opacity: .9; }
 #book { font-size: 2rem; }
 #desk.bitten { animation: shake .45s; }
 @keyframes shake {
@@ -136,7 +141,8 @@ body {
   position: absolute;
   display: flex; flex-direction: column; align-items: center;
   z-index: 3;
-  will-change: left;
+  transform: translateX(-50%);
+  will-change: top;
 }
 .zombie .word {
   font-size: 1.45rem;
@@ -180,8 +186,8 @@ body {
   pointer-events: none;
 }
 @keyframes splatfade {
-  0% { transform: scale(.4); opacity: 1; }
-  100% { transform: scale(1.6); opacity: 0; }
+  0% { transform: translateX(-50%) scale(.4); opacity: 1; }
+  100% { transform: translateX(-50%) scale(1.6); opacity: 0; }
 }
 
 .score-pop {
@@ -192,8 +198,8 @@ body {
   pointer-events: none;
 }
 @keyframes rise {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(-70px); opacity: 0; }
+  0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  100% { transform: translateX(-50%) translateY(-70px); opacity: 0; }
 }
 
 /* error flash on whole field */
