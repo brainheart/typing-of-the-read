@@ -11,11 +11,12 @@ const SPAWN_Y = -16;                 // % above the top edge where zombies appea
 const BITE_Y = 72;                   // % of field height where they reach the desk
 const HEAT_PER_KILL = 0.012;         // every word you finish speeds the horde up a touch
 const HEAT_MAX = 1.45;
-// per n-gram level: descent speed (%/s) and spawn interval (ms), each [start, end-of-level]
+// per n-gram level: descent speed (%/s) and spawn interval (ms), each [start, end-of-level].
+// speed never drops below the fastest pace already reached (no relief at level-up)
 const TUNING = {
-  1: { speed: [3.0, 5.6], spawn: [2300, 1100], maxOnScreen: 6 },
-  2: { speed: [2.2, 4.0], spawn: [3000, 1500], maxOnScreen: 5 },
-  3: { speed: [1.7, 3.0], spawn: [3800, 1900], maxOnScreen: 4 },
+  1: { speed: [3.5, 5.8], spawn: [2300, 1100], maxOnScreen: 6 },
+  2: { speed: [2.6, 4.2], spawn: [3000, 1500], maxOnScreen: 5 },
+  3: { speed: [2.0, 3.2], spawn: [3800, 1900], maxOnScreen: 4 },
 };
 const ZOMBIE_EMOJI = ["🧟", "🧟‍♂️", "🧟‍♀️"];
 const FAST_EMOJI = "💀";
@@ -191,6 +192,7 @@ async function startGame() {
     zombies: [],
     target: null,
     heat: 1,
+    topSpeed: 0,
     kills: 0, levelKills: 0,
     score: 0, lives: LIVES,
     keysGood: 0, keysBad: 0,
@@ -242,6 +244,7 @@ function spawnZombie() {
   const cfg = TUNING[game.level];
   const fast = game.level === 1 && Math.random() < FAST_CHANCE;
   const text = pickText(game.level, { short: fast });
+  game.topSpeed = Math.max(game.topSpeed, tuned(cfg.speed));
   const z = {
     text,
     chars: [...text],
@@ -249,7 +252,7 @@ function spawnZombie() {
     pos: 0,
     x: nextLane(),                                    // % of field width
     y: SPAWN_Y,
-    speed: tuned(cfg.speed) * (fast ? 1.9 : 0.92 + Math.random() * 0.25),
+    speed: game.topSpeed * (fast ? 1.9 : 0.92 + Math.random() * 0.25),
     el: document.createElement("div"),
     dead: false,
   };
