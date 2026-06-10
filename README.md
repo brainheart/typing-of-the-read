@@ -54,7 +54,10 @@ so you mostly practice the vocabulary that matters most in that corpus.
 - **Forgiving keys** mode: accent/diacritic-insensitive matching (on by
   default for polytonic Ancient Greek; also folds Hebrew final letters and ß).
 - Hebrew renders right-to-left; you type in normal (logical) letter order.
-- First keystroke locks a target, like the original arcade game.
+- First keystroke locks a target, like the original arcade game; Tab cycles
+  the lock to another zombie (handy when the target is still off-screen).
+- Successful keystrokes clack like an old typewriter — every strike slightly
+  different, space bar thunks deeper, and a carriage bell rings per kill.
 - Every word you finish makes the horde descend a touch faster (caps at +45%).
 - WPM, accuracy, score, per-corpus/level high scores (localStorage).
 - Procedural WebAudio sound (toggle with 🔊): zombies gurgle out a wet groan

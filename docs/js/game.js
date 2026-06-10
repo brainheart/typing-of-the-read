@@ -14,11 +14,11 @@ const HEAT_MAX = 1.45;
 // per n-gram level: descent speed (%/s) and spawn interval (ms), each [start, end-of-level].
 // speed never drops below the fastest pace already reached (no relief at level-up)
 const TUNING = {
-  1: { speed: [3.5, 5.8], spawn: [2300, 1100], maxOnScreen: 6 },
-  2: { speed: [2.6, 4.2], spawn: [3000, 1500], maxOnScreen: 5 },
-  3: { speed: [2.0, 3.2], spawn: [3800, 1900], maxOnScreen: 4 },
-  4: { speed: [1.6, 2.6], spawn: [4600, 2400], maxOnScreen: 3 },
-  5: { speed: [1.3, 2.2], spawn: [5400, 3000], maxOnScreen: 3 },
+  1: { speed: [4.0, 6.4], spawn: [2300, 1100], maxOnScreen: 6 },
+  2: { speed: [3.0, 4.8], spawn: [3000, 1500], maxOnScreen: 5 },
+  3: { speed: [2.3, 3.7], spawn: [3800, 1900], maxOnScreen: 4 },
+  4: { speed: [1.9, 3.0], spawn: [4600, 2400], maxOnScreen: 3 },
+  5: { speed: [1.6, 2.5], spawn: [5400, 3000], maxOnScreen: 3 },
 };
 const ZOMBIE_EMOJI = ["🧟", "🧟‍♂️", "🧟‍♀️"];
 const FAST_EMOJI = "💀";
@@ -77,6 +77,51 @@ function noiseBuf(ac) {
   }
   return noiseBuffer;
 }
+// old-school typewriter clack: a metallic strike + body knock, every one a
+// little different (random strike brightness/pitch/level); space bar thunks
+function clack(isSpace) {
+  if (!soundOn) return;
+  try {
+    const ac = ctx(), t = ac.currentTime;
+    const n = ac.createBufferSource(); n.buffer = noiseBuf(ac);
+    n.playbackRate.value = 1.3 + Math.random() * 0.8;
+    const bp = ac.createBiquadFilter();
+    bp.type = "bandpass"; bp.Q.value = 2.2;
+    bp.frequency.value = isSpace ? 800 + Math.random() * 350 : 2200 + Math.random() * 1900;
+    const ng = ac.createGain();
+    const strike = 0.09 + Math.random() * 0.06;
+    ng.gain.setValueAtTime(strike, t);
+    ng.gain.exponentialRampToValueAtTime(0.0001, t + 0.03 + Math.random() * 0.025);
+    n.connect(bp); bp.connect(ng); ng.connect(ac.destination);
+    n.start(t); n.stop(t + 0.07);
+    const o = ac.createOscillator();
+    o.type = "triangle";
+    o.frequency.value = (isSpace ? 105 : 185) + Math.random() * (isSpace ? 35 : 70);
+    const og = ac.createGain();
+    og.gain.setValueAtTime(0.06 + Math.random() * 0.03, t);
+    og.gain.exponentialRampToValueAtTime(0.0001, t + 0.035);
+    o.connect(og); og.connect(ac.destination);
+    o.start(t); o.stop(t + 0.045);
+  } catch (e) { /* no audio available */ }
+}
+
+// the carriage-return bell when a word is finished, just before the groan
+function ding() {
+  if (!soundOn) return;
+  try {
+    const ac = ctx(), t = ac.currentTime;
+    for (const [freq, g] of [[2100, 0.07], [3150, 0.035]]) {
+      const o = ac.createOscillator();
+      o.type = "sine"; o.frequency.value = freq * (0.99 + Math.random() * 0.02);
+      const og = ac.createGain();
+      og.gain.setValueAtTime(g, t);
+      og.gain.exponentialRampToValueAtTime(0.0001, t + 0.5);
+      o.connect(og); og.connect(ac.destination);
+      o.start(t); o.stop(t + 0.5);
+    }
+  } catch (e) { /* no audio available */ }
+}
+
 function beep(freq, dur, type = "square", gain = 0.05) {
   if (!soundOn) return;
   try {
@@ -210,8 +255,8 @@ function chomp(voice) {
 }
 
 const sfx = {
-  key:   () => beep(880, 0.04, "square", 0.025),
-  kill:  (voice) => groan(voice || 115),
+  key:   (isSpace) => clack(isSpace),
+  kill:  (voice) => { ding(); groan(voice || 115); },
   error: () => beep(140, 0.12, "square", 0.06),
   bite:  (voice) => chomp(voice || 115),
   level: () => [523, 659, 784, 1047].forEach((f, i) => setTimeout(() => beep(f, 0.12, "triangle", 0.05), i * 110)),
@@ -510,11 +555,25 @@ window.addEventListener("keydown", (e) => {
   if (!game || gameScreen.classList.contains("hidden")) return;
   if (e.key === "Escape") { togglePause(); return; }
   if (game.paused || game.overAt) return;
+  if (e.key === "Tab") { e.preventDefault(); switchTarget(); return; }
   if (e.ctrlKey || e.metaKey || e.altKey) return;
   if (e.key.length !== 1) return;
   e.preventDefault();
   handleKey(e.key);
 });
+
+// Tab cycles the lock through living zombies, nearest the desk first —
+// rescue hatch when the auto-picked target is still off the top of the screen
+function switchTarget() {
+  const alive = game.zombies.filter((z) => !z.dead);
+  if (!alive.length) return;
+  alive.sort((a, b) => b.y - a.y);
+  const idx = game.target ? alive.indexOf(game.target) : -1;
+  const next = alive[(idx + 1) % alive.length];
+  if (game.target) game.target.el.classList.remove("target");
+  game.target = next;
+  next.el.classList.add("target");
+}
 
 // mobile: route hidden-input characters into the game
 $("mobile-input").addEventListener("input", (e) => {
@@ -545,7 +604,7 @@ function handleKey(rawKey) {
 
   z.pos++;
   game.keysGood++;
-  sfx.key();
+  sfx.key(key === " ");
   renderWord(z);
   if (z.pos >= z.chars.length) killZombie(z);
 }
