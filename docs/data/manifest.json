@@ -1,0 +1,128 @@
+[
+ {
+  "id": "shakespeare",
+  "name": "Shakespeare — Complete Works",
+  "lang": "en",
+  "langName": "English",
+  "rtl": false
+ },
+ {
+  "id": "kjv",
+  "name": "King James Bible",
+  "lang": "en",
+  "langName": "English",
+  "rtl": false
+ },
+ {
+  "id": "melville",
+  "name": "Herman Melville",
+  "lang": "en",
+  "langName": "English",
+  "rtl": false
+ },
+ {
+  "id": "alice",
+  "name": "Alice in Wonderland (general)",
+  "lang": "en",
+  "langName": "English",
+  "rtl": false
+ },
+ {
+  "id": "luther",
+  "name": "Luther Bible",
+  "lang": "de",
+  "langName": "German",
+  "rtl": false
+ },
+ {
+  "id": "grimm",
+  "name": "Grimms Märchen (general)",
+  "lang": "de",
+  "langName": "German",
+  "rtl": false
+ },
+ {
+  "id": "tanakh",
+  "name": "Tanakh — Hebrew Bible",
+  "lang": "he",
+  "langName": "Hebrew",
+  "rtl": true
+ },
+ {
+  "id": "avot",
+  "name": "Pirkei Avot (general)",
+  "lang": "he",
+  "langName": "Hebrew",
+  "rtl": true
+ },
+ {
+  "id": "homer",
+  "name": "Homer — Iliad & Odyssey",
+  "lang": "grc",
+  "langName": "Ancient Greek",
+  "rtl": false
+ },
+ {
+  "id": "gnt",
+  "name": "Greek New Testament (general)",
+  "lang": "grc",
+  "langName": "Ancient Greek",
+  "rtl": false
+ },
+ {
+  "id": "dante",
+  "name": "Dante — Divine Comedy",
+  "lang": "it",
+  "langName": "Italian",
+  "rtl": false
+ },
+ {
+  "id": "pinocchio",
+  "name": "Pinocchio (general)",
+  "lang": "it",
+  "langName": "Italian",
+  "rtl": false
+ },
+ {
+  "id": "aeneid",
+  "name": "Virgil — Aeneid",
+  "lang": "la",
+  "langName": "Latin",
+  "rtl": false
+ },
+ {
+  "id": "caesar",
+  "name": "Caesar — De Bello Gallico (general)",
+  "lang": "la",
+  "langName": "Latin",
+  "rtl": false
+ },
+ {
+  "id": "candide",
+  "name": "Voltaire — Candide",
+  "lang": "fr",
+  "langName": "French",
+  "rtl": false
+ },
+ {
+  "id": "verne",
+  "name": "Jules Verne — 20.000 lieues (general)",
+  "lang": "fr",
+  "langName": "French",
+  "rtl": false
+ },
+ {
+  "id": "quijote",
+  "name": "Cervantes — Don Quijote",
+  "lang": "es",
+  "langName": "Spanish",
+  "rtl": false
+ },
+ {
+  "id": "cuentos",
+  "name": "Bécquer — Obras escogidas (general)",
+  "lang": "es",
+  "langName": "Spanish",
+  "rtl": false
+ }
+]

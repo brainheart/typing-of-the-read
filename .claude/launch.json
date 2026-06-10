@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "typing-of-the-read",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8123", "--directory", "/Users/reinhard/proj/typing-of-the-read/docs"],
+      "port": 8123
+    }
+  ]
+}
