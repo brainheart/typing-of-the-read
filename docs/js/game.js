@@ -60,25 +60,114 @@ function buildKeys(text, forgiving, matchCase) {
   return [...text].map((c) => (c === " " ? " " : normChar(c, forgiving, matchCase)));
 }
 
-// ---------- audio (tiny webaudio synth) ----------
-let actx = null;
+// ---------- audio (tiny webaudio synth, no assets) ----------
+let actx = null, noiseBuffer = null;
+function ctx() {
+  actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+  if (actx.state === "suspended") actx.resume();
+  return actx;
+}
+function noiseBuf(ac) {
+  if (!noiseBuffer) {
+    noiseBuffer = ac.createBuffer(1, ac.sampleRate * 0.6, ac.sampleRate);
+    const d = noiseBuffer.getChannelData(0);
+    for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+  }
+  return noiseBuffer;
+}
 function beep(freq, dur, type = "square", gain = 0.05) {
   if (!soundOn) return;
   try {
-    actx = actx || new (window.AudioContext || window.webkitAudioContext)();
-    const o = actx.createOscillator(), g = actx.createGain();
+    const ac = ctx();
+    const o = ac.createOscillator(), g = ac.createGain();
     o.type = type; o.frequency.value = freq;
-    g.gain.setValueAtTime(gain, actx.currentTime);
-    g.gain.exponentialRampToValueAtTime(0.0001, actx.currentTime + dur);
-    o.connect(g); g.connect(actx.destination);
-    o.start(); o.stop(actx.currentTime + dur);
+    g.gain.setValueAtTime(gain, ac.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + dur);
+    o.connect(g); g.connect(ac.destination);
+    o.start(); o.stop(ac.currentTime + dur);
   } catch (e) { /* no audio available */ }
 }
+
+// death groan: two detuned saws sliding down a wobbling pitch + breathy noise.
+// voice = base pitch in Hz (males low, females higher, skeletons brittle)
+function groan(voice) {
+  if (!soundOn) return;
+  try {
+    const ac = ctx(), t = ac.currentTime;
+    const base = voice * (0.93 + Math.random() * 0.14);   // no two groans alike
+    const skeletal = voice > 250;
+    const dur = skeletal ? 0.45 : 0.9;
+    const out = ac.createGain();
+    out.gain.setValueAtTime(0.0001, t);
+    out.gain.exponentialRampToValueAtTime(0.14, t + 0.05);
+    out.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    const filt = ac.createBiquadFilter();
+    filt.type = "lowpass";
+    filt.frequency.value = skeletal ? 2400 : 650;
+    filt.connect(out); out.connect(ac.destination);
+    const lfo = ac.createOscillator(), lfoG = ac.createGain();
+    lfo.frequency.value = skeletal ? 11 : 4.5;            // throat wobble / bone rattle
+    lfoG.gain.value = base * (skeletal ? 0.18 : 0.07);
+    lfo.connect(lfoG);
+    for (const mult of [1, 1.014]) {
+      const o = ac.createOscillator();
+      o.type = "sawtooth";
+      o.frequency.setValueAtTime(base * mult, t);
+      o.frequency.exponentialRampToValueAtTime(base * mult * (skeletal ? 0.8 : 0.55), t + dur);
+      lfoG.connect(o.frequency);
+      o.connect(filt);
+      o.start(t); o.stop(t + dur);
+    }
+    lfo.start(t); lfo.stop(t + dur);
+    const n = ac.createBufferSource(); n.buffer = noiseBuf(ac);
+    const nf = ac.createBiquadFilter();
+    nf.type = "bandpass"; nf.frequency.value = base * 8; nf.Q.value = 1.5;
+    const ng = ac.createGain();
+    ng.gain.setValueAtTime(0.05, t);
+    ng.gain.exponentialRampToValueAtTime(0.0001, t + dur * 0.8);
+    n.connect(nf); nf.connect(ng); ng.connect(ac.destination);
+    n.start(t); n.stop(t + dur);
+  } catch (e) { /* no audio available */ }
+}
+
+// chomp-chomp at the desk: paired crunchy noise bursts with a jaw thud,
+// pitched by the same per-zombie voice
+function chomp(voice) {
+  if (!soundOn) return;
+  try {
+    const ac = ctx(), t = ac.currentTime;
+    const thud = voice * 0.8;
+    for (const dt of [0, 0.22, 0.40]) {
+      const n = ac.createBufferSource(); n.buffer = noiseBuf(ac);
+      n.playbackRate.value = 0.7 + Math.random() * 0.3;
+      const nf = ac.createBiquadFilter();
+      nf.type = "lowpass";
+      nf.frequency.setValueAtTime(2600, t + dt);
+      nf.frequency.exponentialRampToValueAtTime(300, t + dt + 0.09);
+      const ng = ac.createGain();
+      ng.gain.setValueAtTime(0.0001, t + dt);
+      ng.gain.exponentialRampToValueAtTime(0.18, t + dt + 0.012);
+      ng.gain.exponentialRampToValueAtTime(0.0001, t + dt + 0.12);
+      n.connect(nf); nf.connect(ng); ng.connect(ac.destination);
+      n.start(t + dt); n.stop(t + dt + 0.15);
+      const o = ac.createOscillator();
+      o.type = "triangle";
+      o.frequency.setValueAtTime(thud, t + dt);
+      o.frequency.exponentialRampToValueAtTime(thud * 0.5, t + dt + 0.1);
+      const og = ac.createGain();
+      og.gain.setValueAtTime(0.12, t + dt);
+      og.gain.exponentialRampToValueAtTime(0.0001, t + dt + 0.12);
+      o.connect(og); og.connect(ac.destination);
+      o.start(t + dt); o.stop(t + dt + 0.13);
+    }
+  } catch (e) { /* no audio available */ }
+}
+
 const sfx = {
   key:   () => beep(880, 0.04, "square", 0.025),
-  kill:  () => { beep(220, 0.12, "sawtooth", 0.06); setTimeout(() => beep(110, 0.18, "sawtooth", 0.05), 60); },
+  kill:  (voice) => groan(voice || 115),
   error: () => beep(140, 0.12, "square", 0.06),
-  bite:  () => { beep(90, 0.3, "sawtooth", 0.09); setTimeout(() => beep(70, 0.3, "sawtooth", 0.07), 120); },
+  bite:  (voice) => chomp(voice || 115),
   level: () => [523, 659, 784, 1047].forEach((f, i) => setTimeout(() => beep(f, 0.12, "triangle", 0.05), i * 110)),
 };
 
@@ -240,10 +329,14 @@ function nextLane() {
   return laneOrder[laneIdx++] + (Math.random() * 4 - 2);
 }
 
+// voice pitch per body type: 🧟‍♂️ low, 🧟‍♀️ higher, 🧟 in between, 💀 brittle
+const VOICES = { "🧟‍♂️": 80, "🧟‍♀️": 175, "🧟": 115, [FAST_EMOJI]: 320 };
+
 function spawnZombie() {
   const cfg = TUNING[game.level];
   const fast = game.level === 1 && Math.random() < FAST_CHANCE;
   const text = pickText(game.level, { short: fast });
+  const emoji = fast ? FAST_EMOJI : ZOMBIE_EMOJI[Math.floor(Math.random() * ZOMBIE_EMOJI.length)];
   game.topSpeed = Math.max(game.topSpeed, tuned(cfg.speed));
   const z = {
     text,
@@ -253,13 +346,14 @@ function spawnZombie() {
     x: nextLane(),                                    // % of field width
     y: SPAWN_Y,
     speed: game.topSpeed * (fast ? 1.9 : 0.92 + Math.random() * 0.25),
+    voice: VOICES[emoji] || 115,
     el: document.createElement("div"),
     dead: false,
   };
   z.el.className = "zombie" + (fast ? " fast" : "");
   z.el.innerHTML =
     `<span class="word" dir="${game.rtl ? "rtl" : "ltr"}"></span>` +
-    `<span class="body">${fast ? FAST_EMOJI : ZOMBIE_EMOJI[Math.floor(Math.random() * ZOMBIE_EMOJI.length)]}</span>`;
+    `<span class="body">${emoji}</span>`;
   z.el.style.top = z.y + "%";
   z.el.style.left = z.x + "%";
   renderWord(z);
@@ -305,7 +399,7 @@ function killZombie(z) {
   game.zombies = game.zombies.filter((other) => other !== z);
   game.kills++; game.levelKills++;
   game.heat = Math.min(game.heat + HEAT_PER_KILL, HEAT_MAX);
-  sfx.kill();
+  sfx.kill(z.voice);
   updateHud();
 
   if (game.levelKills >= KILLS_PER_LEVEL) advanceLevel();
@@ -317,7 +411,7 @@ function biteDesk(z) {
   z.el.remove();
   game.zombies = game.zombies.filter((other) => other !== z);
   game.lives--;
-  sfx.bite();
+  sfx.bite(z.voice);
   const desk = $("desk");
   desk.classList.remove("bitten"); void desk.offsetWidth; desk.classList.add("bitten");
   updateHud();

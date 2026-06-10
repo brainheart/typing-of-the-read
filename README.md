@@ -49,7 +49,9 @@ so you mostly practice the vocabulary that matters most in that corpus.
 - First keystroke locks a target, like the original arcade game.
 - Every word you finish makes the horde descend a touch faster (caps at +45%).
 - WPM, accuracy, score, per-corpus/level high scores (localStorage).
-- Tiny WebAudio sound effects (mutable), no dependencies, fully static.
+- Procedural WebAudio sound (toggle with 🔊): zombies groan when slain and
+  chomp when they reach the desk — males groan low, females higher, skeletons
+  rattle. No audio files, no dependencies, fully static.
 
 ## Deploying to GitHub Pages
 
