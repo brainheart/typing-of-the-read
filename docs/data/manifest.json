@@ -124,5 +124,117 @@
   "lang": "es",
   "langName": "Spanish",
   "rtl": false
+ },
+ {
+  "id": "aiisms-en",
+  "name": "AI-isms",
+  "lang": "en",
+  "langName": "English",
+  "rtl": false
+ },
+ {
+  "id": "genz-en",
+  "name": "Gen Z memes",
+  "lang": "en",
+  "langName": "English",
+  "rtl": false
+ },
+ {
+  "id": "aiisms-de",
+  "name": "AI-isms",
+  "lang": "de",
+  "langName": "German",
+  "rtl": false
+ },
+ {
+  "id": "genz-de",
+  "name": "Gen Z memes",
+  "lang": "de",
+  "langName": "German",
+  "rtl": false
+ },
+ {
+  "id": "aiisms-fr",
+  "name": "AI-isms",
+  "lang": "fr",
+  "langName": "French",
+  "rtl": false
+ },
+ {
+  "id": "genz-fr",
+  "name": "Gen Z memes",
+  "lang": "fr",
+  "langName": "French",
+  "rtl": false
+ },
+ {
+  "id": "aiisms-es",
+  "name": "AI-isms",
+  "lang": "es",
+  "langName": "Spanish",
+  "rtl": false
+ },
+ {
+  "id": "genz-es",
+  "name": "Gen Z memes",
+  "lang": "es",
+  "langName": "Spanish",
+  "rtl": false
+ },
+ {
+  "id": "aiisms-it",
+  "name": "AI-isms",
+  "lang": "it",
+  "langName": "Italian",
+  "rtl": false
+ },
+ {
+  "id": "genz-it",
+  "name": "Gen Z memes",
+  "lang": "it",
+  "langName": "Italian",
+  "rtl": false
+ },
+ {
+  "id": "aiisms-la",
+  "name": "AI-isms",
+  "lang": "la",
+  "langName": "Latin",
+  "rtl": false
+ },
+ {
+  "id": "genz-la",
+  "name": "Gen Z memes",
+  "lang": "la",
+  "langName": "Latin",
+  "rtl": false
+ },
+ {
+  "id": "aiisms-grc",
+  "name": "AI-isms",
+  "lang": "grc",
+  "langName": "Ancient Greek",
+  "rtl": false
+ },
+ {
+  "id": "genz-grc",
+  "name": "Gen Z memes",
+  "lang": "grc",
+  "langName": "Ancient Greek",
+  "rtl": false
+ },
+ {
+  "id": "aiisms-he",
+  "name": "AI-isms",
+  "lang": "he",
+  "langName": "Hebrew",
+  "rtl": true
+ },
+ {
+  "id": "genz-he",
+  "name": "Gen Z memes",
+  "lang": "he",
+  "langName": "Hebrew",
+  "rtl": true
  }
 ]

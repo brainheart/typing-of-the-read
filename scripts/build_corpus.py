@@ -146,6 +146,24 @@ CORPORA = [
     ("cuentos", "Bécquer — Obras escogidas (general)", "es", False, "text", ["cuentos.txt"]),
 ]
 
+CURATED = ROOT / "curated"
+# curated phrase corpora: hand-written, exact word counts per level
+for _lang in ["en", "de", "fr", "es", "it", "la", "grc", "he"]:
+    CORPORA.append((f"aiisms-{_lang}", "AI-isms", _lang, _lang == "he", "curated", (CURATED / "aiisms.json", _lang)))
+    CORPORA.append((f"genz-{_lang}", "Gen Z memes", _lang, _lang == "he", "curated", (CURATED / "genz.json", _lang)))
+
+
+def from_curated(source, lang):
+    path, key = source
+    data = json.loads(Path(path).read_text())[key]
+    levels = []
+    for n in ("1", "2", "3", "4", "5"):
+        lst = data.get(n, [])
+        # descending weights: earlier entries are the most iconic
+        levels.append([[normalize_token(t, lang), len(lst) - i + 4] for i, t in enumerate(lst)])
+    return levels
+
+
 LANG_NAMES = {
     "en": "English", "de": "German", "fr": "French", "es": "Spanish",
     "it": "Italian", "la": "Latin", "grc": "Ancient Greek", "he": "Hebrew",
@@ -166,6 +184,8 @@ def main():
         try:
             if kind == "lines":
                 levels = from_lines(source, lang)
+            elif kind == "curated":
+                levels = from_curated(source, lang)
             else:
                 paths = [SRC / "texts" / f for f in source]
                 if not all(p.exists() for p in paths):

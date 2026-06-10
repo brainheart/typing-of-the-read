@@ -25,6 +25,12 @@ cd docs && python3 -m http.server 8000
 | French | Voltaire (Candide), Jules Verne (20 000 lieues) |
 | Spanish | Cervantes (Don Quijote), Bécquer (Obras escogidas) |
 
+Every language additionally has two hand-curated novelty corpora (in
+`curated/*.json`): **AI-isms** (chatbot clichés — *as an AI language model*,
+*als KI-Sprachmodell kann ich nicht*, *spero has litteras bene invenire*) and
+**Gen Z memes** (each language's own slang — *no cap*, *Digga das ist wild*,
+*wesh c'est carré*, *sine pileo frater*, *ἀληθῶς ἀληθῶς λέγω ὑμῖν ἀδελφοί*).
+
 The contabulate-derived corpora reuse the n-gram token data from the
 [contabulate.org](https://contabulate.org) instances; the "general" corpora
 are built from public-domain texts (Project Gutenberg, SBLGNT, Sefaria).
@@ -51,9 +57,10 @@ so you mostly practice the vocabulary that matters most in that corpus.
 - First keystroke locks a target, like the original arcade game.
 - Every word you finish makes the horde descend a touch faster (caps at +45%).
 - WPM, accuracy, score, per-corpus/level high scores (localStorage).
-- Procedural WebAudio sound (toggle with 🔊): zombies groan when slain and
-  chomp when they reach the desk — males groan low, females higher, skeletons
-  rattle. No audio files, no dependencies, fully static.
+- Procedural WebAudio sound (toggle with 🔊): zombies gurgle out a wet groan
+  when slain and squelch-chomp-gulp when they reach the desk — males groan
+  low, females higher, skeletons rattle dryly. No audio files, no
+  dependencies, fully static.
 
 ## Deploying to GitHub Pages
 

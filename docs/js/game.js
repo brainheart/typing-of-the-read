@@ -125,10 +125,30 @@ function groan(voice) {
     const nf = ac.createBiquadFilter();
     nf.type = "bandpass"; nf.frequency.value = base * 8; nf.Q.value = 1.5;
     const ng = ac.createGain();
-    ng.gain.setValueAtTime(0.05, t);
+    ng.gain.setValueAtTime(0.07, t);
     ng.gain.exponentialRampToValueAtTime(0.0001, t + dur * 0.8);
     n.connect(nf); nf.connect(ng); ng.connect(ac.destination);
     n.start(t); n.stop(t + dur);
+    if (!skeletal) {
+      // wet gurgle: slow slimy noise, bubbling tremolo, sinking pitch
+      const g2 = ac.createBufferSource(); g2.buffer = noiseBuf(ac);
+      g2.playbackRate.value = 0.35;
+      const gf = ac.createBiquadFilter();
+      gf.type = "bandpass"; gf.Q.value = 6;
+      gf.frequency.setValueAtTime(base * 2.6, t);
+      gf.frequency.exponentialRampToValueAtTime(base * 1.1, t + dur);
+      const gg = ac.createGain();
+      gg.gain.setValueAtTime(0.0001, t);
+      gg.gain.exponentialRampToValueAtTime(0.16, t + 0.12);
+      gg.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      const bub = ac.createOscillator(), bubG = ac.createGain();
+      bub.frequency.value = 9 + Math.random() * 5;       // bubbling throat tremolo
+      bubG.gain.value = 0.1;
+      bub.connect(bubG); bubG.connect(gg.gain);
+      g2.connect(gf); gf.connect(gg); gg.connect(ac.destination);
+      g2.start(t); g2.stop(t + dur);
+      bub.start(t); bub.stop(t + dur);
+    }
   } catch (e) { /* no audio available */ }
 }
 
@@ -161,7 +181,31 @@ function chomp(voice) {
       og.gain.exponentialRampToValueAtTime(0.0001, t + dt + 0.12);
       o.connect(og); og.connect(ac.destination);
       o.start(t + dt); o.stop(t + dt + 0.13);
+      // wet squelch riding each bite: slimy high-Q noise sweep
+      const sq = ac.createBufferSource(); sq.buffer = noiseBuf(ac);
+      sq.playbackRate.value = 0.4 + Math.random() * 0.2;
+      const sf = ac.createBiquadFilter();
+      sf.type = "bandpass"; sf.Q.value = 9;
+      sf.frequency.setValueAtTime(900 + Math.random() * 400, t + dt + 0.02);
+      sf.frequency.exponentialRampToValueAtTime(140, t + dt + 0.16);
+      const sg = ac.createGain();
+      sg.gain.setValueAtTime(0.0001, t + dt + 0.02);
+      sg.gain.exponentialRampToValueAtTime(0.14, t + dt + 0.05);
+      sg.gain.exponentialRampToValueAtTime(0.0001, t + dt + 0.18);
+      sq.connect(sf); sf.connect(sg); sg.connect(ac.destination);
+      sq.start(t + dt + 0.02); sq.stop(t + dt + 0.2);
     }
+    // the swallow: a sickly descending gulp once the chewing is done
+    const gulp = ac.createOscillator();
+    gulp.type = "sine";
+    gulp.frequency.setValueAtTime(thud * 3.2, t + 0.58);
+    gulp.frequency.exponentialRampToValueAtTime(thud * 0.9, t + 0.78);
+    const gg = ac.createGain();
+    gg.gain.setValueAtTime(0.0001, t + 0.58);
+    gg.gain.exponentialRampToValueAtTime(0.12, t + 0.62);
+    gg.gain.exponentialRampToValueAtTime(0.0001, t + 0.8);
+    gulp.connect(gg); gg.connect(ac.destination);
+    gulp.start(t + 0.58); gulp.stop(t + 0.82);
   } catch (e) { /* no audio available */ }
 }
 
