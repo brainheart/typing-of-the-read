@@ -154,6 +154,7 @@ body {
   white-space: nowrap;
   box-shadow: 0 3px 8px var(--shadow);
 }
+.zombie .word.long { font-size: 1.05rem; }
 .zombie.target .word {
   border-color: var(--red);
   box-shadow: 0 0 14px rgba(190, 60, 60, .8);

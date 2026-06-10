@@ -34,6 +34,8 @@ are built from public-domain texts (Project Gutenberg, SBLGNT, Sefaria).
 1. **Single words** (unigrams)
 2. **Word pairs** (bigrams — type the space too)
 3. **Word triples** (trigrams)
+4. **Four-word phrases** (4-grams)
+5. **Five-word phrases** (5-grams — `And it came to pass`…)
 
 Clear 22 zombies to advance. Word choice is frequency-weighted (√-flattened),
 so you mostly practice the vocabulary that matters most in that corpus.

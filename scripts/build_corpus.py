@@ -6,7 +6,7 @@ Two source types:
     (token -> [[chunk_id, count], ...])
   - text: one or more plain-text files, tokenized here into 1/2/3-grams.
 
-Output: docs/data/<id>.json  {id, name, lang, rtl, levels: [unigrams, bigrams, trigrams]}
+Output: docs/data/<id>.json  {id, name, lang, rtl, levels: [1..5-grams]}
         each level is a list of [text, weight] sorted by weight desc.
 Also writes docs/data/manifest.json describing all corpora.
 """
@@ -78,7 +78,7 @@ def ngram_levels(sentences, lang):
         toks.extend(tokenize_text(sent, lang))
         toks.append(sentinel)
     levels = []
-    for n in (1, 2, 3):
+    for n in (1, 2, 3, 4, 5):
         counts = Counter()
         surfaces = {}
         for i in range(len(toks) - n + 1):

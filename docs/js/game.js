@@ -17,6 +17,8 @@ const TUNING = {
   1: { speed: [3.5, 5.8], spawn: [2300, 1100], maxOnScreen: 6 },
   2: { speed: [2.6, 4.2], spawn: [3000, 1500], maxOnScreen: 5 },
   3: { speed: [2.0, 3.2], spawn: [3800, 1900], maxOnScreen: 4 },
+  4: { speed: [1.6, 2.6], spawn: [4600, 2400], maxOnScreen: 3 },
+  5: { speed: [1.3, 2.2], spawn: [5400, 3000], maxOnScreen: 3 },
 };
 const ZOMBIE_EMOJI = ["🧟", "🧟‍♂️", "🧟‍♀️"];
 const FAST_EMOJI = "💀";
@@ -302,7 +304,10 @@ async function startGame() {
   requestAnimationFrame(tick);
 }
 
-function levelName(l) { return ["single words", "word pairs", "word triples"][l - 1]; }
+function levelName(l) {
+  return ["single words", "word pairs", "word triples", "four-word phrases", "five-word phrases"][l - 1];
+}
+function maxLevel() { return Math.min(corpus.levels.length, 5); }
 
 function levelProgress() { return Math.min(game.levelKills / KILLS_PER_LEVEL, 1); }
 
@@ -318,6 +323,8 @@ const LANES_BY_LEVEL = {
   1: [12, 27, 42, 57, 72, 87],
   2: [16, 39, 62, 85],
   3: [22, 50, 78],
+  4: [27, 73],
+  5: [30, 70],
 };
 let laneOrder = [], laneIdx = 0;
 function nextLane() {
@@ -352,7 +359,7 @@ function spawnZombie() {
   };
   z.el.className = "zombie" + (fast ? " fast" : "");
   z.el.innerHTML =
-    `<span class="word" dir="${game.rtl ? "rtl" : "ltr"}"></span>` +
+    `<span class="word${z.chars.length > 22 ? " long" : ""}" dir="${game.rtl ? "rtl" : "ltr"}"></span>` +
     `<span class="body">${emoji}</span>`;
   z.el.style.top = z.y + "%";
   z.el.style.left = z.x + "%";
@@ -419,7 +426,7 @@ function biteDesk(z) {
 }
 
 function advanceLevel() {
-  if (game.level < 3) {
+  if (game.level < maxLevel()) {
     game.level++;
     game.levelKills = 0;
     sfx.level();
@@ -529,7 +536,7 @@ function hideBanner() { banner.classList.add("hidden"); }
 function esc2(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
 
 function updateHud() {
-  $("hud-level").textContent = `Lv ${game.level}/3`;
+  $("hud-level").textContent = `Lv ${game.level}/${maxLevel()}`;
   $("hud-score").textContent = game.score.toLocaleString();
   $("hud-lives").textContent = "❤️".repeat(Math.max(game.lives, 0)) + "🖤".repeat(LIVES - Math.max(game.lives, 0));
   $("progress-bar").style.width = (levelProgress() * 100) + "%";
