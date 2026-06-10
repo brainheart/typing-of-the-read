@@ -108,7 +108,7 @@ function fillCorpora() {
   const lang = langSel.value;
   const list = manifest.filter((c) => c.lang === lang);
   corpusSel.innerHTML = list.map((c) => `<option value="${c.id}">${c.name}</option>`).join("");
-  const saved = localStorage.getItem("totr-corpus");
+  const saved = localStorage.getItem("totr-corpus") || "shakespeare";
   if (list.some((c) => c.id === saved)) corpusSel.value = saved;
   forgivingChk.checked = lang === "grc" || localStorage.getItem("totr-forgiving-" + lang) === "on";
   matchCaseChk.checked = localStorage.getItem("totr-case-" + lang) === "on";
