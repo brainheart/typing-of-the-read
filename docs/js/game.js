@@ -9,10 +9,10 @@ const KILLS_PER_LEVEL = 22;          // kills to clear a level
 const LIVES = 3;
 const SPAWN_Y = -16;                 // % above the top edge where zombies appear
 const BITE_Y = 72;                   // % of field height where they reach the desk
-const HEAT_PER_KILL = 0.012;         // every word you finish speeds the horde up a touch
+const HEAT_PER_KILL = 0.015;         // every word you finish speeds the horde up a touch
 const HEAT_MAX = 1.45;
 // per n-gram level: descent speed (%/s) and spawn interval (ms), each [start, end-of-level].
-// speed never drops below the fastest pace already reached (no relief at level-up)
+// the ramp resets at each level-up (a breather), while heat keeps climbing per kill
 const TUNING = {
   1: { speed: [4.0, 6.4], spawn: [2300, 1100], maxOnScreen: 6 },
   2: { speed: [3.0, 4.8], spawn: [3000, 1500], maxOnScreen: 5 },
@@ -372,7 +372,6 @@ async function startGame() {
     zombies: [],
     target: null,
     heat: 1,
-    topSpeed: 0,
     kills: 0, levelKills: 0,
     score: 0, lives: LIVES,
     keysGood: 0, keysBad: 0,
@@ -433,7 +432,6 @@ function spawnZombie() {
   const fast = game.level === 1 && Math.random() < FAST_CHANCE;
   const text = pickText(game.level, { short: fast });
   const emoji = fast ? FAST_EMOJI : ZOMBIE_EMOJI[Math.floor(Math.random() * ZOMBIE_EMOJI.length)];
-  game.topSpeed = Math.max(game.topSpeed, tuned(cfg.speed));
   const z = {
     text,
     chars: [...text],
@@ -441,7 +439,7 @@ function spawnZombie() {
     pos: 0,
     x: nextLane(),                                    // % of field width
     y: SPAWN_Y,
-    speed: game.topSpeed * (fast ? 1.9 : 0.92 + Math.random() * 0.25),
+    speed: tuned(cfg.speed) * (fast ? 1.9 : 0.92 + Math.random() * 0.25),
     voice: VOICES[emoji] || 115,
     el: document.createElement("div"),
     dead: false,
