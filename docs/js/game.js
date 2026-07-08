@@ -275,6 +275,7 @@ fetch("data/manifest.json")
     langSel.value = localStorage.getItem("totr-lang") || "en";
     if (!langs.includes(langSel.value)) langSel.value = langs[0];
     fillCorpora();
+    applyDeepLink();
   })
   .catch(() => {
     document.querySelector("#start-screen .card").insertAdjacentHTML(
@@ -307,6 +308,53 @@ function showHiscore() {
   $("hiscore-line").textContent = hi ? `High score for this corpus & level: ${(+hi).toLocaleString()}` : "";
 }
 
+
+// ---------- deep links: ?lang=de&corpus=luther&level=3(&case=1&strict=1) ----------
+function applyDeepLink() {
+  const q = new URLSearchParams(location.search);
+  const qc = q.get("corpus");
+  if (!qc && !q.get("lang")) return;
+  const entry = manifest.find((c) => c.id === qc);
+  const lang = entry ? entry.lang : q.get("lang");
+  if (lang && [...langSel.options].some((o) => o.value === lang)) {
+    langSel.value = lang;
+    fillCorpora();
+  }
+  if (entry) corpusSel.value = entry.id;
+  const lvl = parseInt(q.get("level"), 10);
+  if (lvl >= 1 && lvl <= 5) levelSel.value = String(lvl);
+  if (q.get("case") === "1") matchCaseChk.checked = true;
+  if (q.get("strict") === "1") forgivingChk.checked = false;
+  if (entry) startGame();               // a shared challenge starts right away
+}
+
+function deepLinkURL() {
+  const q = new URLSearchParams();
+  q.set("lang", langSel.value);
+  q.set("corpus", corpusSel.value);
+  q.set("level", levelSel.value);
+  if (matchCaseChk.checked) q.set("case", "1");
+  if (!forgivingChk.checked) q.set("strict", "1");
+  return location.origin + location.pathname + "?" + q.toString();
+}
+
+$("share-btn").addEventListener("click", async () => {
+  const url = deepLinkURL();
+  let ok = true;
+  try {
+    await navigator.clipboard.writeText(url);
+  } catch (e) {
+    ok = false;
+    prompt("Copy this challenge link:", url);
+  }
+  if (ok) {
+    const btn = $("share-btn");
+    const orig = btn.textContent;
+    btn.textContent = "✓ link copied!";
+    setTimeout(() => { btn.textContent = orig; }, 1600);
+  }
+});
+
 // ---------- corpus loading & weighted pools ----------
 async function loadCorpus(id) {
   const r = await fetch(`data/${id}.json`);
@@ -328,6 +376,8 @@ function pickText(level, { short } = {}) {
   }
   const active = new Set(game.zombies.map((z) => z.text));
   const firsts = new Set(game.zombies.map((z) => z.keys[0]));
+  const recent = new Set(game.recent);
+  let picked = null;
   for (let tries = 0; tries < 40; tries++) {
     const total = short ? candidates.reduce((s, [, w]) => s + w, 0) : pool.total;
     let r = Math.random() * total;
@@ -338,10 +388,19 @@ function pickText(level, { short } = {}) {
     }
     const text = candidates[pickIdx][0];
     const k0 = normChar([...text][0], game.forgiving, game.matchCase);
-    // avoid duplicates and first-letter clashes while options remain
-    if (!active.has(text) && (!firsts.has(k0) || tries > 25)) return text;
+    // avoid on-screen duplicates, recently seen words, and first-letter clashes
+    if (active.has(text)) continue;
+    if (recent.has(text) && tries < 30) continue;
+    if (firsts.has(k0) && tries < 25) continue;
+    picked = text;
+    break;
   }
-  return candidates[Math.floor(Math.random() * candidates.length)][0];
+  if (picked === null) picked = candidates[Math.floor(Math.random() * candidates.length)][0];
+  // remember what was shown so it doesn't come right back
+  game.recent.push(picked);
+  const memory = Math.min(Math.floor(pool.entries.length * 0.7), 25);
+  while (game.recent.length > memory) game.recent.shift();
+  return picked;
 }
 
 // ---------- game lifecycle ----------
@@ -363,6 +422,7 @@ async function startGame() {
   localStorage.setItem("totr-corpus", corpusSel.value);
   localStorage.setItem("totr-forgive2-" + langSel.value, forgivingChk.checked ? "on" : "off");
   localStorage.setItem("totr-case-" + langSel.value, matchCaseChk.checked ? "on" : "off");
+  history.replaceState(null, "", deepLinkURL());
   await loadCorpus(corpusSel.value);
 
   game = {
@@ -373,6 +433,7 @@ async function startGame() {
     rtl: corpus.rtl,
     zombies: [],
     target: null,
+    recent: [],
     heat: 1,
     kills: 0, levelKills: 0,
     score: 0, lives: LIVES,

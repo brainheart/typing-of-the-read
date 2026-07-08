@@ -65,6 +65,12 @@ so you mostly practice the vocabulary that matters most in that corpus.
 - Successful keystrokes clack like an old typewriter — every strike slightly
   different, space bar thunks deeper, and a carriage bell rings per kill.
 - Every word you finish makes the horde descend a touch faster (caps at +45%).
+- **Challenge links**: `?lang=de&corpus=luther&level=3` (plus optional
+  `&case=1` and `&strict=1`) auto-starts that exact setup — use the
+  "Copy challenge link" button on the start screen, or just copy the address
+  bar mid-game. Great for sending a friend a duel.
+- A recently-shown memory keeps phrases from repeating until a good chunk of
+  the pool has cycled through.
 - WPM, accuracy, score, per-corpus/level high scores (localStorage).
 - Procedural WebAudio sound (toggle with 🔊): zombies gurgle out a wet groan
   when slain and squelch-chomp-gulp when they reach the desk — males groan

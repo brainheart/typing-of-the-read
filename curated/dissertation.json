@@ -26,7 +26,27 @@
       "transition",
       "nuance",
       "ambiguïté",
-      "hypothèse"
+      "hypothèse",
+      "prémisse",
+      "thèse",
+      "exégèse",
+      "herméneutique",
+      "paradigme",
+      "épistémologie",
+      "démonstration",
+      "réfutation",
+      "objection",
+      "concession",
+      "digression",
+      "périphrase",
+      "euphémisme",
+      "litote",
+      "métaphore",
+      "allégorie",
+      "syllogisme",
+      "aporie",
+      "axiome",
+      "corpus"
     ],
     "2": [
       "il convient",
@@ -51,7 +71,19 @@
       "a priori",
       "a posteriori",
       "de rigueur",
-      "par excellence"
+      "par excellence",
+      "en préambule",
+      "en substance",
+      "du reste",
+      "au demeurant",
+      "par conséquent",
+      "de même",
+      "en particulier",
+      "à savoir",
+      "pour autant",
+      "en théorie",
+      "en pratique",
+      "stricto sensu"
     ],
     "3": [
       "qui plus est",
@@ -68,7 +100,16 @@
       "dans un premier",
       "dans un second",
       "il n'en demeure",
-      "en somme donc"
+      "en somme donc",
+      "dans cette optique",
+      "sous cet angle",
+      "à ce titre",
+      "de ce fait",
+      "en ce sens",
+      "dans cette perspective",
+      "au premier abord",
+      "selon toute vraisemblance",
+      "grosso modo donc"
     ],
     "4": [
       "il convient de souligner",
@@ -82,7 +123,14 @@
       "à toutes fins utiles",
       "tel que susmentionné précédemment",
       "sine qua non ici",
-      "force est de constater"
+      "force est de constater",
+      "en fin de compte",
+      "par voie de conséquence",
+      "dans le cadre de",
+      "comme nous le verrons",
+      "tout porte à croire",
+      "cela étant posé donc",
+      "au fond du problème"
     ],
     "5": [
       "il y a lieu de",
@@ -94,7 +142,12 @@
       "dans un second temps il",
       "nous pouvons donc conclure que",
       "en dernière analyse il apparaît",
-      "il convient de noter que"
+      "il convient de noter que",
+      "au terme de cette analyse",
+      "ainsi que nous l'avons vu",
+      "il ressort de cette étude",
+      "tout porte à croire que",
+      "cette question mérite d'être posée"
     ]
   }
 }
