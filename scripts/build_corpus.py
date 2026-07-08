@@ -147,10 +147,31 @@ CORPORA = [
 ]
 
 CURATED = ROOT / "curated"
-# curated phrase corpora: hand-written, exact word counts per level
+# curated phrase corpora: hand-written, exact word counts per level.
+# labels are native to each language
+AIISMS_NAMES = {
+    "en": "AI-isms",
+    "de": "KI-Floskeln",
+    "fr": "Tics de l\u2019IA",
+    "es": "Muletillas de la IA",
+    "it": "Frasi fatte dell\u2019IA",
+    "la": "Formulae machinae loquentis",
+    "grc": "\u039b\u03cc\u03b3\u03bf\u03b9 \u03c4\u1fc6\u03c2 \u03bc\u03b7\u03c7\u03b1\u03bd\u1fc6\u03c2",
+    "he": "\u05e7\u05dc\u05d9\u05e9\u05d0\u05d5\u05ea \u05d1\u05d9\u05e0\u05d4 \u05de\u05dc\u05d0\u05db\u05d5\u05ea\u05d9\u05ea",
+}
+GENZ_NAMES = {
+    "en": "Gen Z memes",
+    "de": "Jugendsprache",
+    "fr": "Argot des jeunes",
+    "es": "Jerga juvenil",
+    "it": "Slang giovanile",
+    "la": "Sermo iuvenum",
+    "grc": "\u0393\u03bb\u1ff6\u03c4\u03c4\u03b1 \u03c4\u1ff6\u03bd \u03bd\u03ad\u03c9\u03bd",
+    "he": "\u05e1\u05dc\u05e0\u05d2 \u05d9\u05e9\u05e8\u05d0\u05dc\u05d9",
+}
 for _lang in ["en", "de", "fr", "es", "it", "la", "grc", "he"]:
-    CORPORA.append((f"aiisms-{_lang}", "AI-isms", _lang, _lang == "he", "curated", (CURATED / "aiisms.json", _lang)))
-    CORPORA.append((f"genz-{_lang}", "Gen Z memes", _lang, _lang == "he", "curated", (CURATED / "genz.json", _lang)))
+    CORPORA.append((f"aiisms-{_lang}", AIISMS_NAMES[_lang], _lang, _lang == "he", "curated", (CURATED / "aiisms.json", _lang)))
+    CORPORA.append((f"genz-{_lang}", GENZ_NAMES[_lang], _lang, _lang == "he", "curated", (CURATED / "genz.json", _lang)))
 
 
 def from_curated(source, lang):

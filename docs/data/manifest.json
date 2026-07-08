@@ -141,98 +141,98 @@
  },
  {
   "id": "aiisms-de",
-  "name": "AI-isms",
+  "name": "KI-Floskeln",
   "lang": "de",
   "langName": "German",
   "rtl": false
  },
  {
   "id": "genz-de",
-  "name": "Gen Z memes",
+  "name": "Jugendsprache",
   "lang": "de",
   "langName": "German",
   "rtl": false
  },
  {
   "id": "aiisms-fr",
-  "name": "AI-isms",
+  "name": "Tics de l’IA",
   "lang": "fr",
   "langName": "French",
   "rtl": false
  },
  {
   "id": "genz-fr",
-  "name": "Gen Z memes",
+  "name": "Argot des jeunes",
   "lang": "fr",
   "langName": "French",
   "rtl": false
  },
  {
   "id": "aiisms-es",
-  "name": "AI-isms",
+  "name": "Muletillas de la IA",
   "lang": "es",
   "langName": "Spanish",
   "rtl": false
  },
  {
   "id": "genz-es",
-  "name": "Gen Z memes",
+  "name": "Jerga juvenil",
   "lang": "es",
   "langName": "Spanish",
   "rtl": false
  },
  {
   "id": "aiisms-it",
-  "name": "AI-isms",
+  "name": "Frasi fatte dell’IA",
   "lang": "it",
   "langName": "Italian",
   "rtl": false
  },
  {
   "id": "genz-it",
-  "name": "Gen Z memes",
+  "name": "Slang giovanile",
   "lang": "it",
   "langName": "Italian",
   "rtl": false
  },
  {
   "id": "aiisms-la",
-  "name": "AI-isms",
+  "name": "Formulae machinae loquentis",
   "lang": "la",
   "langName": "Latin",
   "rtl": false
  },
  {
   "id": "genz-la",
-  "name": "Gen Z memes",
+  "name": "Sermo iuvenum",
   "lang": "la",
   "langName": "Latin",
   "rtl": false
  },
  {
   "id": "aiisms-grc",
-  "name": "AI-isms",
+  "name": "Λόγοι τῆς μηχανῆς",
   "lang": "grc",
   "langName": "Ancient Greek",
   "rtl": false
  },
  {
   "id": "genz-grc",
-  "name": "Gen Z memes",
+  "name": "Γλῶττα τῶν νέων",
   "lang": "grc",
   "langName": "Ancient Greek",
   "rtl": false
  },
  {
   "id": "aiisms-he",
-  "name": "AI-isms",
+  "name": "קלישאות בינה מלאכותית",
   "lang": "he",
   "langName": "Hebrew",
   "rtl": true
  },
  {
   "id": "genz-he",
-  "name": "Gen Z memes",
+  "name": "סלנג ישראלי",
   "lang": "he",
   "langName": "Hebrew",
   "rtl": true
