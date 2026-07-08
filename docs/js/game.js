@@ -443,6 +443,8 @@ async function startGame() {
     paused: false, overAt: null,
   };
   window.__totr = game;            // debug/testing handle
+  window.__totrDebug = { spawn: spawnZombie, bite: () => game.zombies[0] && biteDesk(game.zombies[0]) };
+  resetDesk();
   field.querySelectorAll(".zombie, .splat, .score-pop").forEach((el) => el.remove());
   $("hud-corpus").textContent = corpus.name;
   $("hud-score").textContent = "0";
@@ -465,6 +467,63 @@ function levelProgress() { return Math.min(game.levelKills / KILLS_PER_LEVEL, 1)
 function tuned(pair) {
   const t = levelProgress();
   return pair[0] + (pair[1] - pair[0]) * t;
+}
+
+
+// ---------- the librarian and her books ----------
+const READER_MOODS = { 3: "👩‍🏫", 2: "😨", 1: "😱", 0: "😵" };
+
+function resetDesk() {
+  for (const side of ["l", "r"]) {
+    for (let i = 0; i < LIVES; i++) {
+      const pile = $(`pile-${side}${i}`);
+      pile.textContent = "📚";
+      pile.classList.remove("burning", "burnt");
+    }
+  }
+  const reader = $("reader");
+  reader.textContent = READER_MOODS[LIVES];
+  reader.classList.remove("worried", "panicked", "jazzed");
+}
+
+// burn one pile on each side; pairs converge on the librarian
+function burnPair(burnIdx) {
+  for (const id of [`pile-l${burnIdx}`, `pile-r${LIVES - 1 - burnIdx}`]) {
+    const pile = $(id);
+    pile.textContent = "🔥";
+    pile.classList.add("burning");
+    setTimeout(() => {
+      pile.textContent = "📚";
+      pile.classList.remove("burning");
+      pile.classList.add("burnt");
+    }, 950);
+  }
+}
+
+function updateReaderMood() {
+  const reader = $("reader");
+  reader.textContent = READER_MOODS[Math.max(game.lives, 0)] || READER_MOODS[0];
+  reader.classList.toggle("worried", game.lives === 2);
+  reader.classList.toggle("panicked", game.lives === 1);
+}
+
+function celebrate() {
+  const reader = $("reader");
+  reader.textContent = "🥳";
+  reader.classList.remove("worried", "panicked");
+  reader.classList.add("jazzed");
+  const party = ["🎉", "✨", "🎊", "📚", "🎉", "✨"];
+  party.forEach((em, i) => {
+    setTimeout(() => {
+      const pop = document.createElement("span");
+      pop.className = "score-pop";
+      pop.textContent = em;
+      pop.style.left = (30 + Math.random() * 40) + "%";
+      pop.style.top = (74 + Math.random() * 8) + "%";
+      field.appendChild(pop);
+      setTimeout(() => pop.remove(), 900);
+    }, i * 180);
+  });
 }
 
 // ---------- zombies ----------
@@ -569,6 +628,8 @@ function biteDesk(z) {
   game.zombies = game.zombies.filter((other) => other !== z);
   game.lives--;
   sfx.bite(z.voice);
+  burnPair(LIVES - 1 - game.lives);
+  updateReaderMood();
   const desk = $("desk");
   desk.classList.remove("bitten"); void desk.offsetWidth; desk.classList.add("bitten");
   updateHud();
@@ -727,10 +788,11 @@ function endGame(won) {
     `<div>Zombies stopped: <b>${game.kills}</b></div>` +
     `<div>Score: <b>${game.score.toLocaleString()}</b>${best ? ' <span class="newbest">★ new best!</span>' : ""}</div>` +
     `<div>Speed: <b>${wpm}</b> WPM &nbsp;·&nbsp; Accuracy: <b>${acc}%</b></div>`;
+  if (won) celebrate();
   setTimeout(() => {
     gameScreen.classList.add("hidden");
     overScreen.classList.remove("hidden");
-  }, won ? 600 : 900);
+  }, won ? 2100 : 900);
 }
 
 })();
