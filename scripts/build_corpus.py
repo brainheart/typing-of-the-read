@@ -151,12 +151,12 @@ CURATED = ROOT / "curated"
 # labels are native to each language
 AIISMS_NAMES = {
     "en": "AI-isms",
-    "de": "KI-Floskeln",
-    "fr": "Tics de l\u2019IA",
+    "de": "KI-Floskeln & Amtsdeutsch",
+    "fr": "Tics de l\u2019IA & de dissertation",
     "es": "Muletillas de la IA",
     "it": "Frasi fatte dell\u2019IA",
-    "la": "Formulae machinae loquentis",
-    "grc": "\u039b\u03cc\u03b3\u03bf\u03b9 \u03c4\u1fc6\u03c2 \u03bc\u03b7\u03c7\u03b1\u03bd\u1fc6\u03c2",
+    "la": "Formulae scholasticae",
+    "grc": "\u039b\u03cc\u03b3\u03bf\u03b9 \u03c4\u1ff6\u03bd \u03c6\u03b9\u03bb\u03bf\u03c3\u03cc\u03c6\u03c9\u03bd",
     "he": "\u05e7\u05dc\u05d9\u05e9\u05d0\u05d5\u05ea \u05d1\u05d9\u05e0\u05d4 \u05de\u05dc\u05d0\u05db\u05d5\u05ea\u05d9\u05ea",
 }
 GENZ_NAMES = {

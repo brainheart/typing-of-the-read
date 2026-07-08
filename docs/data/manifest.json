@@ -141,7 +141,7 @@
  },
  {
   "id": "aiisms-de",
-  "name": "KI-Floskeln",
+  "name": "KI-Floskeln & Amtsdeutsch",
   "lang": "de",
   "langName": "German",
   "rtl": false
@@ -155,7 +155,7 @@
  },
  {
   "id": "aiisms-fr",
-  "name": "Tics de l’IA",
+  "name": "Tics de l’IA & de dissertation",
   "lang": "fr",
   "langName": "French",
   "rtl": false
@@ -197,7 +197,7 @@
  },
  {
   "id": "aiisms-la",
-  "name": "Formulae machinae loquentis",
+  "name": "Formulae scholasticae",
   "lang": "la",
   "langName": "Latin",
   "rtl": false
@@ -211,7 +211,7 @@
  },
  {
   "id": "aiisms-grc",
-  "name": "Λόγοι τῆς μηχανῆς",
+  "name": "Λόγοι τῶν φιλοσόφων",
   "lang": "grc",
   "langName": "Ancient Greek",
   "rtl": false

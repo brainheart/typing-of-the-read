@@ -291,7 +291,9 @@ function fillCorpora() {
   corpusSel.innerHTML = list.map((c) => `<option value="${c.id}">${c.name}</option>`).join("");
   const saved = localStorage.getItem("totr-corpus") || "shakespeare";
   if (list.some((c) => c.id === saved)) corpusSel.value = saved;
-  forgivingChk.checked = lang === "grc" || localStorage.getItem("totr-forgiving-" + lang) === "on";
+  // forgiving keys default ON (typing plain letters matches accents/umlauts);
+  // new storage key so the new default applies unless explicitly switched off
+  forgivingChk.checked = localStorage.getItem("totr-forgive2-" + lang) !== "off";
   matchCaseChk.checked = localStorage.getItem("totr-case-" + lang) === "on";
   showHiscore();
 }
@@ -359,7 +361,7 @@ $("sound-btn").addEventListener("click", () => {
 async function startGame() {
   localStorage.setItem("totr-lang", langSel.value);
   localStorage.setItem("totr-corpus", corpusSel.value);
-  localStorage.setItem("totr-forgiving-" + langSel.value, forgivingChk.checked ? "on" : "off");
+  localStorage.setItem("totr-forgive2-" + langSel.value, forgivingChk.checked ? "on" : "off");
   localStorage.setItem("totr-case-" + langSel.value, matchCaseChk.checked ? "on" : "off");
   await loadCorpus(corpusSel.value);
 

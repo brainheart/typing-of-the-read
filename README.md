@@ -26,10 +26,15 @@ cd docs && python3 -m http.server 8000
 | Spanish | Cervantes (Don Quijote), Bécquer (Obras escogidas) |
 
 Every language additionally has two hand-curated novelty corpora (in
-`curated/*.json`): **AI-isms** (chatbot clichés — *as an AI language model*,
-*als KI-Sprachmodell kann ich nicht*, *spero has litteras bene invenire*) and
-**Gen Z memes** (each language's own slang — *no cap*, *Digga das ist wild*,
-*wesh c'est carré*, *sine pileo frater*, *ἀληθῶς ἀληθῶς λέγω ὑμῖν ἀδελφοί*).
+`curated/*.json`), with native labels that match their actual register:
+chatbot clichés where they really are chatbot clichés (**AI-isms**,
+**Muletillas de la IA**, **Frasi fatte dell'IA**, **קלישאות בינה מלאכותית**),
+blends labeled as blends (**KI-Floskeln & Amtsdeutsch**, **Tics de l'IA &
+de dissertation**), and scholastic/philosophical formulas for the ancient
+tongues (**Formulae scholasticae**, **Λόγοι τῶν φιλοσόφων**); plus youth
+slang (**Gen Z memes**, **Jugendsprache**, **Argot des jeunes**, **Jerga
+juvenil**, **Slang giovanile**, **Sermo iuvenum**, **Γλῶττα τῶν νέων**,
+**סלנג ישראלי**).
 
 The contabulate-derived corpora reuse the n-gram token data from the
 [contabulate.org](https://contabulate.org) instances; the "general" corpora
@@ -51,8 +56,9 @@ so you mostly practice the vocabulary that matters most in that corpus.
 - Corpora keep original case (`spricht der HERR`, `dijo don Quijote`): words
   display the most common cased form found in the text. Matching ignores case
   by default; turn on **Match case** to require capitals — good German practice.
-- **Forgiving keys** mode: accent/diacritic-insensitive matching (on by
-  default for polytonic Ancient Greek; also folds Hebrew final letters and ß).
+- **Forgiving keys** mode, on by default: type plain letters for accents,
+  umlauts and diacritics (ä→a, ß→s, polytonic Greek, Hebrew final letters).
+  Turn it off for strict practice.
 - Hebrew renders right-to-left; you type in normal (logical) letter order.
 - First keystroke locks a target, like the original arcade game; Tab cycles
   the lock to another zombie (handy when the target is still off-screen).
