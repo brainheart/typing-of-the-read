@@ -471,7 +471,8 @@ function tuned(pair) {
 
 
 // ---------- the librarian and her books ----------
-const READER_MOODS = { 3: "👩‍🏫", 2: "😨", 1: "😱", 0: "😵" };
+// the same librarian throughout: teaching, fretting, flailing, felled, dancing
+const READER_MOODS = { 3: "👩‍🏫", 2: "🙍‍♀️", 1: "🙅‍♀️", 0: "🧎‍♀️" };
 
 function resetDesk() {
   for (const side of ["l", "r"]) {
@@ -509,7 +510,7 @@ function updateReaderMood() {
 
 function celebrate() {
   const reader = $("reader");
-  reader.textContent = "🥳";
+  reader.textContent = "💃";
   reader.classList.remove("worried", "panicked");
   reader.classList.add("jazzed");
   const party = ["🎉", "✨", "🎊", "📚", "🎉", "✨"];
