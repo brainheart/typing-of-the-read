@@ -151,8 +151,8 @@ CURATED = ROOT / "curated"
 # labels are native to each language
 AIISMS_NAMES = {
     "en": "AI-isms",
-    "de": "KI-Floskeln & Amtsdeutsch",
-    "fr": "Tics de l\u2019IA & de dissertation",
+    "de": "KI-Floskeln",
+    "fr": "Tics de l\u2019IA",
     "es": "Muletillas de la IA",
     "it": "Frasi fatte dell\u2019IA",
     "la": "Formulae scholasticae",
@@ -172,6 +172,11 @@ GENZ_NAMES = {
 for _lang in ["en", "de", "fr", "es", "it", "la", "grc", "he"]:
     CORPORA.append((f"aiisms-{_lang}", AIISMS_NAMES[_lang], _lang, _lang == "he", "curated", (CURATED / "aiisms.json", _lang)))
     CORPORA.append((f"genz-{_lang}", GENZ_NAMES[_lang], _lang, _lang == "he", "curated", (CURATED / "genz.json", _lang)))
+
+# split-out single-language novelty corpora
+CORPORA.append(("amtsdeutsch-de", "Amtsdeutsch", "de", False, "curated", (CURATED / "amtsdeutsch.json", "de")))
+CORPORA.append(("dissertation-fr", "Style de dissertation", "fr", False, "curated", (CURATED / "dissertation.json", "fr")))
+CORPORA.append(("constitution-en", "Claude\u2019s Constitution", "en", False, "curated", (CURATED / "constitution.json", "en")))
 
 
 def from_curated(source, lang):

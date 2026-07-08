@@ -141,7 +141,7 @@
  },
  {
   "id": "aiisms-de",
-  "name": "KI-Floskeln & Amtsdeutsch",
+  "name": "KI-Floskeln",
   "lang": "de",
   "langName": "German",
   "rtl": false
@@ -155,7 +155,7 @@
  },
  {
   "id": "aiisms-fr",
-  "name": "Tics de l’IA & de dissertation",
+  "name": "Tics de l’IA",
   "lang": "fr",
   "langName": "French",
   "rtl": false
@@ -236,5 +236,26 @@
   "lang": "he",
   "langName": "Hebrew",
   "rtl": true
+ },
+ {
+  "id": "amtsdeutsch-de",
+  "name": "Amtsdeutsch",
+  "lang": "de",
+  "langName": "German",
+  "rtl": false
+ },
+ {
+  "id": "dissertation-fr",
+  "name": "Style de dissertation",
+  "lang": "fr",
+  "langName": "French",
+  "rtl": false
+ },
+ {
+  "id": "constitution-en",
+  "name": "Claude’s Constitution",
+  "lang": "en",
+  "langName": "English",
+  "rtl": false
  }
 ]
