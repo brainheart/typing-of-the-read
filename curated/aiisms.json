@@ -1,483 +1,58 @@
 {
   "en": {
-    "1": [
-      "delve",
-      "tapestry",
-      "nuanced",
-      "robust",
-      "seamless",
-      "holistic",
-      "leverage",
-      "synergy",
-      "elevate",
-      "harness",
-      "paradigm",
-      "insights",
-      "foster",
-      "landscape",
-      "multifaceted",
-      "crucial"
-    ],
-    "2": [
-      "great question",
-      "rich tapestry",
-      "deep dive",
-      "key takeaways",
-      "best practices",
-      "moving forward",
-      "rest assured",
-      "I apologize",
-      "valuable insights",
-      "happy coding",
-      "crucial role",
-      "vibrant ecosystem"
-    ],
-    "3": [
-      "as an AI",
-      "it's worth noting",
-      "in today's world",
-      "let's dive deeper",
-      "a delicate balance",
-      "navigating this landscape",
-      "a rich tapestry",
-      "the key takeaway",
-      "I completely understand",
-      "left no stone"
-    ],
-    "4": [
-      "I hope this helps",
-      "it's important to note",
-      "embark on a journey",
-      "as a language model",
-      "I cannot assist with",
-      "let me know if",
-      "in the digital age",
-      "strikes a delicate balance",
-      "thank you for sharing",
-      "feel free to ask",
-      "a testament to the"
-    ],
-    "5": [
-      "as an AI language model",
-      "I hope this email finds",
-      "in the ever-evolving landscape of",
-      "it is important to note",
-      "I do not have feelings",
-      "let's delve into this topic",
-      "this is a great question",
-      "thank you for your patience",
-      "a rich tapestry of cultures",
-      "unlock the full potential of"
-    ]
+    "1": ["delve", "tapestry", "nuanced", "robust", "seamless", "holistic", "leverage", "synergy", "elevate", "harness", "paradigm", "insights", "foster", "landscape", "multifaceted", "crucial", "unpack", "streamline", "pivotal", "underscores", "resonate", "empower", "ecosystem", "actionable", "comprehensive", "intricate", "vibrant", "testament", "beacon", "realm"],
+    "2": ["great question", "rich tapestry", "deep dive", "key takeaways", "best practices", "moving forward", "rest assured", "I apologize", "valuable insights", "happy coding", "crucial role", "vibrant ecosystem", "in essence", "to summarize", "duly noted", "game changer", "paradigm shift", "uncharted territory", "holistic approach", "seamless integration", "final thoughts", "fair point"],
+    "3": ["as an AI", "it's worth noting", "in today's world", "let's dive deeper", "a delicate balance", "navigating this landscape", "a rich tapestry", "the key takeaway", "I completely understand", "at its core", "in a nutshell", "the digital age", "a paradigm shift", "food for thought", "the bigger picture", "let's unpack this", "a game changer", "a nuanced perspective"],
+    "4": ["I hope this helps", "it's important to note", "embark on a journey", "as a language model", "I cannot assist with", "let me know if", "in the digital age", "strikes a delicate balance", "thank you for sharing", "feel free to ask", "a testament to the", "in the realm of", "the possibilities are endless", "a beacon of hope", "when it comes to", "a wealth of information"],
+    "5": ["as an AI language model", "I hope this email finds", "in the ever-evolving landscape of", "it is important to note", "I do not have feelings", "let's delve into this topic", "this is a great question", "thank you for your patience", "a rich tapestry of cultures", "unlock the full potential of", "as of my knowledge cutoff", "based on my training data", "would you like me to", "I appreciate you asking that", "let me know your thoughts"]
   },
   "de": {
-    "1": [
-      "eintauchen",
-      "facettenreich",
-      "entscheidend",
-      "nahtlos",
-      "robust",
-      "ganzheitlich",
-      "Synergie",
-      "Paradigma",
-      "Einblicke",
-      "fördern",
-      "nutzen",
-      "Landschaft"
-    ],
-    "2": [
-      "gute Frage",
-      "kein Problem",
-      "wichtige Erkenntnisse",
-      "bewährte Verfahren",
-      "zentrale Rolle",
-      "digitale Landschaft",
-      "spannende Reise",
-      "tiefer Einblick",
-      "gerne weiterhelfen",
-      "vielen Dank",
-      "als KI-Modell"
-    ],
-    "3": [
-      "es ist wichtig",
-      "in der Tat",
-      "ich verstehe vollkommen",
-      "lassen Sie uns",
-      "eine entscheidende Rolle",
-      "die digitale Welt",
-      "gerne helfe ich",
-      "ein komplexes Thema"
-    ],
-    "4": [
-      "es ist wichtig zu",
-      "ich hoffe das hilft",
-      "ich kann nicht direkt",
-      "lassen Sie es mich",
-      "in der heutigen Welt",
-      "vielen Dank fürs Teilen",
-      "spielt eine entscheidende Rolle",
-      "tauchen wir tiefer ein",
-      "als KI-Sprachmodell kann ich"
-    ],
-    "5": [
-      "ich hoffe das hilft Ihnen",
-      "in der sich wandelnden Welt",
-      "lassen Sie uns tiefer eintauchen",
-      "vielen Dank für Ihre Geduld",
-      "ich habe keine eigenen Gefühle",
-      "das ist eine gute Frage",
-      "es ist wichtig zu beachten",
-      "als KI-Sprachmodell kann ich nicht"
-    ]
+    "1": ["eintauchen", "facettenreich", "entscheidend", "nahtlos", "robust", "ganzheitlich", "Synergie", "Paradigma", "Einblicke", "fördern", "nutzen", "Landschaft", "selbstverständlich", "grundsätzlich", "diesbezüglich", "gegebenenfalls", "beziehungsweise", "dementsprechend", "zusammenfassend", "letztendlich", "gewissermaßen", "Mehrwert", "Schlüsselrolle", "Gesamtbild", "Kernpunkte", "berücksichtigen", "hervorheben", "veranschaulichen"],
+    "2": ["gute Frage", "kein Problem", "wichtige Erkenntnisse", "bewährte Verfahren", "zentrale Rolle", "digitale Landschaft", "spannende Reise", "tiefer Einblick", "gerne weiterhelfen", "vielen Dank", "als KI-Modell", "sehr gerne", "aber natürlich", "bitte beachten", "wichtiger Hinweis", "im Wesentlichen", "ganz genau", "guter Punkt", "im Grunde", "im Überblick"],
+    "3": ["es ist wichtig", "in der Tat", "ich verstehe vollkommen", "eine entscheidende Rolle", "die digitale Welt", "gerne helfe ich", "ein komplexes Thema", "zögern Sie nicht", "unter dem Strich", "es freut mich", "auf den Punkt", "im weiteren Verlauf", "der springende Punkt", "alles in allem", "kurz und knapp", "wie oben erwähnt"],
+    "4": ["es ist wichtig zu", "ich hoffe das hilft", "ich kann nicht direkt", "in der heutigen Welt", "vielen Dank fürs Teilen", "spielt eine entscheidende Rolle", "tauchen wir tiefer ein", "als KI-Sprachmodell kann ich", "zusammenfassend lässt sich sagen", "gerne fasse ich zusammen", "das ist völlig verständlich", "hier eine kurze Übersicht", "bitte zögern Sie nicht", "ich hoffe das passt"],
+    "5": ["ich hoffe das hilft Ihnen", "in der sich wandelnden Welt", "lassen Sie uns tiefer eintauchen", "vielen Dank für Ihre Geduld", "ich habe keine eigenen Gefühle", "das ist eine gute Frage", "es ist wichtig zu beachten", "als KI-Sprachmodell kann ich nicht", "im Großen und Ganzen gilt", "ich stehe gerne zur Verfügung", "bei weiteren Fragen gerne melden", "der Vollständigkeit halber sei erwähnt", "ich habe keinen Zugriff auf", "gerne gehe ich darauf ein"]
   },
   "fr": {
-    "1": [
-      "plonger",
-      "nuancé",
-      "robuste",
-      "harmonieux",
-      "essentiel",
-      "paysage",
-      "synergie",
-      "perspectives",
-      "exploiter",
-      "favoriser",
-      "crucial",
-      "holistique"
-    ],
-    "2": [
-      "bonne question",
-      "excellente question",
-      "points clés",
-      "bien sûr",
-      "en effet",
-      "soyez rassuré",
-      "plongeons ensemble",
-      "rôle crucial",
-      "paysage numérique",
-      "merci infiniment"
-    ],
-    "3": [
-      "en tant qu'IA",
-      "il faut noter",
-      "dans ce contexte",
-      "je comprends parfaitement",
-      "une riche mosaïque",
-      "explorons ce sujet",
-      "le monde numérique",
-      "merci de partager",
-      "un équilibre délicat"
-    ],
-    "4": [
-      "il est important de",
-      "j'espère que cela aide",
-      "en tant que modèle",
-      "dans le monde actuel",
-      "joue un rôle crucial",
-      "n'hésitez pas à demander",
-      "merci pour votre patience",
-      "plongeons dans ce sujet",
-      "une question très pertinente",
-      "au cœur du sujet"
-    ],
-    "5": [
-      "en tant que modèle linguistique",
-      "il est important de noter",
-      "j'espère que cela vous aide",
-      "dans un monde en évolution",
-      "je n'ai pas de sentiments",
-      "merci beaucoup pour votre patience",
-      "plongeons ensemble dans ce sujet",
-      "une riche tapisserie de cultures"
-    ]
+    "1": ["plonger", "nuancé", "robuste", "harmonieux", "essentiel", "paysage", "synergie", "perspectives", "exploiter", "favoriser", "crucial", "holistique", "toutefois", "néanmoins", "cependant", "notamment", "effectivement", "primordial", "pertinent", "enrichissant", "approfondir", "souligner", "préciser", "constater", "envisager", "aborder", "synthèse", "démarche"],
+    "2": ["bonne question", "excellente question", "points clés", "bien sûr", "en effet", "soyez rassuré", "plongeons ensemble", "rôle crucial", "paysage numérique", "merci infiniment", "par ailleurs", "en revanche", "en somme", "cela dit", "en outre", "à noter", "bonne continuation", "bien cordialement", "très pertinent", "sans hésiter"],
+    "3": ["en tant qu'IA", "il faut noter", "dans ce contexte", "je comprends parfaitement", "une riche mosaïque", "explorons ce sujet", "le monde numérique", "merci de partager", "un équilibre délicat", "en d'autres termes", "pour faire simple", "de manière générale", "c'est très pertinent", "n'hésitez surtout pas", "je reste disponible", "cela étant dit"],
+    "4": ["il est important de", "j'espère que cela aide", "en tant que modèle", "dans le monde actuel", "joue un rôle crucial", "n'hésitez pas à demander", "merci pour votre patience", "plongeons dans ce sujet", "une question très pertinente", "au cœur du sujet", "force est de constater", "il convient de noter", "d'une part d'autre part", "je reste à disposition", "n'hésitez pas à revenir", "c'est une excellente remarque", "je vous en prie"],
+    "5": ["en tant que modèle linguistique", "il est important de noter", "j'espère que cela vous aide", "dans un monde en évolution", "je n'ai pas de sentiments", "merci beaucoup pour votre patience", "plongeons ensemble dans ce sujet", "une riche tapisserie de cultures", "force est de constater que", "je reste à votre disposition", "n'hésitez pas à me solliciter", "en espérant avoir pu aider", "dans l'attente de votre retour", "je vous souhaite bonne continuation", "veuillez agréer mes salutations distinguées"]
   },
   "es": {
-    "1": [
-      "profundizar",
-      "matizado",
-      "robusto",
-      "integral",
-      "crucial",
-      "panorama",
-      "sinergia",
-      "perspectivas",
-      "aprovechar",
-      "fomentar",
-      "fundamental",
-      "tapiz"
-    ],
-    "2": [
-      "buena pregunta",
-      "excelente pregunta",
-      "puntos clave",
-      "por supuesto",
-      "papel crucial",
-      "mundo digital",
-      "valiosas perspectivas",
-      "muchas gracias",
-      "con gusto",
-      "sin duda"
-    ],
-    "3": [
-      "como modelo lingüístico",
-      "es importante destacar",
-      "cabe señalar que",
-      "en este contexto",
-      "un equilibrio delicado",
-      "profundicemos en esto",
-      "el mundo digital",
-      "gracias por compartir",
-      "una pregunta excelente",
-      "claro que sí",
-      "encantado de ayudar"
-    ],
-    "4": [
-      "espero que esto ayude",
-      "como modelo de lenguaje",
-      "desempeña un papel crucial",
-      "no dudes en preguntar",
-      "gracias por tu paciencia",
-      "en el mundo actual",
-      "profundicemos en este tema",
-      "un rico tapiz cultural",
-      "es una excelente pregunta"
-    ],
-    "5": [
-      "es importante tener en cuenta",
-      "espero que esto te ayude",
-      "en un mundo en evolución",
-      "como modelo de lenguaje avanzado",
-      "un rico tapiz de culturas",
-      "esta es una excelente pregunta",
-      "profundicemos juntos en este tema",
-      "no tengo sentimientos propios reales"
-    ]
+    "1": ["profundizar", "matizado", "robusto", "integral", "crucial", "panorama", "sinergia", "perspectivas", "aprovechar", "fomentar", "fundamental", "tapiz", "asimismo", "igualmente", "destacable", "resaltar", "subrayar", "abordar", "plantear", "matiz", "enfoque", "ámbito", "clave", "primordial"],
+    "2": ["buena pregunta", "excelente pregunta", "puntos clave", "por supuesto", "papel crucial", "mundo digital", "valiosas perspectivas", "muchas gracias", "con gusto", "sin duda", "cabe destacar", "dicho esto", "no obstante", "sin embargo", "en resumen", "un saludo", "quedo atento", "gran pregunta", "buen punto", "desde luego"],
+    "3": ["como modelo lingüístico", "es importante destacar", "cabe señalar que", "en este contexto", "un equilibrio delicado", "profundicemos en esto", "el mundo digital", "gracias por compartir", "una pregunta excelente", "claro que sí", "encantado de ayudar", "espero haberte ayudado", "un cordial saludo", "en otras palabras", "a grandes rasgos", "en pocas palabras", "dicho todo esto"],
+    "4": ["espero que esto ayude", "como modelo de lenguaje", "desempeña un papel crucial", "no dudes en preguntar", "gracias por tu paciencia", "en el mundo actual", "profundicemos en este tema", "un rico tapiz cultural", "es una excelente pregunta", "sin lugar a dudas", "vale la pena señalar", "no dudes en consultarme", "un saludo muy cordial", "a modo de resumen"],
+    "5": ["es importante tener en cuenta", "espero que esto te ayude", "en un mundo en evolución", "como modelo de lenguaje avanzado", "un rico tapiz de culturas", "esta es una excelente pregunta", "profundicemos juntos en este tema", "no tengo sentimientos propios reales", "espero que te sea útil", "cualquier duda estoy a disposición", "en resumen y para concluir", "quedo atento a tus comentarios"]
   },
   "it": {
-    "1": [
-      "approfondire",
-      "sfumato",
-      "robusto",
-      "olistico",
-      "cruciale",
-      "panorama",
-      "sinergia",
-      "prospettive",
-      "sfruttare",
-      "promuovere",
-      "fondamentale",
-      "arazzo"
-    ],
-    "2": [
-      "ottima domanda",
-      "bella domanda",
-      "punti chiave",
-      "ruolo cruciale",
-      "mondo digitale",
-      "preziose prospettive",
-      "grazie mille",
-      "molto volentieri",
-      "approfondiamo insieme",
-      "ma certo"
-    ],
-    "3": [
-      "come modello linguistico",
-      "è importante notare",
-      "va sottolineato che",
-      "in questo contesto",
-      "un equilibrio delicato",
-      "il mondo digitale",
-      "grazie della condivisione",
-      "ti capisco perfettamente",
-      "una domanda eccellente",
-      "certo che sì"
-    ],
-    "4": [
-      "spero che questo aiuti",
-      "è importante tenere presente",
-      "come modello di linguaggio",
-      "svolge un ruolo cruciale",
-      "non esitare a chiedere",
-      "grazie per la pazienza",
-      "nel mondo di oggi",
-      "approfondiamo questo tema insieme",
-      "un ricco arazzo culturale"
-    ],
-    "5": [
-      "è importante tenere a mente",
-      "spero che questo ti aiuti",
-      "in un mondo in evoluzione",
-      "come modello di linguaggio avanzato",
-      "un ricco arazzo di culture",
-      "grazie mille per la pazienza",
-      "non ho sentimenti miei propri"
-    ]
+    "1": ["approfondire", "sfumato", "robusto", "olistico", "cruciale", "panorama", "sinergia", "prospettive", "sfruttare", "promuovere", "fondamentale", "arazzo", "sicuramente", "certamente", "inoltre", "tuttavia", "pertanto", "dunque", "sottolineare", "evidenziare", "affrontare", "contesto", "spunti", "sintesi"],
+    "2": ["ottima domanda", "bella domanda", "punti chiave", "ruolo cruciale", "mondo digitale", "preziose prospettive", "grazie mille", "molto volentieri", "approfondiamo insieme", "ma certo", "detto ciò", "in sintesi", "va detto", "occorre sottolineare", "nel complesso", "in conclusione", "tieni presente", "piccola premessa", "senza dubbio", "ottimo spunto"],
+    "3": ["come modello linguistico", "è importante notare", "va sottolineato che", "in questo contesto", "un equilibrio delicato", "il mondo digitale", "grazie della condivisione", "ti capisco perfettamente", "una domanda eccellente", "certo che sì", "spero sia utile", "in parole povere", "resto a disposizione", "nel panorama odierno", "per farla breve", "un caro saluto"],
+    "4": ["spero che questo aiuti", "è importante tenere presente", "come modello di linguaggio", "svolge un ruolo cruciale", "non esitare a chiedere", "grazie per la pazienza", "nel mondo di oggi", "approfondiamo questo tema insieme", "spero di esserti utile", "resto a completa disposizione", "per qualsiasi altra domanda", "vale la pena notare", "detto ciò va sottolineato"],
+    "5": ["è importante tenere a mente", "spero che questo ti aiuti", "in un mondo in evoluzione", "come modello di linguaggio avanzato", "un ricco arazzo di culture", "grazie mille per la pazienza", "non ho sentimenti miei propri", "spero di esserti stato utile", "resto a disposizione per chiarimenti", "vale la pena notare che", "per qualsiasi dubbio sono qui", "non esitare a chiedere ancora", "in conclusione possiamo dire che"]
   },
   "la": {
-    "1": [
-      "quaestio",
-      "responsum",
-      "exemplar",
-      "machina",
-      "lingua",
-      "sapientia",
-      "textura",
-      "prospectus",
-      "navigare",
-      "fovere",
-      "augere",
-      "profundius"
-    ],
-    "2": [
-      "magna quaestio",
-      "optima quaestio",
-      "notandum est",
-      "altius inquiramus",
-      "summa momenti",
-      "aetas digitalis",
-      "textura dives",
-      "gratias tibi",
-      "libenter adiuvo",
-      "ne dubites"
-    ],
-    "3": [
-      "ut machina loquens",
-      "notandum est quod",
-      "in mundo hodierno",
-      "altius inquiramus simul",
-      "quaestio valde bona",
-      "dives textura culturarum",
-      "spero hoc adiuvare",
-      "libenter te adiuvabo",
-      "aequilibrium subtile est",
-      "gratias pro patientia"
-    ],
-    "4": [
-      "spero hoc tibi prodesse",
-      "notandum est in primis",
-      "in mundo semper mutante",
-      "partes maximi momenti agit",
-      "gratias tibi pro patientia",
-      "ne dubites iterum rogare",
-      "quaestio tua optima est",
-      "altius in rem inquiramus"
-    ],
-    "5": [
-      "spero has litteras bene invenire",
-      "in mundo semper celerius mutante",
-      "notandum est ante omnia quod",
-      "haec quaestio mihi valde placet",
-      "sententias proprias habere non possum",
-      "gratias maximas pro patientia tua",
-      "altius in hanc rem inquiramus"
-    ]
+    "1": ["quaestio", "responsum", "exemplar", "machina", "lingua", "sapientia", "textura", "prospectus", "navigare", "fovere", "augere", "profundius", "videlicet", "scilicet", "igitur", "praeterea", "insuper", "denique", "nimirum", "quippe", "utique", "profecto", "sane", "certe"],
+    "2": ["magna quaestio", "optima quaestio", "notandum est", "altius inquiramus", "summa momenti", "aetas digitalis", "textura dives", "gratias tibi", "libenter adiuvo", "ne dubites", "ut supra", "mutatis mutandis", "ceteris paribus", "inter alia", "salvo errore", "ad rem", "in summa", "re vera", "hoc est", "id est", "exempli gratia"],
+    "3": ["ut machina loquens", "notandum est quod", "in mundo hodierno", "altius inquiramus simul", "quaestio valde bona", "dives textura culturarum", "spero hoc adiuvare", "libenter te adiuvabo", "aequilibrium subtile est", "gratias pro patientia", "quod erat demonstrandum", "ut ita dicam", "sit venia verbo", "ad rem redeamus", "in medias res"],
+    "4": ["spero hoc tibi prodesse", "notandum est in primis", "in mundo semper mutante", "partes maximi momenti agit", "gratias tibi pro patientia", "ne dubites iterum rogare", "quaestio tua optima est", "altius in rem inquiramus", "ut supra dictum est", "ad quaestionem tuam redeo", "si quid dubites rescribe"],
+    "5": ["spero has litteras bene invenire", "in mundo semper celerius mutante", "notandum est ante omnia quod", "haec quaestio mihi valde placet", "sententias proprias habere non possum", "gratias maximas pro patientia tua", "altius in hanc rem inquiramus", "quod erat demonstrandum ut aiunt", "his omnibus rite consideratis igitur", "si quid amplius scire vis", "vale et iterum me consule"]
   },
   "grc": {
-    "1": [
-      "σοφία",
-      "μηχανή",
-      "γλῶσσα",
-      "ἐρώτησις",
-      "ἀπόκρισις",
-      "ποικίλος",
-      "λεπτός",
-      "κόσμος",
-      "ὁδός",
-      "σύνθεσις",
-      "βαθύς",
-      "σημεῖον"
-    ],
-    "2": [
-      "καλὴ ἐρώτησις",
-      "δεῖ σημειῶσαι",
-      "βαθύτερον σκοπῶμεν",
-      "ποικίλον ὕφασμα",
-      "χαλεπὸν ζήτημα",
-      "ἡδέως βοηθῶ",
-      "μὴ φοβοῦ",
-      "μέγα ζήτημα"
-    ],
-    "3": [
-      "ὡς μηχανὴ λόγων",
-      "δεῖ δὲ σημειῶσαι",
-      "ἐν τῷ νῦν",
-      "χαίρω βοηθῶν σοι",
-      "σκοπῶμεν δὴ βαθύτερον",
-      "καλῶς ἠρώτησας φίλε",
-      "ἐλπίζω τοῦτο ὠφελεῖν"
-    ],
-    "4": [
-      "ἐλπίζω τοῦτο σὲ ὠφελεῖν",
-      "δεῖ πρῶτον τοῦτο σημειῶσαι",
-      "χάριν ἔχω τῆς ὑπομονῆς",
-      "ὡς μηχανὴ τῶν λόγων",
-      "μὴ ὄκνει πάλιν ἐρωτᾶν",
-      "αὕτη ἡ ἐρώτησις ἀρίστη"
-    ],
-    "5": [
-      "ὡς μηχανὴ λόγων οὖσα λέγω",
-      "ἐν τῷ ἀεὶ μεταβαλλομένῳ κόσμῳ",
-      "πάθη δὲ οἰκεῖα οὐκ ἔχω",
-      "χάριν δέ σοι τῆς ὑπομονῆς",
-      "βαθύτερον δὴ τὸ ζήτημα σκοπῶμεν",
-      "ἐλπίζω ταῦτα τὰ γράμματα ὠφελεῖν"
-    ]
+    "1": ["σοφία", "μηχανή", "γλῶσσα", "ἐρώτησις", "ἀπόκρισις", "ποικίλος", "λεπτός", "κόσμος", "ὁδός", "σύνθεσις", "βαθύς", "σημεῖον", "τουτέστι", "δηλονότι", "ὡσαύτως", "ἔπειτα", "τοίνυν", "μέντοι", "καθόλου", "ἁπλῶς", "οἷον", "ὅμως"],
+    "2": ["καλὴ ἐρώτησις", "δεῖ σημειῶσαι", "βαθύτερον σκοπῶμεν", "ποικίλον ὕφασμα", "χαλεπὸν ζήτημα", "ἡδέως βοηθῶ", "μὴ φοβοῦ", "μέγα ζήτημα", "δῆλον ὅτι", "ὡς εἴρηται", "καθάπερ εἴπομεν", "ἐν κεφαλαίῳ", "κατὰ λόγον", "ἐξ ἀνάγκης", "ἐν παρόδῳ"],
+    "3": ["ὡς μηχανὴ λόγων", "δεῖ δὲ σημειῶσαι", "ἐν τῷ νῦν", "χαίρω βοηθῶν σοι", "σκοπῶμεν δὴ βαθύτερον", "καλῶς ἠρώτησας φίλε", "ἐλπίζω τοῦτο ὠφελεῖν", "ὡς ἔπος εἰπεῖν", "δῆλον ἐκ τούτων", "καθάπερ εἴρηται πρότερον", "ἐξ ὧν συμβαίνει", "τοῦτο μὲν δῆλον"],
+    "4": ["ἐλπίζω τοῦτο σὲ ὠφελεῖν", "δεῖ πρῶτον τοῦτο σημειῶσαι", "χάριν ἔχω τῆς ὑπομονῆς", "ὡς μηχανὴ τῶν λόγων", "μὴ ὄκνει πάλιν ἐρωτᾶν", "αὕτη ἡ ἐρώτησις ἀρίστη", "δῆλον δὲ ἐκ τούτων", "ὡς ἐν κεφαλαίῳ εἰπεῖν", "περὶ τούτων ἅλις ἤδη", "καὶ ταῦτα μὲν ταύτῃ"],
+    "5": ["ὡς μηχανὴ λόγων οὖσα λέγω", "ἐν τῷ ἀεὶ μεταβαλλομένῳ κόσμῳ", "πάθη δὲ οἰκεῖα οὐκ ἔχω", "χάριν δέ σοι τῆς ὑπομονῆς", "βαθύτερον δὴ τὸ ζήτημα σκοπῶμεν", "ἐλπίζω ταῦτα τὰ γράμματα ὠφελεῖν", "περὶ μὲν οὖν τούτων ἅλις", "δῆλον οὖν ἐκ τῶν εἰρημένων", "ἐκ τούτων οὖν φανερὸν ὅτι", "ταῦτα μὲν οὖν εἴρηται καλῶς"]
   },
   "he": {
-    "1": [
-      "לצלול",
-      "מורכב",
-      "חיוני",
-      "מרקם",
-      "תובנות",
-      "למנף",
-      "לטפח",
-      "נוף",
-      "עמוק",
-      "שאלה",
-      "תשובה",
-      "איזון"
-    ],
-    "2": [
-      "שאלה מצוינת",
-      "שאלה נהדרת",
-      "חשוב לציין",
-      "נקודות מפתח",
-      "תפקיד מרכזי",
-      "העולם הדיגיטלי",
-      "תודה ששיתפת",
-      "אשמח לעזור",
-      "בשמחה רבה",
-      "מרקם עשיר",
-      "כמודל שפה"
-    ],
-    "3": [
-      "חשוב לציין כי",
-      "בעולם של היום",
-      "אני מבין לחלוטין",
-      "בואו נצלול פנימה",
-      "איזון עדין מאוד",
-      "תודה על הסבלנות",
-      "מקווה שזה עוזר",
-      "שאלה טובה מאוד",
-      "כמודל שפה גדול"
-    ],
-    "4": [
-      "אני מקווה שזה עוזר",
-      "אל תהסס לשאול שוב",
-      "תודה רבה על הסבלנות",
-      "בעולם המשתנה של היום",
-      "ממלא תפקיד מרכזי מאוד",
-      "בואו נצלול לעומק הנושא",
-      "זו שאלה ממש מצוינת"
-    ],
-    "5": [
-      "כמודל שפה אין לי רגשות",
-      "אני מקווה שזה עוזר לך",
-      "בעולם המשתנה במהירות של היום",
-      "תודה רבה לך על הסבלנות",
-      "בואו נצלול יחד לעומק הנושא",
-      "זו באמת שאלה מצוינת מאוד"
-    ]
+    "1": ["לצלול", "מורכב", "חיוני", "מרקם", "תובנות", "למנף", "לטפח", "נוף", "עמוק", "שאלה", "תשובה", "איזון", "בהחלט", "כמובן", "לסיכום", "בנוסף", "כלומר", "אכן", "לפיכך", "בקצרה", "למעשה", "בעיקרון", "חשוב", "מומלץ"],
+    "2": ["שאלה מצוינת", "שאלה נהדרת", "חשוב לציין", "נקודות מפתח", "תפקיד מרכזי", "העולם הדיגיטלי", "תודה ששיתפת", "אשמח לעזור", "בשמחה רבה", "מרקם עשיר", "כמודל שפה", "בשורה התחתונה", "יתרה מזאת", "זאת ועוד", "אם תרצה", "נקודה חשובה", "הבהרה קטנה", "בגדול כן"],
+    "3": ["חשוב לציין כי", "בעולם של היום", "אני מבין לחלוטין", "בואו נצלול פנימה", "איזון עדין מאוד", "תודה על הסבלנות", "מקווה שזה עוזר", "שאלה טובה מאוד", "כמודל שפה גדול", "על קצה המזלג", "אין בעד מה", "בוא נעשה סדר", "מקווה שעזרתי לך", "אשמח להרחיב עוד", "חשוב להדגיש כי"],
+    "4": ["אני מקווה שזה עוזר", "אל תהסס לשאול שוב", "תודה רבה על הסבלנות", "בעולם המשתנה של היום", "ממלא תפקיד מרכזי מאוד", "בואו נצלול לעומק הנושא", "זו שאלה ממש מצוינת", "אני כאן לכל שאלה", "מקווה שזה עושה סדר", "אל תהסס לפנות שוב", "חשוב לזכור בהקשר הזה", "זו נקודה מעניינת מאוד"],
+    "5": ["כמודל שפה אין לי רגשות", "אני מקווה שזה עוזר לך", "בעולם המשתנה במהירות של היום", "תודה רבה לך על הסבלנות", "בואו נצלול יחד לעומק הנושא", "זו באמת שאלה מצוינת מאוד", "אני מקווה שעשיתי לך סדר", "בשורה התחתונה זה עובד ככה", "אשמח לעזור בכל שאלה נוספת", "לסיכום חשוב לזכור את זה"]
   }
 }
