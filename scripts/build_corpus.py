@@ -129,6 +129,8 @@ CORPORA = [
     ("shakespeare", "Shakespeare — Complete Works", "en", False, "lines", CONTAB / "shakespeare-contabulate/docs/lines/all_lines.json"),
     ("kjv", "King James Bible", "en", False, "lines", CONTAB / "kjv-contabulate/docs/lines/all_lines.json"),
     ("melville", "Herman Melville", "en", False, "lines", CONTAB / "melville-contabulate/docs/lines/all_lines.json"),
+    ("austen", "Jane Austen — six novels", "en", False, "text",
+     ["a_pp.txt", "a_emma.txt", "a_ss.txt", "a_pers.txt", "a_na.txt", "a_mp.txt"]),
     ("alice", "Alice in Wonderland (general)", "en", False, "text", ["alice.txt"]),
     ("luther", "Luther Bible", "de", False, "lines", CONTAB / "luther-contabulate/docs/lines/all_lines.json"),
     ("grimm", "Grimms Märchen (general)", "de", False, "text", ["grimm.txt"]),

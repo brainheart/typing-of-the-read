@@ -16,7 +16,7 @@ cd docs && python3 -m http.server 8000
 
 | Language | Corpora |
 |---|---|
-| English | Shakespeare, King James Bible, Melville, Alice in Wonderland |
+| English | Shakespeare, King James Bible, Melville, Jane Austen, Alice in Wonderland |
 | German | Luther Bible, Grimms Märchen |
 | Hebrew | Tanakh, Pirkei Avot + Mishnah Berakhot |
 | Ancient Greek | Homer (Iliad & Odyssey), Greek New Testament (SBLGNT) |
@@ -101,7 +101,8 @@ Output goes to `docs/data/*.json` plus a `manifest.json`.
   `~/proj/contabulates/*/docs/lines/all_lines.json`.
 - Gutenberg texts into `sources/texts/` (via `https://www.gutenberg.org/cache/epub/<id>/pg<id>.txt`):
   alice=11, quijote=2000, candide=4650, verne=5097, grimm=77905,
-  pinocchio=52484, caesar=18837, cuentos=53552.
+  pinocchio=52484, caesar=18837, cuentos=53552; Austen (a_pp, a_emma, a_ss,
+  a_pers, a_na, a_mp) = 1342, 158, 161, 105, 121, 141.
 - `gnt.txt`: SBLGNT verse text from <https://github.com/LogosBible/SBLGNT>
   (strip the `Book C:V<tab>` prefixes).
 - `avot.txt`: Pirkei Avot 1–6 + Mishnah Berakhot 1–9 via the Sefaria API

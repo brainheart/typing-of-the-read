@@ -21,6 +21,13 @@
   "rtl": false
  },
  {
+  "id": "austen",
+  "name": "Jane Austen — six novels",
+  "lang": "en",
+  "langName": "English",
+  "rtl": false
+ },
+ {
   "id": "alice",
   "name": "Alice in Wonderland (general)",
   "lang": "en",
