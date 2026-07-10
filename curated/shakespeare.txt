@@ -1,0 +1,87 @@
+# Shakespeare — the greatest hits
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word -> level 1 ... 5 words -> level 5 (6+ words are skipped).
+# Blank lines and # comments are ignored. Rebuild: python3 scripts/build_corpus.py shakespeare
+
+forsooth
+hark
+alas
+prithee
+wherefore
+anon
+methinks
+alack
+fie
+zounds
+sirrah
+knave
+varlet
+bodkin
+hurlyburly
+incarnadine
+dagger
+Yorick
+Falstaff
+Ophelia
+Macbeth
+Verona
+Elsinore
+nunnery
+tempest
+midsummer
+soliloquy
+quietus
+
+star-crossed lovers
+poor Yorick
+sweet sorrow
+mortal coil
+primrose path
+salad days
+sea change
+green-eyed monster
+damned spot
+witching hour
+wild-goose chase
+fair Verona
+household words
+strange bedfellows
+fatal vision
+
+et tu Brute
+out damned spot
+alas poor Yorick
+brave new world
+band of brothers
+we happy few
+wherefore art thou
+screw your courage
+hell is empty
+all that glisters
+get thee gone
+the beast with
+
+the play's the thing
+what dreams may come
+a pound of flesh
+the dogs of war
+the quality of mercy
+uneasy lies the head
+the lady doth protest
+is this a dagger
+the fault dear Brutus
+get thee to a
+
+all the world's a stage
+my kingdom for a horse
+parting is such sweet sorrow
+something wicked this way comes
+once more unto the breach
+the winter of our discontent
+frailty thy name is woman
+the milk of human kindness
+what fools these mortals be
+double double toil and trouble
+cry havoc and let slip
+now is the winter of

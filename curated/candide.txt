@@ -1,0 +1,44 @@
+# Voltaire, Candide — the greatest hits
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word -> level 1 ... 5 words -> level 5 (6+ words are skipped).
+# Blank lines and # comments are ignored. Rebuild: python3 scripts/build_corpus.py candide
+
+Candide
+Pangloss
+Cunégonde
+Westphalie
+Eldorado
+optimisme
+philosophe
+auto-da-fé
+Cacambo
+Martin
+jésuite
+baronne
+jardin
+Anabaptiste
+Surinam
+
+pauvre Candide
+cher Pangloss
+mademoiselle Cunégonde
+la raison suffisante
+les moutons rouges
+
+cultiver notre jardin
+tout est bien
+mangeons du jésuite
+cause et effet
+la meilleure baronne
+
+le meilleur des mondes
+point d'effet sans cause
+travaillons sans raisonner donc
+dans ce meilleur monde
+
+il faut cultiver notre jardin
+le meilleur des mondes possibles
+tout est pour le mieux
+faits pour porter des lunettes
+si c'est ici le meilleur

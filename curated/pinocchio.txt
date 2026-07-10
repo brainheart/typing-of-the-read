@@ -1,0 +1,45 @@
+# Pinocchio — the greatest hits
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word -> level 1 ... 5 words -> level 5 (6+ words are skipped).
+# Blank lines and # comments are ignored. Rebuild: python3 scripts/build_corpus.py pinocchio
+
+Pinocchio
+Geppetto
+burattino
+Lucignolo
+Mangiafoco
+grillo
+fata
+naso
+bugie
+ciuchino
+pescecane
+zecchini
+falegname
+marionetta
+abbecedario
+teatro
+
+povero Pinocchio
+caro babbo
+naso lungo
+gambe corte
+povero grillo
+
+il grillo parlante
+la fata turchina
+c'era una volta
+burattino di legno
+le gambe corte
+
+il paese dei balocchi
+il campo dei miracoli
+un pezzo di legno
+babbo mio aiutatemi presto
+
+il gatto e la volpe
+c'era una volta un re
+le bugie col naso lungo
+voglio diventare un ragazzo perbene
+semina qui i tuoi zecchini

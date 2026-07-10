@@ -1,0 +1,64 @@
+# Herman Melville — the greatest hits
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word -> level 1 ... 5 words -> level 5 (6+ words are skipped).
+# Blank lines and # comments are ignored. Rebuild: python3 scripts/build_corpus.py melville
+
+Ishmael
+Ahab
+Queequeg
+Starbuck
+Pequod
+harpoon
+whiteness
+blubber
+doubloon
+ambergris
+cetology
+typhoon
+monomaniac
+scrimshaw
+Nantucket
+chowder
+cannibal
+squall
+Bartleby
+Tashtego
+Daggoo
+Fedallah
+masthead
+try-works
+
+white whale
+Captain Ahab
+the Pequod
+the doubloon
+poor Queequeg
+moody Ahab
+white squall
+the scrivener
+dead letters
+
+call me Ishmael
+there she blows
+the white whale
+the monkey rope
+the grand armada
+the pagan harpooneers
+the spirit spout
+a dead whale
+
+a damp drizzly November
+strike through the mask
+true places never are
+from ever completing anything
+the great shroud of
+a Nantucketer he alone
+
+I would prefer not to
+the whiteness of the whale
+from hell's heart I stab
+the ungraspable phantom of life
+to the last I grapple
+and I only am escaped
+Ahab and anguish lay stretched

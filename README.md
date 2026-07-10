@@ -18,12 +18,12 @@ cd docs && python3 -m http.server 8000
 |---|---|
 | English | Shakespeare, King James Bible, Melville, Jane Austen, Alice in Wonderland |
 | German | Luther Bible, Grimms Märchen |
-| Hebrew | Tanakh, Pirkei Avot + Mishnah Berakhot |
-| Ancient Greek | Homer (Iliad & Odyssey), Greek New Testament (SBLGNT) |
+| Hebrew | Tanakh, Pirkei Avot |
+| Ancient Greek | Homer (Iliad & Odyssey), Greek New Testament |
 | Italian | Dante (Divine Comedy), Pinocchio |
 | Latin | Virgil (Aeneid), Caesar (De Bello Gallico) |
 | French | Voltaire (Candide), Jules Verne (20 000 lieues) |
-| Spanish | Cervantes (Don Quijote), Bécquer (Obras escogidas) |
+| Spanish | Cervantes (Don Quijote), Bécquer (Rimas y Leyendas) |
 
 Every language additionally has hand-curated novelty corpora, with native
 labels that match their actual register:
@@ -36,9 +36,11 @@ slang (**Gen Z memes**, **Jugendsprache**, **Argot des jeunes**, **Jerga
 juvenil**, **Slang giovanile**, **Sermo iuvenum**, **Γλῶττα τῶν νέων**,
 **סלנג ישראלי**).
 
-The contabulate-derived corpora reuse the n-gram token data from the
-[contabulate.org](https://contabulate.org) instances; the "general" corpora
-are built from public-domain texts (Project Gutenberg, SBLGNT, Sefaria).
+Every corpus — literary and novelty alike — is a hand-curated list of its
+most recognizable, distinctive, wow words and phrases: *out damned spot*,
+*Rumpelstilzchen*, *ῥοδοδάκτυλος Ἠώς*, *molinos de viento*, *il faut
+cultiver notre jardin*. (Earlier versions generated the literary lists by
+n-gram frequency from the full texts; curation won.)
 
 ## Levels
 
@@ -48,8 +50,7 @@ are built from public-domain texts (Project Gutenberg, SBLGNT, Sefaria).
 4. **Four-word phrases** (4-grams)
 5. **Five-word phrases** (5-grams — `And it came to pass`…)
 
-Clear 15 zombies to advance. Word choice is frequency-weighted (√-flattened),
-so you mostly practice the vocabulary that matters most in that corpus.
+Clear 15 zombies to advance.
 
 ## Features
 
@@ -82,40 +83,17 @@ so you mostly practice the vocabulary that matters most in that corpus.
 The site lives entirely in `docs/`. Create a GitHub repo, push, then enable
 **Settings → Pages → Deploy from branch → `main` / `docs/`**.
 
-## Editing the curated word lists
+## Editing the word lists
 
-Each curated corpus is a plain text file in `curated/` (e.g.
+Every corpus is a plain text file in `curated/` (e.g. `curated/shakespeare.txt`,
 `curated/genz-en.txt`): **one word or phrase per line**, and the number of
 words decides the level (1 word = level 1 … 5 words = level 5; 6+ words are
 skipped with a warning). Blank lines and `#` comments are ignored, duplicates
 are reported, order doesn't matter. Add lines as inspiration strikes, then:
 
 ```bash
-python3 scripts/build_corpus.py genz-en   # rebuild just that corpus
+python3 scripts/build_corpus.py shakespeare   # rebuild just that corpus
+python3 scripts/build_corpus.py               # or everything
 ```
 
-## Rebuilding corpus data
-
-```bash
-python3 scripts/build_corpus.py            # all corpora
-python3 scripts/build_corpus.py kjv homer  # just some
-```
-
-Sources are read from `sources/` (downloaded texts and remote contabulate
-token files) and from local `~/proj/contabulates/*/docs/data` where present.
-Output goes to `docs/data/*.json` plus a `manifest.json`.
-
-`sources/` is not committed; to recreate it:
-
-- Remote contabulate line data (original cased text):
-  `https://{homer,dante,aeneid}.contabulate.org/lines/all_lines.json`
-  into `sources/<site>/`; local instances are read straight from
-  `~/proj/contabulates/*/docs/lines/all_lines.json`.
-- Gutenberg texts into `sources/texts/` (via `https://www.gutenberg.org/cache/epub/<id>/pg<id>.txt`):
-  alice=11, quijote=2000, candide=4650, verne=5097, grimm=77905,
-  pinocchio=52484, caesar=18837, cuentos=53552; Austen (a_pp, a_emma, a_ss,
-  a_pers, a_na, a_mp) = 1342, 158, 161, 105, 121, 141.
-- `gnt.txt`: SBLGNT verse text from <https://github.com/LogosBible/SBLGNT>
-  (strip the `Book C:V<tab>` prefixes).
-- `avot.txt`: Pirkei Avot 1–6 + Mishnah Berakhot 1–9 via the Sefaria API
-  (`https://www.sefaria.org/api/texts/...`), HTML tags stripped.
+then commit and push — GitHub Pages redeploys automatically.

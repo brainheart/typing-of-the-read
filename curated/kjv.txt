@@ -1,0 +1,90 @@
+# King James Bible — the greatest hits
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word -> level 1 ... 5 words -> level 5 (6+ words are skipped).
+# Blank lines and # comments are ignored. Rebuild: python3 scripts/build_corpus.py kjv
+
+begat
+verily
+behold
+smite
+smote
+hearken
+thee
+thou
+thine
+unto
+covenant
+leviathan
+behemoth
+manna
+shibboleth
+jubilee
+selah
+hosanna
+hallelujah
+firmament
+brimstone
+pestilence
+Jezebel
+Goliath
+Nazareth
+Gethsemane
+Golgotha
+Babylon
+Eden
+Zion
+
+fear not
+be fruitful
+holy ground
+burning bush
+golden calf
+promised land
+forbidden fruit
+fiery furnace
+still waters
+green pastures
+prodigal son
+good Samaritan
+doubting Thomas
+judgment day
+graven image
+my beloved
+
+in the beginning
+my brother's keeper
+milk and honey
+dust thou art
+fear and trembling
+vanity of vanities
+physician heal thyself
+the eleventh hour
+feet of clay
+reap the whirlwind
+by bread alone
+o death where
+
+let there be light
+let my people go
+a still small voice
+the powers that be
+cast the first stone
+the salt of the
+shall make you free
+my cup runneth over
+the valley of the
+o ye of little
+
+an eye for an eye
+the writing on the wall
+am I my brother's keeper
+the root of all evil
+no room at the inn
+flowing with milk and honey
+a thorn in the flesh
+the apple of his eye
+a wolf in sheep's clothing
+how are the mighty fallen
+the blind lead the blind
+the spirit indeed is willing

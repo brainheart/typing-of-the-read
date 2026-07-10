@@ -1,0 +1,57 @@
+# Virgil, Aeneid — the greatest hits
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word -> level 1 ... 5 words -> level 5 (6+ words are skipped).
+# Blank lines and # comments are ignored. Rebuild: python3 scripts/build_corpus.py aeneid
+
+Aeneas
+Dido
+Turnus
+Lavinia
+Anchises
+Ascanius
+Carthago
+Latium
+Troia
+penates
+fatum
+pietas
+furor
+arma
+Avernus
+Sibylla
+Charon
+Elissa
+Rumor
+
+arma virumque
+timeo Danaos
+facilis descensus
+Acheronta movebo
+pius Aeneas
+fama volat
+mirabile dictu
+
+arma virumque cano
+fata viam invenient
+sunt lacrimae rerum
+audentis Fortuna iuvat
+facilis descensus Averno
+dux femina facti
+tantae molis erat
+varium et mutabile
+una salus victis
+
+haec olim meminisse iuvabit
+agnosco veteris vestigia flammae
+quidquid id est timeo
+tu ne cede malis
+sic itur ad astra
+flectere si nequeo superos
+et mentem mortalia tangunt
+
+timeo Danaos et dona ferentes
+varium et mutabile semper femina
+infandum regina iubes renovare dolorem
+tantae molis erat Romanam condere
+sed contra audentior ito qua

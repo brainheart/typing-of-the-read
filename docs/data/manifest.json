@@ -1,7 +1,7 @@
 [
  {
   "id": "shakespeare",
-  "name": "Shakespeare — Complete Works",
+  "name": "Shakespeare",
   "lang": "en",
   "langName": "English",
   "rtl": false
@@ -22,14 +22,14 @@
  },
  {
   "id": "austen",
-  "name": "Jane Austen — six novels",
+  "name": "Jane Austen",
   "lang": "en",
   "langName": "English",
   "rtl": false
  },
  {
   "id": "alice",
-  "name": "Alice in Wonderland (general)",
+  "name": "Alice in Wonderland",
   "lang": "en",
   "langName": "English",
   "rtl": false
@@ -43,7 +43,7 @@
  },
  {
   "id": "grimm",
-  "name": "Grimms Märchen (general)",
+  "name": "Grimms Märchen",
   "lang": "de",
   "langName": "German",
   "rtl": false
@@ -57,7 +57,7 @@
  },
  {
   "id": "avot",
-  "name": "Pirkei Avot (general)",
+  "name": "Pirkei Avot",
   "lang": "he",
   "langName": "Hebrew",
   "rtl": true
@@ -71,7 +71,7 @@
  },
  {
   "id": "gnt",
-  "name": "Greek New Testament (general)",
+  "name": "Greek New Testament",
   "lang": "grc",
   "langName": "Ancient Greek",
   "rtl": false
@@ -85,7 +85,7 @@
  },
  {
   "id": "pinocchio",
-  "name": "Pinocchio (general)",
+  "name": "Pinocchio",
   "lang": "it",
   "langName": "Italian",
   "rtl": false
@@ -99,7 +99,7 @@
  },
  {
   "id": "caesar",
-  "name": "Caesar — De Bello Gallico (general)",
+  "name": "Caesar — De Bello Gallico",
   "lang": "la",
   "langName": "Latin",
   "rtl": false
@@ -113,7 +113,7 @@
  },
  {
   "id": "verne",
-  "name": "Jules Verne — 20.000 lieues (general)",
+  "name": "Jules Verne — 20.000 lieues",
   "lang": "fr",
   "langName": "French",
   "rtl": false
@@ -127,7 +127,7 @@
  },
  {
   "id": "cuentos",
-  "name": "Bécquer — Obras escogidas (general)",
+  "name": "Bécquer — Rimas y Leyendas",
   "lang": "es",
   "langName": "Spanish",
   "rtl": false
@@ -147,6 +147,13 @@
   "rtl": false
  },
  {
+  "id": "constitution-en",
+  "name": "Claude’s Constitution",
+  "lang": "en",
+  "langName": "English",
+  "rtl": false
+ },
+ {
   "id": "aiisms-de",
   "name": "KI-Floskeln",
   "lang": "de",
@@ -161,6 +168,13 @@
   "rtl": false
  },
  {
+  "id": "amtsdeutsch-de",
+  "name": "Amtsdeutsch",
+  "lang": "de",
+  "langName": "German",
+  "rtl": false
+ },
+ {
   "id": "aiisms-fr",
   "name": "Tics de l’IA",
   "lang": "fr",
@@ -170,6 +184,13 @@
  {
   "id": "genz-fr",
   "name": "Argot des jeunes",
+  "lang": "fr",
+  "langName": "French",
+  "rtl": false
+ },
+ {
+  "id": "dissertation-fr",
+  "name": "Style de dissertation",
   "lang": "fr",
   "langName": "French",
   "rtl": false
@@ -243,26 +264,5 @@
   "lang": "he",
   "langName": "Hebrew",
   "rtl": true
- },
- {
-  "id": "amtsdeutsch-de",
-  "name": "Amtsdeutsch",
-  "lang": "de",
-  "langName": "German",
-  "rtl": false
- },
- {
-  "id": "dissertation-fr",
-  "name": "Style de dissertation",
-  "lang": "fr",
-  "langName": "French",
-  "rtl": false
- },
- {
-  "id": "constitution-en",
-  "name": "Claude’s Constitution",
-  "lang": "en",
-  "langName": "English",
-  "rtl": false
  }
 ]

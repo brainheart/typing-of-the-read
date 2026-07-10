@@ -1,0 +1,69 @@
+# Alice in Wonderland — the greatest hits
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word -> level 1 ... 5 words -> level 5 (6+ words are skipped).
+# Blank lines and # comments are ignored. Rebuild: python3 scripts/build_corpus.py alice
+
+Wonderland
+Cheshire
+Hatter
+Dormouse
+Duchess
+Gryphon
+treacle
+curiouser
+brillig
+slithy
+Jabberwock
+Bandersnatch
+vorpal
+galumphing
+chortle
+frumious
+borogoves
+uffish
+tulgey
+mimsy
+croquet
+flamingo
+hedgehog
+teacup
+
+drink me
+eat me
+white rabbit
+Cheshire Cat
+mad Hatter
+March Hare
+Mock Turtle
+tea party
+golden key
+beautiful Soup
+callooh callay
+the Jabberwock
+
+curiouser and curiouser
+down the rabbit-hole
+a mad tea-party
+beware the Jabberwock
+o frabjous day
+who are you
+six impossible things
+the Queen's croquet-ground
+
+off with her head
+we're all mad here
+I shall be late
+and the slithy toves
+sentence first verdict afterwards
+begin at the beginning
+soup of the evening
+the time has come
+of cabbages and kings
+
+beware the Jabberwock my son
+six impossible things before breakfast
+won't you join the dance
+a raven like a writing-desk
+to talk of many things
+one side will make you

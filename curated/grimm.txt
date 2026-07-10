@@ -1,0 +1,60 @@
+# Grimms Märchen — the greatest hits
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word -> level 1 ... 5 words -> level 5 (6+ words are skipped).
+# Blank lines and # comments are ignored. Rebuild: python3 scripts/build_corpus.py grimm
+
+Rotkäppchen
+Aschenputtel
+Rumpelstilzchen
+Rapunzel
+Schneewittchen
+Dornröschen
+Froschkönig
+Hexe
+Zwerge
+Knusperhäuschen
+Lebkuchen
+Spindel
+Spieglein
+Wolf
+Großmutter
+Müllerstochter
+Stroh
+Gold
+Märchen
+Königssohn
+Brunnen
+Turm
+
+Frau Holle
+böse Hexe
+sieben Zwerge
+Spieglein Spieglein
+knusper knusper
+goldene Kugel
+tiefer Wald
+armes Mädchen
+
+es war einmal
+Hänsel und Gretel
+der böse Wolf
+die sieben Zwerge
+heute back ich
+morgen brau ich
+ein tiefer Brunnen
+
+lass dein Haar herunter
+Blut ist im Schuh
+bei den sieben Zwergen
+was für große Augen
+wer ist die Schönste
+dass ich dich besser
+
+Spieglein Spieglein an der Wand
+die Schönste im ganzen Land
+wenn sie nicht gestorben sind
+wie gut dass niemand weiß
+dass ich Rumpelstilzchen heiß
+Rapunzel Rapunzel lass dein Haar
+wer knuspert an meinem Häuschen

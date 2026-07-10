@@ -1,0 +1,43 @@
+# Jules Verne, Vingt mille lieues — the greatest hits
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word -> level 1 ... 5 words -> level 5 (6+ words are skipped).
+# Blank lines and # comments are ignored. Rebuild: python3 scripts/build_corpus.py verne
+
+Nautilus
+Nemo
+Aronnax
+Conseil
+poulpe
+scaphandre
+abîme
+harpon
+Atlantide
+banquise
+Pacifique
+sous-marin
+hublot
+tonnerre
+monstre
+
+capitaine Nemo
+le Nautilus
+monstre marin
+calmar géant
+maître Land
+pôle Sud
+
+mobilis in mobili
+vingt mille lieues
+le calmar géant
+les forêts sous-marines
+
+la mer est tout
+au fond des mers
+là seulement est l'indépendance
+le maître du Nautilus
+des profondeurs de l'océan
+
+mille lieues sous les mers
+un monstre d'une taille colossale
+la mer ne dépend pas

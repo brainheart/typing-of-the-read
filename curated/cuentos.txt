@@ -1,0 +1,45 @@
+# Bécquer, Rimas y Leyendas — the greatest hits
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word -> level 1 ... 5 words -> level 5 (6+ words are skipped).
+# Blank lines and # comments are ignored. Rebuild: python3 scripts/build_corpus.py cuentos
+
+Bécquer
+rima
+leyenda
+golondrinas
+arpa
+Toledo
+Soria
+Moncayo
+claustro
+fantasma
+rayo
+luna
+miserere
+órgano
+suspiro
+
+oscuras golondrinas
+ojos verdes
+el miserere
+habrá poesía
+arpa olvidada
+
+rayo de luna
+los ojos verdes
+qué es poesía
+poesía eres tú
+cuánta nota dormía
+tal vez olvidada
+
+volverán las oscuras golondrinas
+en el ángulo oscuro
+sus nidos a colgar
+de su dueño tal vez
+
+el monte de las ánimas
+del salón en el ángulo
+mientras haya en el mundo
+aquellas que aprendieron nuestros nombres
+como yo te he querido

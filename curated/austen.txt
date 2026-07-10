@@ -1,0 +1,72 @@
+# Jane Austen — the greatest hits
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word -> level 1 ... 5 words -> level 5 (6+ words are skipped).
+# Blank lines and # comments are ignored. Rebuild: python3 scripts/build_corpus.py austen
+
+Darcy
+Pemberley
+Longbourn
+Netherfield
+Bennet
+Wickham
+Bingley
+Rosings
+Elinor
+Marianne
+Willoughby
+Emma
+Knightley
+Highbury
+Wentworth
+amiable
+agreeable
+felicity
+vexation
+impertinence
+condescension
+sensibility
+persuasion
+matrimony
+accomplished
+disagreeable
+insufferable
+chaperone
+
+Mr Darcy
+Miss Bennet
+Lady Catherine
+Captain Wentworth
+Colonel Brandon
+universally acknowledged
+dear Jane
+violent love
+handsome fortune
+ardent admiration
+
+badly done Emma
+dearest loveliest Elizabeth
+obstinate headstrong girl
+a single man
+poor Miss Taylor
+my dear Lizzy
+an excellent match
+such happy manners
+
+a truth universally acknowledged
+half agony half hope
+you pierce my soul
+ten thousand a year
+how ardently I admire
+tolerable but not handsome
+my good opinion once
+the shades of Pemberley
+I never knew myself
+
+in want of a wife
+in vain have I struggled
+a single man in possession
+have loved none but you
+my good opinion once lost
+one half of the world
+you must allow me to

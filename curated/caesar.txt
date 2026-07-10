@@ -1,0 +1,52 @@
+# Caesar, De Bello Gallico — the greatest hits
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word -> level 1 ... 5 words -> level 5 (6+ words are skipped).
+# Blank lines and # comments are ignored. Rebuild: python3 scripts/build_corpus.py caesar
+
+Caesar
+Gallia
+Helvetii
+Belgae
+Aquitani
+Rhenus
+legio
+castra
+obsides
+vallum
+cohors
+centurio
+Vercingetorix
+Alesia
+Genava
+Ariovistus
+oppidum
+hiberna
+imperator
+
+partes tres
+obsides dare
+proelium committere
+res frumentaria
+magno itinere
+summa celeritate
+prima luce
+
+veni vidi vici
+alea iacta est
+fortissimi sunt Belgae
+in partes tres
+his rebus gestis
+de tertia vigilia
+inter se differunt
+
+Gallia est omnis divisa
+quorum unam incolunt Belgae
+quam maximis potest itineribus
+re frumentaria comparata Caesar
+hostes terga verterunt celeriter
+
+omnis divisa in partes tres
+horum omnium fortissimi sunt Belgae
+a cultu atque humanitate provinciae
+proximique sunt Germanis qui trans

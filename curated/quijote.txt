@@ -1,0 +1,49 @@
+# Cervantes, Don Quijote — the greatest hits
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word -> level 1 ... 5 words -> level 5 (6+ words are skipped).
+# Blank lines and # comments are ignored. Rebuild: python3 scripts/build_corpus.py quijote
+
+Quijote
+Sancho
+Rocinante
+Dulcinea
+Mancha
+hidalgo
+molinos
+gigantes
+escudero
+caballería
+yelmo
+Mambrino
+ínsula
+aventura
+andante
+Panza
+bachiller
+encantadores
+
+caballero andante
+amigo Sancho
+ínsula Barataria
+fermosa Dulcinea
+los encantadores
+
+molinos de viento
+yo sé quién soy
+la fermosa Dulcinea
+luchar contra molinos
+la Triste Figura
+
+el yelmo de Mambrino
+la sin par Dulcinea
+no son gigantes Sancho
+vuestra merced mire bien
+
+un lugar de la Mancha
+no son gigantes sino molinos
+de cuyo nombre no quiero
+la razón de la sinrazón
+Caballero de la Triste Figura
+con la iglesia hemos dado
+la libertad Sancho es uno

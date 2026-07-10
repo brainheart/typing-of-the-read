@@ -1,0 +1,65 @@
+# Luther Bible — the greatest hits (incl. Luther's coinages)
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word -> level 1 ... 5 words -> level 5 (6+ words are skipped).
+# Blank lines and # comments are ignored. Rebuild: python3 scripts/build_corpus.py luther
+
+HERR
+Zebaoth
+Halleluja
+Amen
+Manna
+Sündenbock
+Feuereifer
+Herzenslust
+Lückenbüßer
+Machtwort
+Denkzettel
+Morgenland
+Nächstenliebe
+Ebenbild
+Sintflut
+Posaune
+Pharisäer
+Krippe
+Bethlehem
+Golgatha
+Feigenblatt
+Judaskuss
+Lästermaul
+Kainsmal
+
+der HERR
+gelobtes Land
+verbotene Frucht
+goldenes Kalb
+barmherziger Samariter
+verlorener Sohn
+ungläubiger Thomas
+brennender Dornbusch
+Zeichen und Wunder
+
+es werde Licht
+fürchtet euch nicht
+Auge um Auge
+Zahn um Zahn
+der gute Hirte
+Milch und Honig
+Wolf im Schafspelz
+Staub zu Staub
+
+Perlen vor die Säue
+auf Herz und Nieren
+im Schweiße deines Angesichts
+der Geist ist willig
+ein Dorn im Auge
+nicht vom Brot allein
+mit seinen Pfunden wuchern
+
+ein Herz und eine Seele
+im Anfang war das Wort
+wer andern eine Grube gräbt
+Hochmut kommt vor dem Fall
+sein Licht unter den Scheffel
+niemand kann zwei Herren dienen
+Suchet so werdet ihr finden

@@ -1,0 +1,56 @@
+# Dante — the greatest hits
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word -> level 1 ... 5 words -> level 5 (6+ words are skipped).
+# Blank lines and # comments are ignored. Rebuild: python3 scripts/build_corpus.py dante
+
+Inferno
+Purgatorio
+Paradiso
+Virgilio
+Beatrice
+Caronte
+Minosse
+Cerbero
+Ulisse
+Farinata
+Paolo
+Francesca
+selva
+stelle
+contrapasso
+bolgia
+lonza
+veltro
+terzina
+smarrito
+
+selva oscura
+diritta via
+le stelle
+gran rifiuto
+fiero pasto
+selva selvaggia
+tanto gentile
+
+lasciate ogni speranza
+il gran rifiuto
+dolce stil novo
+l'amor che move
+esta selva selvaggia
+e quindi uscimmo
+
+nel mezzo del cammin
+galeotto fu il libro
+non ragioniam di lor
+ma guarda e passa
+a viver come bruti
+considerate la vostra semenza
+tanto gentile e tanto
+
+lasciate ogni speranza voi ch'entrate
+uscimmo a riveder le stelle
+per seguir virtute e canoscenza
+l'amor che move il sole
+più non vi leggemmo avante
+e caddi come corpo morto
