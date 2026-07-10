@@ -1,0 +1,158 @@
+# AI-isms (Italian)
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word  -> level 1        4 words -> level 4
+#   2 words -> level 2        5 words -> level 5
+#   3 words -> level 3        (6+ words are skipped with a warning)
+# Blank lines and lines starting with # are ignored. Order doesn't matter.
+# After editing, rebuild with:  python3 scripts/build_corpus.py <corpus-id>
+
+
+approfondire
+sfumato
+robusto
+olistico
+cruciale
+panorama
+sinergia
+prospettive
+sfruttare
+promuovere
+fondamentale
+arazzo
+sicuramente
+certamente
+inoltre
+tuttavia
+pertanto
+dunque
+sottolineare
+evidenziare
+affrontare
+contesto
+spunti
+sintesi
+ottimizzare
+potenziare
+valorizzare
+chiarire
+riassumere
+affascinante
+appassionante
+illuminante
+rivelatore
+conciso
+pratico
+accessibile
+panoramica
+quadro
+schema
+cardine
+fulcro
+ambito
+apporto
+scoperta
+proposta
+portata
+rilevante
+significativo
+
+ottima domanda
+bella domanda
+punti chiave
+ruolo cruciale
+mondo digitale
+preziose prospettive
+grazie mille
+molto volentieri
+approfondiamo insieme
+ma certo
+detto ciò
+in sintesi
+va detto
+occorre sottolineare
+nel complesso
+in conclusione
+tieni presente
+piccola premessa
+senza dubbio
+ottimo spunto
+buona idea
+ottimo punto
+tema affascinante
+curiosità interessante
+punto chiave
+breve riassunto
+in breve
+tutto chiaro
+con piacere
+cordiali saluti
+buona giornata
+ottima osservazione
+giusta osservazione
+vediamo insieme
+
+come modello linguistico
+è importante notare
+va sottolineato che
+in questo contesto
+un equilibrio delicato
+il mondo digitale
+grazie della condivisione
+ti capisco perfettamente
+una domanda eccellente
+certo che sì
+spero sia utile
+in parole povere
+resto a disposizione
+nel panorama odierno
+per farla breve
+un caro saluto
+con molto piacere
+andiamo per gradi
+in due parole
+ecco un riassunto
+è un piacere
+te lo spiego
+vediamo nel dettaglio
+punto per punto
+spero sia chiaro
+
+spero che questo aiuti
+è importante tenere presente
+come modello di linguaggio
+svolge un ruolo cruciale
+non esitare a chiedere
+grazie per la pazienza
+nel mondo di oggi
+approfondiamo questo tema insieme
+spero di esserti utile
+resto a completa disposizione
+per qualsiasi altra domanda
+vale la pena notare
+detto ciò va sottolineato
+ecco i punti chiave
+spero che sia chiaro
+te lo spiego subito
+vediamo tutto nel dettaglio
+è un'ottima domanda questa
+detto in parole povere
+facciamo il punto insieme
+
+è importante tenere a mente
+spero che questo ti aiuti
+in un mondo in evoluzione
+come modello di linguaggio avanzato
+un ricco arazzo di culture
+grazie mille per la pazienza
+non ho sentimenti miei propri
+spero di esserti stato utile
+resto a disposizione per chiarimenti
+vale la pena notare che
+per qualsiasi dubbio sono qui
+non esitare a chiedere ancora
+in conclusione possiamo dire che
+spero che ora sia chiaro
+te lo spiego passo passo
+grazie per questa bella domanda
+facciamo il punto della situazione

@@ -1,0 +1,173 @@
+# AI-isms (German)
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word  -> level 1        4 words -> level 4
+#   2 words -> level 2        5 words -> level 5
+#   3 words -> level 3        (6+ words are skipped with a warning)
+# Blank lines and lines starting with # are ignored. Order doesn't matter.
+# After editing, rebuild with:  python3 scripts/build_corpus.py <corpus-id>
+
+
+eintauchen
+facettenreich
+entscheidend
+nahtlos
+robust
+ganzheitlich
+Synergie
+Paradigma
+Einblicke
+fördern
+nutzen
+Landschaft
+Mehrwert
+Schlüsselrolle
+Gesamtbild
+Kernpunkte
+berücksichtigen
+hervorheben
+veranschaulichen
+ausschöpfen
+vertiefen
+Wechselspiel
+Spannungsfeld
+Innovationskraft
+Zukunftsfähigkeit
+Wertschöpfung
+Potenzial
+Chancen
+optimieren
+skalieren
+priorisieren
+Meilenstein
+Fahrplan
+Rahmenwerk
+Strategie
+Impulse
+Denkanstoß
+zielführend
+praxisnah
+greifbar
+spannend
+bereichernd
+wegweisend
+zukunftsweisend
+maßgeschneidert
+passgenau
+niederschwellig
+Handlungsempfehlung
+Zwischenfazit
+Ausblick
+Quintessenz
+Kernaussage
+Perspektivwechsel
+Impulsgeber
+Praxisbeispiel
+Erfolgsfaktor
+
+gute Frage
+kein Problem
+wichtige Erkenntnisse
+bewährte Verfahren
+zentrale Rolle
+digitale Landschaft
+spannende Reise
+tiefer Einblick
+gerne weiterhelfen
+vielen Dank
+als KI-Modell
+sehr gerne
+guter Punkt
+spannende Möglichkeiten
+großes Potenzial
+wertvolle Einblicke
+echter Mehrwert
+entscheidender Vorteil
+klare Antwort
+gerne nochmal
+spannendes Thema
+wichtiger Punkt
+kurzer Überblick
+zur Einordnung
+gerne erklärt
+kein Thema
+alles klar
+gute Wahl
+kurz gesagt
+einfach erklärt
+gern geschehen
+wichtig dabei
+zur Übersicht
+gutes Gelingen
+starker Auftakt
+kleiner Tipp
+
+ich verstehe vollkommen
+eine entscheidende Rolle
+die digitale Welt
+gerne helfe ich
+ein komplexes Thema
+zögern Sie nicht
+es freut mich
+tauchen wir ein
+das ist spannend
+große Freude bereitet
+echten Mehrwert bietet
+wichtige Rolle spielt
+gerne mehr dazu
+spannende neue Möglichkeiten
+klar und verständlich
+kurz zusammengefasst gesagt
+freut mich sehr
+gerne noch einmal
+hier die Zusammenfassung
+kurz und bündig
+auf einen Blick
+Schritt für Schritt
+leicht verständlich erklärt
+das Wichtigste zuerst
+ein spannender Punkt
+gern erkläre ich
+hier ein Überblick
+was bedeutet das
+
+ich hoffe das hilft
+ich kann nicht direkt
+in der heutigen Welt
+vielen Dank fürs Teilen
+spielt eine entscheidende Rolle
+tauchen wir tiefer ein
+als KI-Sprachmodell kann ich
+gerne fasse ich zusammen
+das ist völlig verständlich
+bitte zögern Sie nicht
+ich hoffe das passt
+eine spannende neue Perspektive
+das eröffnet neue Möglichkeiten
+gerne gehe ich näher
+ich erkläre es gerne
+hier die wichtigsten Punkte
+schauen wir genauer hin
+das lässt sich einrichten
+gerne noch ein Beispiel
+hier eine einfache Erklärung
+was heißt das konkret
+freut mich zu hören
+
+ich hoffe das hilft Ihnen
+lassen Sie uns tiefer eintauchen
+vielen Dank für Ihre Geduld
+ich habe keine eigenen Gefühle
+das ist eine gute Frage
+als KI-Sprachmodell kann ich nicht
+ich stehe gerne zur Verfügung
+bei weiteren Fragen gerne melden
+ich habe keinen Zugriff auf
+gerne gehe ich darauf ein
+das freut mich sehr zu
+ich hoffe das war hilfreich
+gerne erkläre ich es nochmal
+hier die wichtigsten Punkte zusammengefasst
+schauen wir uns das an
+das freut mich zu hören
+ich helfe Ihnen gerne weiter

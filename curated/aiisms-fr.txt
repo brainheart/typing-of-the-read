@@ -1,0 +1,159 @@
+# AI-isms (French)
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word  -> level 1        4 words -> level 4
+#   2 words -> level 2        5 words -> level 5
+#   3 words -> level 3        (6+ words are skipped with a warning)
+# Blank lines and lines starting with # are ignored. Order doesn't matter.
+# After editing, rebuild with:  python3 scripts/build_corpus.py <corpus-id>
+
+
+plonger
+nuancé
+robuste
+harmonieux
+essentiel
+paysage
+synergie
+perspectives
+exploiter
+favoriser
+crucial
+holistique
+approfondir
+enrichissant
+pertinent
+primordial
+potentiel
+dynamique
+novateur
+transformateur
+valoriser
+catalyseur
+levier
+écosystème
+panorama
+tremplin
+incontournable
+prometteur
+optimiser
+décrypter
+éclairer
+explorer
+découvrir
+passionnant
+fascinant
+remarquable
+judicieux
+astucieux
+limpide
+concret
+pratique
+accessible
+aperçu
+récapitulatif
+éclairage
+piste
+essor
+atout
+repère
+panoplie
+
+bonne question
+excellente question
+points clés
+bien sûr
+plongeons ensemble
+rôle crucial
+paysage numérique
+merci infiniment
+très pertinent
+sans hésiter
+grande question
+nouvelles perspectives
+fort potentiel
+réelle valeur
+avantage certain
+réponse claire
+volontiers encore
+question passionnante
+bonne idée
+avec plaisir
+beau sujet
+vaste sujet
+bonne remarque
+point important
+petit rappel
+en bref
+en clair
+sujet passionnant
+piste intéressante
+idée reçue
+cas concret
+exemple parlant
+réponse rapide
+vaste question
+
+en tant qu'IA
+je comprends parfaitement
+une riche mosaïque
+explorons ce sujet
+le monde numérique
+merci de partager
+un équilibre délicat
+c'est très pertinent
+n'hésitez surtout pas
+plongeons dans ceci
+quelle belle question
+cela m'intéresse beaucoup
+avec grand plaisir
+en quelques mots
+c'est très intéressant
+pas de souci
+en un mot
+c'est bien vu
+voici un aperçu
+petit tour d'horizon
+pour résumer donc
+je vous explique
+voyons cela ensemble
+un point important
+c'est un plaisir
+en toute simplicité
+
+en tant que modèle
+dans le monde actuel
+joue un rôle crucial
+n'hésitez pas à demander
+plongeons dans ce sujet
+une question très pertinente
+au cœur du sujet
+j'espère que cela aide
+c'est une excellente remarque
+je vous en prie
+voici quelques pistes intéressantes
+cela ouvre de nouvelles
+voici les points clés
+reprenons depuis le début
+faisons le point ensemble
+un petit tour d'horizon
+c'est une bonne question
+j'espère que c'est clair
+voici un résumé rapide
+tout est plus clair
+
+en tant que modèle linguistique
+j'espère que cela vous aide
+dans un monde en évolution
+je n'ai pas de sentiments
+plongeons ensemble dans ce sujet
+une riche tapisserie de cultures
+en espérant avoir pu aider
+j'espère avoir répondu à votre
+c'est une question passionnante à
+voici quelques pistes de réflexion
+j'espère que c'est plus clair
+reprenons tout depuis le début
+merci pour cette question passionnante
+voici l'essentiel à retenir donc
+je vous explique tout cela

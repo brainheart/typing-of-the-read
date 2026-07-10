@@ -1,0 +1,162 @@
+# Amtsdeutsch (German officialese)
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word  -> level 1        4 words -> level 4
+#   2 words -> level 2        5 words -> level 5
+#   3 words -> level 3        (6+ words are skipped with a warning)
+# Blank lines and lines starting with # are ignored. Order doesn't matter.
+# After editing, rebuild with:  python3 scripts/build_corpus.py <corpus-id>
+
+
+diesbezüglich
+gegebenenfalls
+beziehungsweise
+dementsprechend
+letztendlich
+gewissermaßen
+grundsätzlich
+vorbehaltlich
+unbeschadet
+nichtsdestotrotz
+obengenannt
+untenstehend
+Sachverhalt
+Zuständigkeit
+Bearbeitungsstand
+Kenntnisnahme
+Fristablauf
+Antragstellung
+Bescheid
+Verwaltungsakt
+Rechtsmittel
+Widerspruchsfrist
+Ermessensspielraum
+Sachbearbeiter
+Aktenzeichen
+Rücksprache
+Vollständigkeit
+Maßgabe
+fristgerecht
+formlos
+rechtskräftig
+ordnungsgemäß
+antragsgemäß
+behördlich
+amtlich
+zuständigkeitshalber
+Durchführungsverordnung
+Genehmigungsverfahren
+Amtsblatt
+Dienstweg
+Formblatt
+Anlage
+Vermerk
+Verfügung
+Auflage
+Nachweis
+Stellungnahme
+Einreichung
+Bekanntmachung
+Zustellung
+
+in Anbetracht
+unter Vorbehalt
+nach Maßgabe
+im Übrigen
+gemäß Vorschrift
+wir bitten
+mit Verweis
+unter Bezugnahme
+nach Rücksprache
+im Rahmen
+unter Berücksichtigung
+laut Aktenlage
+in Kenntnis
+nach Prüfung
+im Zweifelsfall
+mit Wirkung
+gemäß Beschluss
+wie besprochen
+zur Kenntnisnahme
+nach Eingang
+der Dienstweg
+auf Antrag
+laut Verordnung
+nach Vorlage
+gegen Nachweis
+zur Vorlage
+auf Weisung
+unter Auflagen
+mit Bescheid
+zwecks Prüfung
+bei Bedarf
+nach Anhörung
+per Verfügung
+zur Prüfung
+
+unter Bezugnahme auf
+nach Maßgabe der
+im Rahmen der
+in Anbetracht der
+wir bitten um
+nach pflichtgemäßem Ermessen
+gemäß den Vorschriften
+im Übrigen wird
+es wird gebeten
+nach Rücksprache mit
+unter Berücksichtigung der
+wie bereits erwähnt
+in der Regel
+nach Ablauf der
+im vorliegenden Fall
+laut aktueller Aktenlage
+auf dem Dienstweg
+bis auf Widerruf
+nach erfolgter Prüfung
+unter dem Aktenzeichen
+zur weiteren Veranlassung
+mit sofortiger Wirkung
+vorbehaltlich der Genehmigung
+nach billigem Ermessen
+gemäß beigefügter Anlage
+laut amtlicher Bekanntmachung
+
+unter Bezugnahme auf Ihr
+nach Maßgabe der Vorschriften
+im Rahmen der Zuständigkeit
+in Anbetracht der Sachlage
+wir bitten um Verständnis
+nach pflichtgemäßem Ermessen entschieden
+gemäß den geltenden Vorschriften
+im Übrigen wird verwiesen
+es wird gebeten um
+nach Rücksprache mit der
+in der Regel ist
+unbeschadet der sonstigen Bestimmungen
+wie bereits mehrfach erwähnt
+der Antrag ist fristgerecht
+auf dem Dienstweg einzureichen
+bis auf Widerruf gestattet
+mit sofortiger Wirkung untersagt
+vorbehaltlich der erforderlichen Genehmigung
+unter dem obigen Aktenzeichen
+die Bearbeitung dauert an
+zur weiteren Veranlassung weitergeleitet
+
+unter Bezugnahme auf Ihr Schreiben
+nach Maßgabe der geltenden Vorschriften
+im Rahmen der Zuständigkeit erfolgt
+in Anbetracht der vorliegenden Sachlage
+wir bitten um Ihr Verständnis
+nach pflichtgemäßem Ermessen wurde entschieden
+im Übrigen wird verwiesen auf
+es wird gebeten um Kenntnisnahme
+nach Rücksprache mit der zuständigen
+der Antrag ist fristgerecht einzureichen
+das zuständige Amt teilt mit
+mit freundlichen Grüßen im Namen
+Ihr Antrag wird derzeit bearbeitet
+die Unterlagen sind vollständig einzureichen
+der Bescheid ergeht in Kürze
+für Rückfragen stehen wir bereit
+die Frist beginnt mit Zustellung

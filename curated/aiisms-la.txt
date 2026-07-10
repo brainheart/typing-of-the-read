@@ -1,0 +1,148 @@
+# AI-isms (Latin)
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word  -> level 1        4 words -> level 4
+#   2 words -> level 2        5 words -> level 5
+#   3 words -> level 3        (6+ words are skipped with a warning)
+# Blank lines and lines starting with # are ignored. Order doesn't matter.
+# After editing, rebuild with:  python3 scripts/build_corpus.py <corpus-id>
+
+
+quaestio
+responsum
+exemplar
+machina
+lingua
+sapientia
+textura
+prospectus
+navigare
+fovere
+augere
+profundius
+videlicet
+scilicet
+igitur
+praeterea
+insuper
+denique
+nimirum
+quippe
+utique
+profecto
+sane
+certe
+breviter
+dilucide
+perspicue
+accurate
+subtiliter
+porro
+item
+itaque
+ergo
+enimvero
+summatim
+strictim
+explicare
+illustrare
+demonstrare
+colligere
+concludere
+argumentum
+propositum
+exemplum
+
+magna quaestio
+optima quaestio
+notandum est
+altius inquiramus
+summa momenti
+aetas digitalis
+textura dives
+gratias tibi
+libenter adiuvo
+ne dubites
+ut supra
+mutatis mutandis
+ceteris paribus
+inter alia
+salvo errore
+ad rem
+in summa
+re vera
+hoc est
+id est
+exempli gratia
+nota bene
+ad libitum
+a priori
+a posteriori
+per se
+sui generis
+sine dubio
+ad hoc
+de facto
+verbi gratia
+in nuce
+pro certo
+
+ut machina loquens
+notandum est quod
+in mundo hodierno
+altius inquiramus simul
+quaestio valde bona
+dives textura culturarum
+spero hoc adiuvare
+libenter te adiuvabo
+aequilibrium subtile est
+gratias pro patientia
+quod erat demonstrandum
+ut ita dicam
+sit venia verbo
+ad rem redeamus
+in medias res
+ut breviter dicam
+rem acu tetigisti
+ut dictum est
+quod nota bene
+sed ad rem
+age nunc videamus
+his positis igitur
+de quo infra
+ne multa dicam
+
+spero hoc tibi prodesse
+notandum est in primis
+in mundo semper mutante
+partes maximi momenti agit
+gratias tibi pro patientia
+ne dubites iterum rogare
+quaestio tua optima est
+altius in rem inquiramus
+ut supra dictum est
+ad quaestionem tuam redeo
+si quid dubites rescribe
+sed ad rem redeamus
+rem acu tetigisti amice
+hoc est quod dicitur
+nunc ad propositum redeo
+de hoc satis iam
+age nunc rem videamus
+ut breviter dicam igitur
+
+spero has litteras bene invenire
+in mundo semper celerius mutante
+notandum est ante omnia quod
+haec quaestio mihi valde placet
+sententias proprias habere non possum
+gratias maximas pro patientia tua
+altius in hanc rem inquiramus
+quod erat demonstrandum ut aiunt
+his omnibus rite consideratis igitur
+si quid amplius scire vis
+vale et iterum me consule
+sed iam ad rem redeamus
+de hoc satis dictum est
+rem acu tetigisti mi amice
+nunc rem ipsam breviter explicabo

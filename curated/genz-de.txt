@@ -1,0 +1,147 @@
+# Gen Z / youth slang (German)
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word  -> level 1        4 words -> level 4
+#   2 words -> level 2        5 words -> level 5
+#   3 words -> level 3        (6+ words are skipped with a warning)
+# Blank lines and lines starting with # are ignored. Order doesn't matter.
+# After editing, rebuild with:  python3 scripts/build_corpus.py <corpus-id>
+
+
+Digga
+sheesh
+cringe
+lost
+wild
+sus
+slay
+safe
+Bre
+Ehrenmann
+Aura
+goofy
+lit
+flexen
+sigma
+Talahon
+Alman
+wallah
+Habibi
+isso
+Mashallah
+Bruh
+smash
+gönnen
+Lauch
+Kek
+Ehre
+krass
+Bratan
+Brudi
+Akhi
+Cüs
+Para
+Lellek
+nice
+wack
+fresh
+stabil
+tight
+entspannt
+gediegen
+wyld
+Maschine
+Legende
+
+kein Cap
+Digga was
+auf lock
+so lost
+komplett lost
+voll cringe
+sheesh Digga
+kein Front
+hat Aura
+null Aura
+slay Königin
+wallah Bre
+ich schwöre
+kein Stress
+voll krass
+Ehre genommen
+richtig wild
+safe Digga
+mega sus
+Alman Verhalten
+voll stabil
+kein Ding
+ganz nice
+echt wyld
+richtig fresh
+mega cringe
+Cüs Bratan
+echt stabil
+richtig goofy
+Digga nein
+Bruh Moment
+voll Para
+
+lass ihn kochen
+das ist wild
+kein Cap Digga
+Bruder muss los
+das ist sus
+voll lost Digga
+er hat Aura
+sie hat gegessen
+komplett verkocht Digga
+wallah ich schwöre
+der ist Alman
+Digga ich schwöre
+voll der Kek
+hat Aura verloren
+kein Front Bre
+isso Digga isso
+läuft bei dir
+was ein Lellek
+mach kein Auge
+er ist lost
+voll wyld Bratan
+Bratan was geht
+echt jetzt Digga
+du bist Maschine
+
+Digga das ist wild
+das ist so lost
+er hat null Aura
+kein Cap auf Gott
+lass ihn halt kochen
+Bruder muss jetzt los
+die hat komplett gegessen
+das ist mega sus
+wallah kein Front Digga
+so ein Alman Verhalten
+ich bin komplett lost
+hat komplett Aura verloren
+wallah das ist krass
+Digga mach kein Auge
+was geht ab Bratan
+der Typ ist lost
+das ist so Alman
+wallah der ist stabil
+er ist voll Lellek
+
+Digga das ist so wild
+er lebt mietfrei im Kopf
+gegessen und keine Krümel übrig
+Digga fass mal Gras an
+das ist mein römisches Reich
+kein Cap das ist wild
+der ist so ein Alman
+wallah ich schwöre kein Front
+Digga ich bin komplett lost
+Bruder das ist richtig sus
+der ist voll der Lellek
+Digga was geht hier ab
+wallah das läuft bei dir
+mach kein Auge Bratan wallah

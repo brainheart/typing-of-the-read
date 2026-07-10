@@ -1,0 +1,162 @@
+# Gen Z / youth slang (English)
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word  -> level 1        4 words -> level 4
+#   2 words -> level 2        5 words -> level 5
+#   3 words -> level 3        (6+ words are skipped with a warning)
+# Blank lines and lines starting with # are ignored. Order doesn't matter.
+# After editing, rebuild with:  python3 scripts/build_corpus.py <corpus-id>
+
+
+rizz
+sus
+bet
+slay
+mid
+bussin
+delulu
+gyat
+sigma
+cooked
+npc
+ratio
+drip
+yeet
+based
+lowkey
+highkey
+cringe
+brat
+demure
+mewing
+glazing
+yapping
+situationship
+preppy
+gaslight
+goated
+unhinged
+iconic
+feral
+bruh
+lit
+snatched
+salty
+cheugy
+mood
+oof
+stan
+simp
+flex
+vibes
+era
+core
+pookie
+zesty
+tuff
+sturdy
+dogwater
+aura
+clutch
+
+no cap
+fr fr
+touch grass
+vibe check
+it's giving
+rent free
+main character
+on god
+big yikes
+the ick
+we ball
+skibidi toilet
+npc behavior
+stay toxic
+so real
+girl dinner
+brain rot
+beige flag
+canon event
+aura points
+very demure
+fanum tax
+sigma grindset
+crash out
+the audacity
+say less
+lock in
+it's over
+he's him
+dead ass
+hits different
+no shot
+valid honestly
+kinda ate
+so cursed
+peak fiction
+actual cinema
+crazy work
+
+caught in 4k
+let him cook
+main character energy
+living rent free
+touch some grass
+down bad fr
+that's so cap
+it's giving chaos
+left no crumbs
+the rizzler rises
+understood the assignment
+in his era
+not me crying
+it's the audacity
+lost aura points
+certified canon event
+we're so back
+it's so over
+let her cook
+bro is cooked
+hear me out
+lock in bro
+that's crazy work
+this you bro
+
+it's giving main character
+caught in 4k bro
+let him cook fr
+no cap on god
+that's my roman empire
+in my flop era
+not the vibe bro
+this ain't it chief
+very demure very mindful
+he understood the assignment
+she ate that fr
+my last brain cell
+it's giving beige flag
+certified npc behavior fr
+we're so back bro
+it's so over bro
+let that sink in
+bro thinks he's him
+nah he tweakin fr
+not beating the allegations
+
+ate and left no crumbs
+it's giving main character energy
+no cap that's bussin fr
+caught in 4k on camera
+he thinks he's the rizzler
+touch grass and drink water
+this is my roman empire
+npc behavior caught on camera
+living rent free in there
+she understood the assignment fr
+not me losing aura points
+it's the audacity for me
+he's not beating the allegations
+bro fumbled the whole bag
+we are so back chat
+chat is this real bro

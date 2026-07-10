@@ -1,0 +1,187 @@
+# AI-isms (English)
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word  -> level 1        4 words -> level 4
+#   2 words -> level 2        5 words -> level 5
+#   3 words -> level 3        (6+ words are skipped with a warning)
+# Blank lines and lines starting with # are ignored. Order doesn't matter.
+# After editing, rebuild with:  python3 scripts/build_corpus.py <corpus-id>
+
+
+delve
+tapestry
+nuanced
+robust
+seamless
+holistic
+leverage
+synergy
+elevate
+harness
+paradigm
+insights
+foster
+landscape
+multifaceted
+crucial
+unpack
+streamline
+pivotal
+underscores
+resonate
+empower
+ecosystem
+actionable
+comprehensive
+intricate
+vibrant
+testament
+beacon
+realm
+journey
+narrative
+unleash
+spearhead
+catalyst
+momentum
+trajectory
+alignment
+bandwidth
+granular
+scalable
+iterate
+optimize
+curate
+ideate
+synergize
+empowering
+transformative
+groundbreaking
+invaluable
+stakeholders
+deliverables
+touchpoint
+framework
+milestone
+roadmap
+visibility
+cohesive
+dynamic
+strategic
+
+great question
+rich tapestry
+deep dive
+key takeaways
+best practices
+moving forward
+rest assured
+I apologize
+valuable insights
+happy coding
+crucial role
+vibrant ecosystem
+in essence
+to summarize
+duly noted
+game changer
+paradigm shift
+uncharted territory
+holistic approach
+seamless integration
+final thoughts
+fair point
+moving parts
+low-hanging fruit
+value proposition
+thought leadership
+core competencies
+action items
+circle back
+touch base
+pain points
+growth mindset
+big picture
+level up
+north star
+secret sauce
+win-win situation
+many thanks
+quick question
+gentle reminder
+
+as an AI
+it's worth noting
+in today's world
+let's dive deeper
+a delicate balance
+navigating this landscape
+a rich tapestry
+the key takeaway
+I completely understand
+at its core
+in a nutshell
+the digital age
+a paradigm shift
+food for thought
+the bigger picture
+let's unpack this
+a game changer
+a nuanced perspective
+at the intersection
+to that end
+with that said
+in other words
+just checking in
+hope this helps
+happy to help
+glad you asked
+more than happy
+as previously mentioned
+in summary then
+great point raised
+
+I hope this helps
+it's important to note
+embark on a journey
+as a language model
+I cannot assist with
+let me know if
+in the digital age
+strikes a delicate balance
+thank you for sharing
+feel free to ask
+a testament to the
+in the realm of
+the possibilities are endless
+a beacon of hope
+when it comes to
+a wealth of information
+per my last email
+I hope you're well
+just following up here
+at your earliest convenience
+please don't hesitate to
+hope you are well
+moving the needle forward
+in the grand scheme
+
+as an AI language model
+I hope this email finds
+in the ever-evolving landscape of
+it is important to note
+I do not have feelings
+let's delve into this topic
+this is a great question
+thank you for your patience
+a rich tapestry of cultures
+unlock the full potential of
+as of my knowledge cutoff
+based on my training data
+would you like me to
+I appreciate you asking that
+let me know your thoughts
+my apologies for the confusion
+the best of both worlds
+thank you for reaching out
+I understand your frustration completely

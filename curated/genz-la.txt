@@ -1,0 +1,132 @@
+# Gen Z / youth slang (Latin)
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word  -> level 1        4 words -> level 4
+#   2 words -> level 2        5 words -> level 5
+#   3 words -> level 3        (6+ words are skipped with a warning)
+# Blank lines and lines starting with # are ignored. Order doesn't matter.
+# After editing, rebuild with:  python3 scripts/build_corpus.py <corpus-id>
+
+
+ratio
+aura
+sigma
+verum
+suspectus
+mediocris
+coctus
+herba
+pileus
+regina
+energia
+basatus
+eheu
+papae
+sodes
+mehercule
+edepol
+actum
+ferox
+insanus
+mirabile
+audax
+immo
+minime
+macte
+euge
+furor
+insania
+ridiculum
+absurdum
+iuvenis
+senex
+barbarus
+rusticus
+gloria
+fama
+
+sine pileo
+verum verum
+tange herbam
+ille coquat
+regina es
+valde suspectus
+aura nulla
+magna aura
+proba animum
+sine sumptu
+carpe diem
+mirabile dictu
+o tempora
+acta est
+mehercule frater
+nolo contendere
+vae victis
+sic semper
+actum est
+quid agis
+macte virtute
+o fortuna
+euge frater
+senex es
+quid hoc
+insanis frater
+horribile dictu
+audi frater
+specta hoc
+
+sine pileo frater
+verum verum frater
+sinite eum coquere
+sine ullo pileo
+valde valde suspectus
+persona principalis sum
+manifesto captus est
+micas non reliquit
+alea iacta est
+et tu Brute
+carpe diem frater
+veni vidi rizzavi
+o tempora insana
+mirabile dictu frater
+vae victis frater
+quid agis frater
+senex es frater
+macte virtute esto
+horribile dictu frater
+hoc est ridiculum
+insanit ille frater
+specta hoc frater
+
+sine pileo per deum
+sinite eum coquere amici
+gratis in capite habitat
+i et tange herbam
+hoc imperium Romanum meum
+edit nec micas reliquit
+energia personae principalis est
+o tempora o mores
+sic transit gloria mundi
+alea iacta est frater
+veni vidi vici frater
+acta est fabula plaudite
+quid agis hodie frater
+hoc ridiculum est frater
+macte virtute esto frater
+o fortuna velut luna
+ille omnino insanit frater
+
+edit et nullas micas reliquit
+gratis in capite meo habitat
+hoc est imperium Romanum meum
+i nunc et tange herbam
+sine pileo per deum frater
+persona principalis huius fabulae sum
+o tempora o mores frater
+veni vidi rizzavi sine pileo
+sic transit gloria mundi frater
+et tu Brute contra me
+senex es et rusticus frater
+hoc est ridiculum sine pileo
+quid agis hodie mi frater
+ille omnino insanit mi frater

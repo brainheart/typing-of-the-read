@@ -25,8 +25,8 @@ cd docs && python3 -m http.server 8000
 | French | Voltaire (Candide), Jules Verne (20 000 lieues) |
 | Spanish | Cervantes (Don Quijote), Bécquer (Obras escogidas) |
 
-Every language additionally has two hand-curated novelty corpora (in
-`curated/*.json`), with native labels that match their actual register:
+Every language additionally has hand-curated novelty corpora, with native
+labels that match their actual register:
 chatbot clichés where they really are chatbot clichés (**AI-isms**,
 **Muletillas de la IA**, **Frasi fatte dell'IA**, **קלישאות בינה מלאכותית**),
 blends labeled as blends (**KI-Floskeln & Amtsdeutsch**, **Tics de l'IA &
@@ -48,7 +48,7 @@ are built from public-domain texts (Project Gutenberg, SBLGNT, Sefaria).
 4. **Four-word phrases** (4-grams)
 5. **Five-word phrases** (5-grams — `And it came to pass`…)
 
-Clear 22 zombies to advance. Word choice is frequency-weighted (√-flattened),
+Clear 15 zombies to advance. Word choice is frequency-weighted (√-flattened),
 so you mostly practice the vocabulary that matters most in that corpus.
 
 ## Features
@@ -81,6 +81,18 @@ so you mostly practice the vocabulary that matters most in that corpus.
 
 The site lives entirely in `docs/`. Create a GitHub repo, push, then enable
 **Settings → Pages → Deploy from branch → `main` / `docs/`**.
+
+## Editing the curated word lists
+
+Each curated corpus is a plain text file in `curated/` (e.g.
+`curated/genz-en.txt`): **one word or phrase per line**, and the number of
+words decides the level (1 word = level 1 … 5 words = level 5; 6+ words are
+skipped with a warning). Blank lines and `#` comments are ignored, duplicates
+are reported, order doesn't matter. Add lines as inspiration strikes, then:
+
+```bash
+python3 scripts/build_corpus.py genz-en   # rebuild just that corpus
+```
 
 ## Rebuilding corpus data
 

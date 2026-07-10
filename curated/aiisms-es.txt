@@ -1,0 +1,160 @@
+# AI-isms (Spanish)
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word  -> level 1        4 words -> level 4
+#   2 words -> level 2        5 words -> level 5
+#   3 words -> level 3        (6+ words are skipped with a warning)
+# Blank lines and lines starting with # are ignored. Order doesn't matter.
+# After editing, rebuild with:  python3 scripts/build_corpus.py <corpus-id>
+
+
+profundizar
+matizado
+robusto
+integral
+crucial
+panorama
+sinergia
+perspectivas
+aprovechar
+fomentar
+fundamental
+tapiz
+asimismo
+igualmente
+destacable
+resaltar
+subrayar
+abordar
+plantear
+matiz
+enfoque
+ámbito
+clave
+primordial
+optimizar
+potenciar
+impulsar
+esclarecer
+desglosar
+resumir
+apasionante
+fascinante
+revelador
+esclarecedor
+conciso
+práctico
+accesible
+panorámica
+síntesis
+esquema
+pauta
+pilar
+eje
+vertiente
+aporte
+hallazgo
+propuesta
+alcance
+
+buena pregunta
+excelente pregunta
+puntos clave
+por supuesto
+papel crucial
+mundo digital
+valiosas perspectivas
+muchas gracias
+con gusto
+sin duda
+cabe destacar
+dicho esto
+no obstante
+sin embargo
+en resumen
+un saludo
+quedo atento
+gran pregunta
+buen punto
+desde luego
+buena idea
+gran punto
+tema apasionante
+dato curioso
+punto clave
+breve resumen
+en breve
+buen apunte
+excelente punto
+vamos allá
+todo claro
+quedo pendiente
+saludos cordiales
+buen día
+
+como modelo lingüístico
+es importante destacar
+cabe señalar que
+en este contexto
+un equilibrio delicado
+profundicemos en esto
+el mundo digital
+gracias por compartir
+una pregunta excelente
+claro que sí
+encantado de ayudar
+espero haberte ayudado
+un cordial saludo
+en otras palabras
+a grandes rasgos
+en pocas palabras
+dicho todo esto
+con mucho gusto
+vamos por partes
+en resumidas cuentas
+aquí un resumen
+es un placer
+te lo explico
+veamos en detalle
+punto por punto
+espero quede claro
+aquí las claves
+
+espero que esto ayude
+como modelo de lenguaje
+desempeña un papel crucial
+no dudes en preguntar
+gracias por tu paciencia
+en el mundo actual
+profundicemos en este tema
+un rico tapiz cultural
+es una excelente pregunta
+sin lugar a dudas
+vale la pena señalar
+no dudes en consultarme
+un saludo muy cordial
+a modo de resumen
+manos a la obra
+dicho de otro modo
+vamos paso a paso
+aquí los puntos clave
+espero que quede claro
+te explico en detalle
+es una gran pregunta
+
+es importante tener en cuenta
+espero que esto te ayude
+en un mundo en evolución
+como modelo de lenguaje avanzado
+un rico tapiz de culturas
+esta es una excelente pregunta
+profundicemos juntos en este tema
+no tengo sentimientos propios reales
+espero que te sea útil
+cualquier duda estoy a disposición
+en resumen y para concluir
+quedo atento a tus comentarios
+espero que esto quede claro
+aquí tienes los puntos clave
+gracias por una pregunta excelente
+veamos esto paso a paso

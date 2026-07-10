@@ -5,7 +5,7 @@
 "use strict";
 
 // ---------- config ----------
-const KILLS_PER_LEVEL = 22;          // kills to clear a level
+const KILLS_PER_LEVEL = 15;          // kills to clear a level
 const LIVES = 3;
 const SPAWN_Y = -16;                 // % above the top edge where zombies appear
 const BITE_Y = 72;                   // % of field height where they reach the desk

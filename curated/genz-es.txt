@@ -1,0 +1,135 @@
+# Gen Z / youth slang (Spanish)
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word  -> level 1        4 words -> level 4
+#   2 words -> level 2        5 words -> level 5
+#   3 words -> level 3        (6+ words are skipped with a warning)
+# Blank lines and lines starting with # are ignored. Order doesn't matter.
+# After editing, rebuild with:  python3 scripts/build_corpus.py <corpus-id>
+
+
+bro
+literal
+cringe
+crack
+tóxico
+random
+mood
+fua
+chetado
+rayado
+flow
+tremendo
+flipar
+guay
+mazo
+chaval
+movida
+chido
+padre
+wey
+neta
+chimba
+heavy
+brutal
+fachero
+copado
+chévere
+bacano
+piola
+zarpado
+joya
+capo
+equis
+chale
+aguas
+órale
+tranqui
+facha
+
+en plan
+no manches
+me renta
+qué cringe
+un crack
+qué fuerte
+qué mood
+muy random
+de locos
+qué flow
+qué padre
+está chido
+la neta
+qué movida
+flipo mazo
+muy heavy
+qué pedo
+está brutal
+ni modo
+está zarpado
+muy fachero
+qué joya
+alta joya
+qué capo
+está piola
+re copado
+bien bacano
+aguas wey
+está equis
+
+en plan literal
+no me renta
+qué fuerte tía
+es un crack
+me da palo
+de locos bro
+literalmente yo bro
+qué cringe bro
+estoy en shock
+no manches wey
+qué pedo wey
+está bien chido
+flipo en colores
+me renta mazo
+la neta sí
+qué movida rara
+está muy zarpado
+alta joya esa
+qué capo sos
+re piola eso
+está bien bacano
+aguas con eso
+qué equis todo
+
+no me renta nada
+en plan muy fuerte
+literalmente yo ahora mismo
+es mi imperio romano
+ve a tocar césped
+está en su era
+me da mucho palo
+no manches qué fuerte
+flipo en colores tío
+qué movida más rara
+está bien heavy eso
+la neta está brutal
+qué capo que sos
+está re zarpado eso
+aguas con eso wey
+alta joya ese tema
+está bien fachero eso
+
+literalmente yo ahora mismo bro
+vive gratis en mi cabeza
+ese es mi imperio romano
+ve a tocar el césped
+comió y no dejó migas
+en plan no me renta
+no manches wey qué fuerte
+me renta mazo la verdad
+qué movida más rara tío
+la neta está bien chido
+qué capo que sos che
+está re zarpado eso boludo
+aguas con eso wey neta
+la neta está re piola

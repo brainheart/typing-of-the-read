@@ -172,23 +172,34 @@ GENZ_NAMES = {
     "he": "\u05e1\u05dc\u05e0\u05d2 \u05d9\u05e9\u05e8\u05d0\u05dc\u05d9",
 }
 for _lang in ["en", "de", "fr", "es", "it", "la", "grc", "he"]:
-    CORPORA.append((f"aiisms-{_lang}", AIISMS_NAMES[_lang], _lang, _lang == "he", "curated", (CURATED / "aiisms.json", _lang)))
-    CORPORA.append((f"genz-{_lang}", GENZ_NAMES[_lang], _lang, _lang == "he", "curated", (CURATED / "genz.json", _lang)))
+    CORPORA.append((f"aiisms-{_lang}", AIISMS_NAMES[_lang], _lang, _lang == "he", "phrases", CURATED / f"aiisms-{_lang}.txt"))
+    CORPORA.append((f"genz-{_lang}", GENZ_NAMES[_lang], _lang, _lang == "he", "phrases", CURATED / f"genz-{_lang}.txt"))
 
 # split-out single-language novelty corpora
-CORPORA.append(("amtsdeutsch-de", "Amtsdeutsch", "de", False, "curated", (CURATED / "amtsdeutsch.json", "de")))
-CORPORA.append(("dissertation-fr", "Style de dissertation", "fr", False, "curated", (CURATED / "dissertation.json", "fr")))
-CORPORA.append(("constitution-en", "Claude\u2019s Constitution", "en", False, "curated", (CURATED / "constitution.json", "en")))
+CORPORA.append(("amtsdeutsch-de", "Amtsdeutsch", "de", False, "phrases", CURATED / "amtsdeutsch-de.txt"))
+CORPORA.append(("dissertation-fr", "Style de dissertation", "fr", False, "phrases", CURATED / "dissertation-fr.txt"))
+CORPORA.append(("constitution-en", "Claude\u2019s Constitution", "en", False, "phrases", CURATED / "constitution-en.txt"))
 
 
-def from_curated(source, lang):
-    path, key = source
-    data = json.loads(Path(path).read_text())[key]
-    levels = []
-    for n in ("1", "2", "3", "4", "5"):
-        lst = data.get(n, [])
-        # descending weights: earlier entries are the most iconic
-        levels.append([[normalize_token(t, lang), len(lst) - i + 4] for i, t in enumerate(lst)])
+def from_phrases(path, lang):
+    """Plain-text corpus: one phrase per line, word count decides the level.
+    # comments and blank lines are ignored; duplicates and 6+-word lines warn."""
+    levels = [[] for _ in range(5)]
+    seen = set()
+    for lineno, raw in enumerate(Path(path).read_text().splitlines(), 1):
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        phrase = re.sub(r"\s+", " ", normalize_token(line, lang))
+        if phrase in seen:
+            print(f"  warn {path.name}:{lineno}: duplicate {phrase!r} skipped")
+            continue
+        seen.add(phrase)
+        n = len(phrase.split(" "))
+        if n > 5:
+            print(f"  warn {path.name}:{lineno}: {n} words (max 5), skipped: {phrase!r}")
+            continue
+        levels[n - 1].append([phrase, 10])
     return levels
 
 
@@ -212,8 +223,8 @@ def main():
         try:
             if kind == "lines":
                 levels = from_lines(source, lang)
-            elif kind == "curated":
-                levels = from_curated(source, lang)
+            elif kind == "phrases":
+                levels = from_phrases(source, lang)
             else:
                 paths = [SRC / "texts" / f for f in source]
                 if not all(p.exists() for p in paths):

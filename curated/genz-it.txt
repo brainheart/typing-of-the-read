@@ -1,0 +1,134 @@
+# Gen Z / youth slang (Italian)
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word  -> level 1        4 words -> level 4
+#   2 words -> level 2        5 words -> level 5
+#   3 words -> level 3        (6+ words are skipped with a warning)
+# Blank lines and lines starting with # are ignored. Order doesn't matter.
+# After editing, rebuild with:  python3 scripts/build_corpus.py <corpus-id>
+
+
+boh
+scialla
+amo
+cringe
+sbatti
+raga
+zio
+bella
+flexare
+crepo
+sus
+assurdo
+fra
+daje
+figo
+top
+tranqui
+apposto
+svalvolato
+boomer
+icona
+pazzesco
+adoro
+malissimo
+cioè
+tipo
+spacca
+gasato
+frate
+coatto
+esagerato
+allucinante
+tosto
+gajardo
+bordello
+casino
+botto
+paura
+
+che sbatti
+amo no
+letteralmente io
+non spoilerare
+che cringe
+bella zio
+mi spacco
+che flow
+da paura
+sto male
+che palle
+zero sbatti
+troppo figo
+daje forte
+apposto fra
+tranqui zio
+che schifo
+sto morendo
+assurdo raga
+adoro troppo
+che botto
+troppo gasato
+che coatto
+un botto
+che casino
+troppo tosto
+spacca tutto
+cioè assurdo
+gajardo frate
+esagerato zio
+
+amo non posso
+letteralmente io ora
+che sbatti raga
+bella zio bella
+è il mood
+che cringe amo
+mi sento attaccata
+sto male raga
+lei è un'icona
+sto morendo raga
+che figata assurda
+zero sbatti oggi
+daje forte fra
+è troppo figo
+crepo dal ridere
+spacca di brutto
+è un botto
+che coatto zio
+cioè non posso
+troppo tosto questo
+mi gaso troppo
+gajardo di brutto
+
+non ce la faccio
+letteralmente io al lunedì
+vai a toccare l'erba
+mangiato e zero briciole
+questo è troppo cringe
+sono in fissa totale
+lui può cucinare tranquillo
+sto male troppo forte
+che figata assurda raga
+è il mio mood
+crepo dal ridere zio
+letteralmente io ogni giorno
+spacca di brutto zio
+cioè raga non posso
+che gasato che sei
+mi gaso un botto
+questo è troppo gajardo
+
+amo non ce la faccio
+è il mio impero romano
+vive gratis nella mia testa
+letteralmente io in questo momento
+ha mangiato e zero briciole
+vai subito a toccare l'erba
+raga questo è troppo assurdo
+crepo dal ridere non posso
+zero sbatti oggi amo zero
+questo gioco spacca di brutto
+che gasato che sei zio
+mi gaso un botto raga
+cioè frate non ce credo

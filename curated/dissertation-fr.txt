@@ -1,0 +1,153 @@
+# Style de dissertation (French)
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word  -> level 1        4 words -> level 4
+#   2 words -> level 2        5 words -> level 5
+#   3 words -> level 3        (6+ words are skipped with a warning)
+# Blank lines and lines starting with # are ignored. Order doesn't matter.
+# After editing, rebuild with:  python3 scripts/build_corpus.py <corpus-id>
+
+
+toutefois
+néanmoins
+cependant
+notamment
+effectivement
+souligner
+préciser
+constater
+envisager
+aborder
+synthèse
+démarche
+corollaire
+dialectique
+problématique
+antithèse
+paradoxe
+postulat
+argumentaire
+développement
+introduction
+conclusion
+transition
+nuance
+ambiguïté
+hypothèse
+prémisse
+thèse
+exégèse
+herméneutique
+paradigme
+épistémologie
+démonstration
+réfutation
+objection
+concession
+digression
+périphrase
+euphémisme
+litote
+métaphore
+allégorie
+syllogisme
+aporie
+axiome
+corpus
+
+il convient
+en effet
+par ailleurs
+en revanche
+en somme
+cela dit
+en outre
+à noter
+de surcroît
+en définitive
+en l'occurrence
+en conséquence
+dans l'ensemble
+mutatis mutandis
+a fortiori
+in fine
+de facto
+de jure
+ipso facto
+a priori
+a posteriori
+de rigueur
+par excellence
+en préambule
+en substance
+du reste
+au demeurant
+par conséquent
+de même
+en particulier
+à savoir
+pour autant
+en théorie
+en pratique
+stricto sensu
+
+qui plus est
+d'ores et déjà
+à cet égard
+tout compte fait
+en dernière analyse
+il convient de
+en guise d'introduction
+sine qua non
+nonobstant ce qui
+tel que susmentionné
+à toutes fins
+dans un premier
+dans un second
+il n'en demeure
+en somme donc
+dans cette optique
+sous cet angle
+à ce titre
+de ce fait
+en ce sens
+dans cette perspective
+au premier abord
+selon toute vraisemblance
+grosso modo donc
+
+il convient de souligner
+dans un premier temps
+dans un second temps
+il n'en demeure pas
+en dernière analyse ceci
+eu égard à ce
+il sied de rappeler
+nonobstant ce qui précède
+à toutes fins utiles
+tel que susmentionné précédemment
+sine qua non ici
+force est de constater
+en fin de compte
+par voie de conséquence
+dans le cadre de
+comme nous le verrons
+tout porte à croire
+cela étant posé donc
+au fond du problème
+
+il y a lieu de
+il n'en demeure pas moins
+force est de constater que
+eu égard à ce qui
+il sied de rappeler que
+dans un premier temps nous
+dans un second temps il
+nous pouvons donc conclure que
+en dernière analyse il apparaît
+il convient de noter que
+au terme de cette analyse
+ainsi que nous l'avons vu
+il ressort de cette étude
+tout porte à croire que
+cette question mérite d'être posée

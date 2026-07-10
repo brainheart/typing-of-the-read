@@ -1,0 +1,137 @@
+# Gen Z / youth slang (French)
+#
+# One word or phrase per line. The number of words decides the game level:
+#   1 word  -> level 1        4 words -> level 4
+#   2 words -> level 2        5 words -> level 5
+#   3 words -> level 3        (6+ words are skipped with a warning)
+# Blank lines and lines starting with # are ignored. Order doesn't matter.
+# After editing, rebuild with:  python3 scripts/build_corpus.py <corpus-id>
+
+
+wesh
+frérot
+cheh
+miskine
+seum
+carré
+dinguerie
+quoicoubeh
+chokbar
+grailler
+askip
+validé
+chelou
+relou
+vénère
+cimer
+posé
+bolos
+zbeul
+wallah
+starfoullah
+bail
+grave
+abusé
+tranquille
+gênant
+oklm
+bg
+reuf
+meuf
+poto
+sah
+banger
+capté
+éclaté
+cramé
+chiller
+golri
+tarpin
+zinzin
+
+c'est carré
+c'est validé
+la hess
+il abuse
+le seum
+en vrai
+une dinguerie
+ça régale
+t'es validé
+ça passe
+trop chelou
+grave relou
+quel bail
+c'est gênant
+gros seum
+trop vénère
+cheh frérot
+quelle dinguerie
+c'est abusé
+quel golri
+c'est banger
+gros banger
+trop zinzin
+tarpin bien
+on chill
+poto écoute
+sah non
+t'es éclaté
+
+c'est la hess
+c'est une dinguerie
+ça passe crème
+wesh c'est carré
+t'es trop validé
+miskine le frérot
+c'est un délire
+c'est trop chelou
+on est posés
+j'ai le seum
+cheh bien fait
+quel bail chelou
+wallah c'est vrai
+c'est mort wesh
+c'est un banger
+sah quel plaisir
+il est zinzin
+poto c'est carré
+tarpin bien ça
+on est oklm
+c'est golri ça
+il est cramé
+
+wallah c'est carré frérot
+il a le seum
+c'est une dinguerie ça
+miskine il est fini
+touche un peu d'herbe
+c'est mon empire romain
+en vrai en vrai
+il est trop vénère
+c'est chelou en vrai
+on est posés là
+wallah quelle dinguerie frérot
+j'ai grave le seum
+c'est carré dans l'axe
+il est trop relou
+t'es éclaté au sol
+sah quel plaisir poto
+c'est tarpin zinzin ça
+on est trop oklm
+il est cramé sah
+
+wallah c'est une dinguerie ça
+il a tellement le seum
+en vrai ça passe crème
+loyer gratuit dans ma tête
+c'est vraiment mon empire romain
+frérot va toucher de l'herbe
+cheh bien fait pour toi
+wesh c'est quoi ce bail
+c'est trop la hess là
+il a trop le seum
+t'es éclaté au sol poto
+sah quel plaisir d'être là
+c'est un banger de fou
+il est zinzin ce truc
