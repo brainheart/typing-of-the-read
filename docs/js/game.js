@@ -648,31 +648,32 @@ function spawnZombie() {
 }
 
 function renderWord(z) {
-  const done = `<span class="done">${esc(z.chars.slice(0, z.pos).join(""))}</span>`;
-  let due;
   const q = z.quiz;
+  const cells = z.chars.slice(0, z.pos).map((c) => [c, "done"]);   // [text, class]
   if (!q) {
-    due = `<span class="due">${esc(z.chars.slice(z.pos).join(""))}</span>`;
+    z.chars.slice(z.pos).forEach((c) => cells.push([c, "due"]));
   } else if (!q.plural) {
     // the article stays blank until typed, or until a miss reveals it
-    const art = z.chars.slice(z.pos, q.upto).join("");
-    const rest = z.chars.slice(Math.max(z.pos, q.upto)).join("");
-    due = (art ? (z.revealed ? `<span class="reveal">${esc(art)}</span>`
-                             : `<span class="blank">${"_".repeat([...art].length)}</span>`) : "") +
-          `<span class="due">${esc(rest)}</span>`;
+    for (let i = z.pos; i < z.chars.length; i++) {
+      if (i >= q.upto) cells.push([z.chars[i], "due"]);
+      else cells.push(z.revealed ? [z.chars[i], "reveal"] : ["_", "blank"]);
+    }
   } else {
     // "die " is given; the typed plural overwrites the grey singular letter by letter
-    const lead = z.chars.slice(z.pos, q.from).join("");
-    const left = z.chars.slice(Math.max(z.pos, q.from)).join("");
-    let tail = "";
-    if (left && z.revealed) tail = `<span class="reveal">${esc(left)}</span>`;
-    else if (left) {
-      const hint = [...q.hint].slice(Math.max(0, z.pos - q.from)).join("");
-      tail = `<span class="hint">${hint ? esc(hint) : "_"}</span>`;
+    for (let i = z.pos; i < q.from; i++) cells.push([z.chars[i], "due"]);
+    const from = Math.max(z.pos, q.from);
+    if (from < z.chars.length) {
+      if (z.revealed) z.chars.slice(from).forEach((c) => cells.push([c, "reveal"]));
+      else {
+        const hint = [...q.hint].slice(from - q.from);
+        (hint.length ? hint : ["_"]).forEach((c) => cells.push([c, "hint"]));
+      }
     }
-    due = `<span class="due">${esc(lead)}</span>` + tail;
   }
-  z.el.querySelector(".word").innerHTML = done + due;
+  const next = game.target === z && z.pos < z.chars.length ? z.pos : -1;
+  z.el.querySelector(".word").innerHTML = cells
+    .map(([c, cls], i) => `<span class="${cls}${i === next ? " next" : ""}">${esc(c)}</span>`)
+    .join("");
 }
 function esc(s) {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/ /g, "&nbsp;");
@@ -780,9 +781,12 @@ function switchTarget() {
   alive.sort((a, b) => b.y - a.y);
   const idx = game.target ? alive.indexOf(game.target) : -1;
   const next = alive[(idx + 1) % alive.length];
-  if (game.target) game.target.el.classList.remove("target");
+  const prev = game.target;
+  if (prev) prev.el.classList.remove("target");
   game.target = next;
   next.el.classList.add("target");
+  if (prev && !prev.dead) renderWord(prev);
+  renderWord(next);
 }
 
 // mobile: route hidden-input characters into the game
@@ -823,6 +827,12 @@ function miss(z) {
   game.keysBad++;
   sfx.error();
   field.classList.remove("error"); void field.offsetWidth; field.classList.add("error");
+  if (z) {
+    const w = z.el.querySelector(".word");
+    w.classList.remove("wrong"); void w.offsetWidth; w.classList.add("wrong");
+    clearTimeout(z.wrongTimer);
+    z.wrongTimer = setTimeout(() => w.classList.remove("wrong"), 400);
+  }
   const q = z && z.quiz;
   if (q && !z.revealed && (q.plural ? z.pos >= q.from : z.pos < q.upto)) {
     z.revealed = true;

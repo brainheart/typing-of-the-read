@@ -185,10 +185,41 @@ body {
   box-shadow: 0 3px 8px var(--shadow);
 }
 .zombie .word.long { font-size: 1.05rem; }
+/* the locked target: a steady red ring with a slow breathing glow */
+.zombie.target { z-index: 4; }
 .zombie.target .word {
-  border-color: var(--red);
-  box-shadow: 0 0 14px rgba(190, 60, 60, .8);
+  border-color: #d42a2a;
+  box-shadow: 0 0 0 2px #d42a2a, 0 0 14px 3px rgba(220, 50, 50, .7);
+  animation: targetglow 1.6s ease-in-out infinite;
 }
+@keyframes targetglow {
+  50% { box-shadow: 0 0 0 2px #d42a2a, 0 0 24px 7px rgba(225, 45, 45, .95); }
+}
+/* a wrong key: brief bright fill and a shake, then back to the steady ring */
+.zombie.target .word.wrong { animation: wrongflash .38s ease-out; }
+@keyframes wrongflash {
+  0%   { background: #ff3b3b; color: #fff; transform: translateX(0);
+         box-shadow: 0 0 0 3px #ff1a1a, 0 0 30px 12px rgba(255, 20, 20, 1); }
+  25%  { transform: translateX(-7px); }
+  50%  { transform: translateX(6px); }
+  75%  { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+/* the letter expected next: a pulsing glowing red underline */
+.zombie .word .next {
+  display: inline-block;
+  min-width: .45em;
+  border-radius: 1px;
+  background: rgba(255, 50, 50, .16);
+  box-shadow: 0 4px 0 #ff1f1f, 0 6px 12px rgba(255, 30, 30, .9);
+  animation: nextpulse .9s ease-in-out infinite;
+}
+@keyframes nextpulse {
+  50% { background: rgba(255, 50, 50, .3);
+        box-shadow: 0 4px 0 #ff5a5a, 0 8px 20px rgba(255, 50, 50, 1); }
+}
+.zombie .word .blank.next { color: #c41e1e; }
+.zombie .word .hint.next { opacity: 1; color: #777; animation: nextpulse .9s ease-in-out infinite; }
 .zombie .word .done { color: var(--red); font-weight: bold; }
 .zombie .word .due { color: var(--ink); }
 .zombie .body {
