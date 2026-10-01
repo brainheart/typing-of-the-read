@@ -195,6 +195,21 @@ body {
 @keyframes targetglow {
   50% { box-shadow: 0 0 0 2px #d42a2a, 0 0 24px 7px rgba(225, 45, 45, .95); }
 }
+/* up next (nothing locked yet): a dashed gold outline — where to start typing */
+.zombie.upnext { z-index: 4; }
+.zombie.upnext .word {
+  border-color: #d99a12;
+  outline: 2px dashed #e8a915;
+  outline-offset: 3px;
+  box-shadow: 0 0 12px 3px rgba(240, 175, 30, .55);
+  animation: upnextglow 1.3s ease-in-out infinite;
+}
+@keyframes upnextglow { 50% { box-shadow: 0 0 20px 7px rgba(250, 190, 50, .85); } }
+.zombie.upnext .word .next {
+  background: rgba(240, 175, 30, .2);
+  box-shadow: 0 4px 0 #e8a915, 0 6px 12px rgba(240, 175, 30, .9);
+  animation: none;
+}
 /* a wrong key: brief bright fill and a shake, then back to the steady ring */
 .zombie.target .word.wrong { animation: wrongflash .38s ease-out; }
 @keyframes wrongflash {

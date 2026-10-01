@@ -481,6 +481,7 @@ async function startGame() {
     zombies: [],
     target: null,
     recent: [],
+    upNext: null,
     heat: 1,
     kills: 0, levelKills: 0,
     score: 0, lives: LIVES,
@@ -490,7 +491,8 @@ async function startGame() {
     paused: false, overAt: null,
   };
   window.__totr = game;            // debug/testing handle
-  window.__totrDebug = { spawn: spawnZombie, bite: () => game.zombies[0] && biteDesk(game.zombies[0]) };
+  window.__totrDebug = { spawn: spawnZombie, bite: () => game.zombies[0] && biteDesk(game.zombies[0]),
+                         upNext: updateUpNext };
   resetDesk();
   field.querySelectorAll(".zombie, .splat, .score-pop").forEach((el) => el.remove());
   $("hud-corpus").textContent = corpus.name;
@@ -670,7 +672,8 @@ function renderWord(z) {
       }
     }
   }
-  const next = game.target === z && z.pos < z.chars.length ? z.pos : -1;
+  const lead = game.target === z || (!game.target && game.upNext === z);
+  const next = lead && z.pos < z.chars.length ? z.pos : -1;
   z.el.querySelector(".word").innerHTML = cells
     .map(([c, cls], i) => `<span class="${cls}${i === next ? " next" : ""}">${esc(c)}</span>`)
     .join("");
@@ -737,6 +740,21 @@ function advanceLevel() {
   updateHud();
 }
 
+// with nothing locked, the next keystroke grabs the lowest zombie it matches —
+// mark that one so the player knows where to start
+function updateUpNext() {
+  const target = game.target && !game.target.dead ? game.target : null;
+  let pick = null;
+  if (!target) {
+    for (const z of game.zombies) if (!z.dead && (!pick || z.y > pick.y)) pick = z;
+  }
+  if (pick === game.upNext) return;
+  const prev = game.upNext;
+  game.upNext = pick;
+  if (prev && !prev.dead) { prev.el.classList.remove("upnext"); renderWord(prev); }
+  if (pick) { pick.el.classList.add("upnext"); renderWord(pick); }
+}
+
 // ---------- loop ----------
 function tick(now) {
   if (!game || game.overAt) return;
@@ -757,6 +775,7 @@ function tick(now) {
       z.el.style.top = z.y + "%";
       if (z.y >= BITE_Y) biteDesk(z);
     }
+    updateUpNext();
   }
   requestAnimationFrame(tick);
 }

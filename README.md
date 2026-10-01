@@ -81,6 +81,9 @@ Clear 15 zombies to advance.
 - Hebrew renders right-to-left; you type in normal (logical) letter order.
 - First keystroke locks a target, like the original arcade game; Tab cycles
   the lock to another zombie (handy when the target is still off-screen).
+  When nothing is locked, a dashed gold outline marks the zombie to start on
+  (the one nearest the desk); a locked target gets a solid red ring, and the
+  letter expected next pulses with a glowing underline.
 - Successful keystrokes clack like an old typewriter — every strike slightly
   different, space bar thunks deeper, and a carriage bell rings per kill.
 - Every word you finish makes the horde descend a touch faster (caps at +45%).
