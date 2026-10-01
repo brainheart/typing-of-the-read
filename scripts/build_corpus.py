@@ -9,9 +9,13 @@ are ignored; duplicates and 6+-word lines are skipped with a warning.
 Output: docs/data/<id>.json  {id, name, lang, rtl, levels: [L1..L5]}
 plus docs/data/manifest.json describing all corpora.
 
+German article practice (der/die/das) comes from curated/artikel.txt, one
+noun per line in frequency order: "der Hund | Hunde | 🐕".
+
 Usage:
     python3 scripts/build_corpus.py              # build everything
     python3 scripts/build_corpus.py genz-en kjv  # just some
+    python3 scripts/build_corpus.py artikel      # all der/die/das corpora
 """
 import json
 import re
@@ -112,6 +116,38 @@ def from_phrases(path, lang):
     return levels
 
 
+# German article practice: one frequency-ordered noun list feeds several
+# cumulative corpora (the first N nouns of curated/artikel.txt)
+ARTICLE_CORPORA = {"artikel-100": 100, "artikel-200": 200, "artikel-500": 500, "artikel-1000": 1000}
+
+
+def read_articles(path):
+    """Lines look like:  der Hund | Hunde | 🐕   (plural - when there is none)."""
+    nouns, seen = [], set()
+    for lineno, raw in enumerate(path.read_text().splitlines(), 1):
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = [x.strip() for x in line.split("|")]
+        art, _, noun = parts[0].partition(" ")
+        if len(parts) != 3 or art not in ("der", "die", "das") or not noun:
+            print(f"  warn {path.name}:{lineno}: expected 'der Noun | Plural | emoji', skipped")
+            continue
+        noun = normalize_token(noun.strip(), "de")
+        if noun in seen:
+            print(f"  warn {path.name}:{lineno}: duplicate {noun!r} skipped")
+            continue
+        seen.add(noun)
+        plural = "" if parts[1] in ("", "-") else normalize_token(parts[1], "de")
+        nouns.append([art, noun, plural, parts[2]])
+    return nouns
+
+
+def write(entry, payload):
+    (OUT / f"{entry['id']}.json").write_text(
+        json.dumps(dict(entry, **payload), ensure_ascii=False, separators=(",", ":")))
+
+
 def main():
     only = set(sys.argv[1:])
     OUT.mkdir(parents=True, exist_ok=True)
@@ -123,10 +159,20 @@ def main():
         if only and cid not in only:
             continue
         levels = from_phrases(CURATED / f"{cid}.txt", lang)
-        out = dict(entry, levels=levels)
-        (OUT / f"{cid}.json").write_text(
-            json.dumps(out, ensure_ascii=False, separators=(",", ":")))
+        write(entry, {"levels": levels})
         print(f"built {cid}: {[len(l) for l in levels]}")
+
+    nouns = None
+    for cid, n in ARTICLE_CORPORA.items():
+        entry = {"id": cid, "name": f"der · die · das — Top {n}", "lang": "de",
+                 "langName": LANG_NAMES["de"], "rtl": False, "mode": "articles"}
+        manifest.append(entry)
+        if only and cid not in only and "artikel" not in only:
+            continue
+        nouns = nouns or read_articles(CURATED / "artikel.txt")
+        write(entry, {"nouns": nouns[:n]})
+        print(f"built {cid}: {len(nouns[:n])} nouns")
+
     (OUT / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=1))
     print(f"manifest: {len(manifest)} corpora")
 

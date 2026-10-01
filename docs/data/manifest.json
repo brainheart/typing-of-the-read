@@ -264,5 +264,37 @@
   "lang": "he",
   "langName": "Hebrew",
   "rtl": true
+ },
+ {
+  "id": "artikel-100",
+  "name": "der · die · das — Top 100",
+  "lang": "de",
+  "langName": "German",
+  "rtl": false,
+  "mode": "articles"
+ },
+ {
+  "id": "artikel-200",
+  "name": "der · die · das — Top 200",
+  "lang": "de",
+  "langName": "German",
+  "rtl": false,
+  "mode": "articles"
+ },
+ {
+  "id": "artikel-500",
+  "name": "der · die · das — Top 500",
+  "lang": "de",
+  "langName": "German",
+  "rtl": false,
+  "mode": "articles"
+ },
+ {
+  "id": "artikel-1000",
+  "name": "der · die · das — Top 1000",
+  "lang": "de",
+  "langName": "German",
+  "rtl": false,
+  "mode": "articles"
  }
 ]

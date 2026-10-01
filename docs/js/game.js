@@ -20,6 +20,20 @@ const TUNING = {
   4: { speed: [1.9, 3.0], spawn: [4600, 2400], maxOnScreen: 3 },
   5: { speed: [1.6, 2.5], spawn: [5400, 3000], maxOnScreen: 3 },
 };
+// der/die/das mode: every zombie is "article + noun". Levels raise the speed
+// and the share of plural zombies, where the plural form itself is the test.
+const ARTICLE_TUNING = {
+  1: { speed: [2.8, 4.0], spawn: [3000, 1900], maxOnScreen: 4, plural: 0 },
+  2: { speed: [3.0, 4.3], spawn: [2900, 1800], maxOnScreen: 4, plural: 0.25 },
+  3: { speed: [3.2, 4.6], spawn: [2800, 1700], maxOnScreen: 5, plural: 0.45 },
+  4: { speed: [3.4, 4.9], spawn: [2700, 1600], maxOnScreen: 5, plural: 0.6 },
+  5: { speed: [3.6, 5.2], spawn: [2600, 1500], maxOnScreen: 5, plural: 0.75 },
+};
+const LURCH = 6;                     // % a zombie lunges when you miss its article/plural
+const LEVEL_LABELS = {
+  words: ["single words", "word pairs", "word triples", "four-word phrases", "five-word phrases"],
+  articles: ["der · die · das", "a few plurals", "plurals rising", "mostly plurals", "plural blitz"],
+};
 const ZOMBIE_EMOJI = ["🧟", "🧟‍♂️", "🧟‍♀️"];
 const FAST_EMOJI = "💀";
 const FAST_CHANCE = 0.12;            // skeletons: faster but shorter words
@@ -260,6 +274,7 @@ const sfx = {
   error: () => beep(140, 0.12, "square", 0.06),
   bite:  (voice) => chomp(voice || 115),
   level: () => [523, 659, 784, 1047].forEach((f, i) => setTimeout(() => beep(f, 0.12, "triangle", 0.05), i * 110)),
+  lunge: () => { beep(70, 0.3, "sawtooth", 0.09); setTimeout(() => beep(55, 0.25, "sawtooth", 0.07), 90); },
 };
 
 // ---------- boot: manifest & menus ----------
@@ -296,10 +311,20 @@ function fillCorpora() {
   // new storage key so the new default applies unless explicitly switched off
   forgivingChk.checked = localStorage.getItem("totr-forgive2-" + lang) !== "off";
   matchCaseChk.checked = localStorage.getItem("totr-case-" + lang) === "on";
+  updateLevelLabels();
   showHiscore();
 }
 langSel.addEventListener("change", fillCorpora);
-corpusSel.addEventListener("change", showHiscore);
+corpusSel.addEventListener("change", () => { updateLevelLabels(); showHiscore(); });
+
+function selectedMode() {
+  const entry = manifest.find((c) => c.id === corpusSel.value);
+  return entry && entry.mode === "articles" ? "articles" : "words";
+}
+function updateLevelLabels() {
+  const labels = LEVEL_LABELS[selectedMode()];
+  [...levelSel.options].forEach((o, i) => { o.textContent = `${i + 1} — ${labels[i]}`; });
+}
 levelSel.addEventListener("change", showHiscore);
 
 function hiKey() { return `totr-hi-${corpusSel.value}-L${levelSel.value}`; }
@@ -320,7 +345,7 @@ function applyDeepLink() {
     langSel.value = lang;
     fillCorpora();
   }
-  if (entry) corpusSel.value = entry.id;
+  if (entry) { corpusSel.value = entry.id; updateLevelLabels(); }
   const lvl = parseInt(q.get("level"), 10);
   if (lvl >= 1 && lvl <= 5) levelSel.value = String(lvl);
   if (q.get("case") === "1") matchCaseChk.checked = true;
@@ -359,6 +384,7 @@ $("share-btn").addEventListener("click", async () => {
 async function loadCorpus(id) {
   const r = await fetch(`data/${id}.json`);
   corpus = await r.json();
+  if (isArticles()) { pools = null; return; }
   // sqrt-flatten frequencies so rare-but-real n-grams still show up
   pools = corpus.levels.map((lvl) => {
     const entries = lvl.map(([text, w]) => [text, Math.sqrt(w)]);
@@ -401,6 +427,27 @@ function pickText(level, { short } = {}) {
   const memory = Math.min(Math.floor(pool.entries.length * 0.7), 25);
   while (game.recent.length > memory) game.recent.shift();
   return picked;
+}
+
+function isArticles() { return !!corpus && corpus.mode === "articles"; }
+function tuning() { return (isArticles() ? ARTICLE_TUNING : TUNING)[game.level]; }
+
+// a random noun not on screen and not seen recently: [article, singular, plural, emoji]
+function pickNoun() {
+  const nouns = corpus.nouns;
+  const active = new Set(game.zombies.map((z) => z.noun));
+  const recent = new Set(game.recent);
+  let pick = null;
+  for (let tries = 0; tries < 40 && !pick; tries++) {
+    const n = nouns[Math.floor(Math.random() * nouns.length)];
+    if (active.has(n[1]) || (recent.has(n[1]) && tries < 30)) continue;
+    pick = n;
+  }
+  pick = pick || nouns[Math.floor(Math.random() * nouns.length)];
+  game.recent.push(pick[1]);
+  const memory = Math.min(Math.floor(nouns.length * 0.7), 60);
+  while (game.recent.length > memory) game.recent.shift();
+  return pick;
 }
 
 // ---------- game lifecycle ----------
@@ -453,14 +500,14 @@ async function startGame() {
   overScreen.classList.add("hidden");
   gameScreen.classList.remove("hidden");
   $("mobile-input").focus({ preventScroll: true });
-  flashBanner(`Level ${game.level} — ${levelName(game.level)}`, corpus.name, 1400);
+  flashBanner(`Level ${game.level} — ${levelName(game.level)}`,
+    isArticles() ? "type the article + noun · for plurals, type the plural" : corpus.name,
+    isArticles() ? 2200 : 1400);
   requestAnimationFrame(tick);
 }
 
-function levelName(l) {
-  return ["single words", "word pairs", "word triples", "four-word phrases", "five-word phrases"][l - 1];
-}
-function maxLevel() { return Math.min(corpus.levels.length, 5); }
+function levelName(l) { return LEVEL_LABELS[isArticles() ? "articles" : "words"][l - 1]; }
+function maxLevel() { return isArticles() ? 5 : Math.min(corpus.levels.length, 5); }
 
 function levelProgress() { return Math.min(game.levelKills / KILLS_PER_LEVEL, 1); }
 
@@ -539,7 +586,7 @@ const LANES_BY_LEVEL = {
 };
 let laneOrder = [], laneIdx = 0;
 function nextLane() {
-  const lanes = LANES_BY_LEVEL[game.level];
+  const lanes = isArticles() ? LANES_BY_LEVEL[2] : LANES_BY_LEVEL[game.level];
   if (laneIdx >= laneOrder.length || laneOrder.length !== lanes.length) {
     laneOrder = [...lanes].sort(() => Math.random() - 0.5);
     laneIdx = 0;
@@ -551,12 +598,29 @@ function nextLane() {
 const VOICES = { "🧟‍♂️": 80, "🧟‍♀️": 175, "🧟": 115, [FAST_EMOJI]: 320 };
 
 function spawnZombie() {
-  const cfg = TUNING[game.level];
-  const fast = game.level === 1 && Math.random() < FAST_CHANCE;
-  const text = pickText(game.level, { short: fast });
-  const emoji = fast ? FAST_EMOJI : ZOMBIE_EMOJI[Math.floor(Math.random() * ZOMBIE_EMOJI.length)];
+  const cfg = tuning();
+  const fast = !isArticles() && game.level === 1 && Math.random() < FAST_CHANCE;
+  let text, emoji, body, quiz = null, noun = null;
+  if (isArticles()) {
+    // singular: "___ Hund" -> type "der Hund"
+    // plural: "die" + flashing grey "Hund" -> type "die Hunde" over the hint
+    const [art, sing, plural, nounEmoji] = pickNoun();
+    const isPlural = !!plural && Math.random() < cfg.plural;
+    text = isPlural ? `die ${plural}` : `${art} ${sing}`;
+    quiz = isPlural ? { plural: true, from: 4, hint: sing } : { plural: false, upto: art.length };
+    noun = sing;
+    emoji = nounEmoji;
+    body = isPlural ? nounEmoji + nounEmoji : nounEmoji;
+  } else {
+    text = pickText(game.level, { short: fast });
+    emoji = fast ? FAST_EMOJI : ZOMBIE_EMOJI[Math.floor(Math.random() * ZOMBIE_EMOJI.length)];
+    body = emoji;
+  }
   const z = {
     text,
+    noun,
+    quiz,
+    revealed: false,
     chars: [...text],
     keys: buildKeys(text, game.forgiving, game.matchCase),
     pos: 0,
@@ -567,10 +631,11 @@ function spawnZombie() {
     el: document.createElement("div"),
     dead: false,
   };
-  z.el.className = "zombie" + (fast ? " fast" : "");
+  z.el.className = "zombie" + (fast ? " fast" : "") + (quiz ? " noun" : "") +
+    (quiz && quiz.plural ? " pair" : "");
   z.el.innerHTML =
     `<span class="word${z.chars.length > 22 ? " long" : ""}" dir="${game.rtl ? "rtl" : "ltr"}"></span>` +
-    `<span class="body">${emoji}</span>`;
+    `<span class="body">${body}</span>`;
   z.el.style.top = z.y + "%";
   z.el.style.left = z.x + "%";
   renderWord(z);
@@ -583,10 +648,31 @@ function spawnZombie() {
 }
 
 function renderWord(z) {
-  const done = z.chars.slice(0, z.pos).join("");
-  const due = z.chars.slice(z.pos).join("");
-  z.el.querySelector(".word").innerHTML =
-    `<span class="done">${esc(done)}</span><span class="due">${esc(due)}</span>`;
+  const done = `<span class="done">${esc(z.chars.slice(0, z.pos).join(""))}</span>`;
+  let due;
+  const q = z.quiz;
+  if (!q) {
+    due = `<span class="due">${esc(z.chars.slice(z.pos).join(""))}</span>`;
+  } else if (!q.plural) {
+    // the article stays blank until typed, or until a miss reveals it
+    const art = z.chars.slice(z.pos, q.upto).join("");
+    const rest = z.chars.slice(Math.max(z.pos, q.upto)).join("");
+    due = (art ? (z.revealed ? `<span class="reveal">${esc(art)}</span>`
+                             : `<span class="blank">${"_".repeat([...art].length)}</span>`) : "") +
+          `<span class="due">${esc(rest)}</span>`;
+  } else {
+    // "die " is given; the typed plural overwrites the grey singular letter by letter
+    const lead = z.chars.slice(z.pos, q.from).join("");
+    const left = z.chars.slice(Math.max(z.pos, q.from)).join("");
+    let tail = "";
+    if (left && z.revealed) tail = `<span class="reveal">${esc(left)}</span>`;
+    else if (left) {
+      const hint = [...q.hint].slice(Math.max(0, z.pos - q.from)).join("");
+      tail = `<span class="hint">${hint ? esc(hint) : "_"}</span>`;
+    }
+    due = `<span class="due">${esc(lead)}</span>` + tail;
+  }
+  z.el.querySelector(".word").innerHTML = done + due;
 }
 function esc(s) {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/ /g, "&nbsp;");
@@ -642,7 +728,8 @@ function advanceLevel() {
     game.level++;
     game.levelKills = 0;
     sfx.level();
-    flashBanner(`Level ${game.level} — ${levelName(game.level)}`, "the dead grow wordier…", 1600);
+    flashBanner(`Level ${game.level} — ${levelName(game.level)}`,
+      isArticles() ? "more plurals shamble in…" : "the dead grow wordier…", 1600);
   } else {
     endGame(true);
   }
@@ -658,7 +745,7 @@ function tick(now) {
 
   if (!game.paused) {
     game.activeMs += dt * 1000;
-    const cfg = TUNING[game.level];
+    const cfg = tuning();
     if (now - game.lastSpawn > tuned(cfg.spawn) && game.zombies.length < cfg.maxOnScreen) {
       game.lastSpawn = now;
       spawnZombie();
@@ -712,7 +799,7 @@ function handleKey(rawKey) {
 
   let z = game.target;
   if (z && (z.dead || z.keys[z.pos] !== key)) {
-    if (!z.dead) { miss(); return; }       // locked target: wrong key
+    if (!z.dead) { miss(z); return; }      // locked target: wrong key
     z = null;
   }
   if (!z) {
@@ -732,10 +819,19 @@ function handleKey(rawKey) {
   if (z.pos >= z.chars.length) killZombie(z);
 }
 
-function miss() {
+function miss(z) {
   game.keysBad++;
   sfx.error();
   field.classList.remove("error"); void field.offsetWidth; field.classList.add("error");
+  const q = z && z.quiz;
+  if (q && !z.revealed && (q.plural ? z.pos >= q.from : z.pos < q.upto)) {
+    z.revealed = true;
+    z.y = Math.min(z.y + LURCH, BITE_Y - 2);
+    z.el.style.top = z.y + "%";
+    z.el.classList.remove("lurch"); void z.el.offsetWidth; z.el.classList.add("lurch");
+    sfx.lunge();
+    renderWord(z);
+  }
 }
 
 // ---------- pause / banners / hud ----------

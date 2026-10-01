@@ -42,6 +42,24 @@ most recognizable, distinctive, wow words and phrases: *out damned spot*,
 cultiver notre jardin*. (Earlier versions generated the literary lists by
 n-gram frequency from the full texts; curation won.)
 
+## der · die · das — German article practice
+
+Four German corpora (**Top 100 / 200 / 500 / 1000** nouns) turn the game into
+an article drill. Each zombie *is* the noun's emoji, glowing undead green:
+
+- **Singular:** `___ Hund` 🐕 — type `der Hund`. A wrong article makes the
+  zombie lunge forward and reveals the right one.
+- **Plural:** `die` plus the singular in flashing grey, carried by a pair of
+  zombies 🐕🐕 — type `die Hunde`, overwriting the grey singular. A wrong
+  letter lunges and reveals the plural.
+- Levels raise the speed and the share of plurals (none at level 1, ¾ at 5).
+
+The nouns live in `curated/artikel.txt`, one per line in frequency order —
+`der Hund | Hunde | 🐕` (use `-` for no plural). The first 100 lines are the
+Top 100, and so on. Frequency blends written (Leipzig news/mixed corpora) and
+spoken German (OpenSubtitles); genders and plurals come from Wiktionary via
+[german-nouns](https://github.com/gambolputty/german-nouns), hand-curated.
+
 ## Levels
 
 1. **Single words** (unigrams)
